@@ -1,7 +1,7 @@
 package api;
 
 //API FILE
-//The access file has the log in and sign up methods inside
+//The access file has the login and sign up methods inside
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class Access{
         try (
                 BufferedReader check = new BufferedReader(new FileReader("client.csv"));
                 BufferedReader check2 = new BufferedReader(new FileReader("manager.csv"))) {
-            //we check if an other user already has that username (we need to check both files)
+            //we check if another user already has that username (we need to check both files)
             String line;
             //check if username is in the client.csv file
             while ((line = check.readLine()) != null) {
