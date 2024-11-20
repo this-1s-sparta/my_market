@@ -1,5 +1,4 @@
 package api;
-
 import java.io.*;
 //the FileManagement class has:
 //the Write(...) method, the LastLine(...) method,ThatLine(...) method ...
@@ -10,7 +9,7 @@ public class FileManagement {
     //filename is the name of the file
     //line is the line I want to write on
     //overwrite if true I overwrite
-    //          if false I add on that line (text will be added next to the already writen text)
+    //          if false I add on that line (text will be added next to the already written text)
     //content is the text I want to written on the file
     public static void Write(String filename, int line, boolean overwrite, String content) {
         File inputFile = new File(filename);
@@ -53,7 +52,7 @@ public class FileManagement {
         } catch (IOException e) {
             // Handle any IOExceptions that occur
             System.out.println("An error occurred: " + e.getMessage());
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         // Replace the original file with the edited.
         if (!inputFile.delete() || !tempFile.renameTo(inputFile)) {
@@ -61,16 +60,14 @@ public class FileManagement {
         }
     }
 
-    //LastLine finds the last non writen line of "filename"
+    //LastLine finds the last non-written line of "filename"
     //it returns where we will not overwrite
     public static int LastLine(String filename) {
         int last = 1;
         String current;
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             while ((current = reader.readLine()) != null) {
-                if (!current.trim().isEmpty()) { // Check if the line is not blank
-                    last += 1;
-                }
+                last += 1;
             }
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());

@@ -25,7 +25,7 @@ public class Access{
             }
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file.");
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             //IOException is needed when working with BufferedReader.
         }
         //MESSAGE
@@ -37,11 +37,11 @@ public class Access{
     // Method to handle user signup
     public static boolean signup(String username, String password) {
         try (
-                BufferedReader check = new BufferedReader(new FileReader("pelates.csv"));
-                BufferedReader check2 = new BufferedReader(new FileReader("diaxiristes.csv"))) {
+                BufferedReader check = new BufferedReader(new FileReader("client.csv"));
+                BufferedReader check2 = new BufferedReader(new FileReader("manager.csv"))) {
             //we check if an other user already has that username (we need to check both files)
             String line;
-            //check if username is in the pelates.csv file
+            //check if username is in the client.csv file
             while ((line = check.readLine()) != null) {
                 String[] fields = line.split(",");
                 if (fields[0].trim().equals(username)) {
@@ -51,7 +51,7 @@ public class Access{
                     return false;
                 }
             }
-            //check if username is in the diaxiristes.csv file
+            //check if username is in the manager.csv file
             while ((line = check2.readLine()) != null) {
                 String[] fields = line.split(",");
                 if (fields[0].trim().equals(username)) {
@@ -62,12 +62,12 @@ public class Access{
                 }
             }
             // If username doesn't exist, add new user to file
-            int lastline = FileManagement.LastLine("pelates.csv");
-            FileManagement.Write("pelates.csv",lastline,false,username+","+password);
+            int lastline = FileManagement.LastLine("client.csv");
+            FileManagement.Write("manager.csv",lastline,false,username+","+password);
             return true;
         } catch (IOException e) {
             System.out.println("An error occurred while reading or writing to the file.");
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return false; // Return false if there's an error or if username already exists
     }
