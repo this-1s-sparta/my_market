@@ -111,7 +111,7 @@ public class Products {
     public static void searchproduct() {
         int line = 0;
         String current;
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
             while ((current = reader.readLine()) != null) {
                 line++;
                 System.out.println(current);
