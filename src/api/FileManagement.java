@@ -93,4 +93,45 @@ public class FileManagement {
         return -1; // Return -1 if not found
     }
 
+    //this method does exactly what the ThatLine method does
+    //but it can start from a ceratain "line"...
+    public static int FromThatLine(int startLine,String filename, String content) {
+        int line = 0;
+        String current;
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            while (line < startLine && reader.readLine() != null) {
+                line++;
+            }
+            while ((current = reader.readLine()) != null) {
+                line++;
+                if (content.equals(current)) {
+                    return line; // Return the line number if content is found
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
+        return -1; // Return -1 if content is not found
+    }
+
+    //this is a quick way to print a line ("lineToPrint") of a file ("filename")
+    public static void PrintLine(int lineToPrint,String filename) {
+        int line = 0;
+        String current;
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            // Read lines until we reach the desired line
+            while ((current = reader.readLine()) != null) {
+                line++;
+                if (line == lineToPrint) {
+                    System.out.println(current); // Print the line
+                    return;  // Return after printing the line
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
+        // If the loop finishes and the line is not found, print a message and return
+        System.out.println("Line " + lineToPrint + " not found.");
+        return;
+    }
 }
