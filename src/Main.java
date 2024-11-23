@@ -10,6 +10,7 @@ public class Main {
             //if the client and manager files don't exist initialization must be done
             File client = new File("client.csv");
             File manager = new File ("manager.csv");
+            File history = new File ("history.txt");
             // The createNewFile() returns true if the file was created, and false if it hasn't.
             if (client.createNewFile() && manager.createNewFile()) {
                 FileManagement.Write("client.csv", 1, false, "user1,password1\nuser2,password2");
