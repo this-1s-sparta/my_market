@@ -52,10 +52,14 @@ public class Main {
 
 
         //TESTS 1-4 check that the Access methods all work
-        // test 1 boolean x=Access.signup("nadia","password123"); //-> works
-        // test 2 boolean x=Access.signup("nadia","password123"); //-> works
-        // test 3 boolean x=Access.login("nadia","password123","client.csv"); //->works
-        // test 4 boolean x=Access.login("nadia","password123","manager.csv"); //->works
+        // test 1
+        // boolean x=Access.signup("nadia","password123"); //-> works
+        // test 2
+        // boolean x=Access.signup("nadia","password123"); //-> works
+        // test 3
+        // boolean x=Access.login("nadia","password123","client.csv"); //->works
+        // test 4
+        // boolean x=Access.login("nadia","password123","manager.csv"); //->works
 
         //TEST 5 checks that Products methods work
         //Products.Add("Τίτλος"+"\n"+"Περιγραφή"+"\n"+"Κατηγορία"+"\n"+"Υποκατηγορία"+"\n"+"Τιμή"+"\n"+"Ποσότητα"); //->works
