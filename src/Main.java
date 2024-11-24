@@ -26,16 +26,42 @@ public class Main {
             out.println(e.getMessage());
         }
 
+        //gui is needed for this to work
+
+        //if the user chooses to sign up:
+        //  input   name
+        //          lasname
+        //          username
+        //          password
+        //  if (boolean check=Access.signup == true)
+        //      give CLIENT access
+
+        //if the user chooses to log in:
+        //  input   username
+        //          password
+        //check in both files
+        //boolean check1= Access.login(username,password."manger.cvs")
+        //if true give  MANAGER access
+        //else
+        //boolean check2=Access.login(username,password,"client.cvs")
+        //if true give CLIENT access
+        //if check1 AND ckeck2 == false
+        //print wrong input message
+
+
+
+
         //TESTS 1-4 check that the Access methods all work
         // test 1 boolean x=Access.signup("nadia","password123"); //-> works
         // test 2 boolean x=Access.signup("nadia","password123"); //-> works
         // test 3 boolean x=Access.login("nadia","password123","client.csv"); //->works
         // test 4 boolean x=Access.login("nadia","password123","manager.csv"); //->works
 
-        //TEST 5 checks that Products.Add and Products.Change work
+        //TEST 5 checks that Products methods work
         //Products.Add("Τίτλος"+"\n"+"Περιγραφή"+"\n"+"Κατηγορία"+"\n"+"Υποκατηγορία"+"\n"+"Τιμή"+"\n"+"Ποσότητα"); //->works
         //Products.Change("Τίτλος: Τίτλος","Τ"+"\n"+"Π"+"\n"+"Κ"+"\n"+"Υ"+"\n"+"Τ"+"\n"+"Π"); //->works
 
-        //test 6
+        //TEST 6 checks that Statistics.Zero works
+        //Statistics.Zero("products.txt"); //->works
     }
 }

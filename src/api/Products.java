@@ -7,6 +7,7 @@ import java.io.IOException;
 //API FILE
 //Add(...),Change(...) methods using InTheFile
 //these are manager only methods!
+//the methods are used to add new products or change old ones
 public class Products {
     //those 2 methods are used to add and change products from the products.txt file
     //to have the following format:
@@ -126,7 +127,6 @@ int sum=0;//μετεπειτα αρχικοποιηση στην κλαση
       sum =sum+cost;
 
     }
-
 
 
 
