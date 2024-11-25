@@ -7,7 +7,6 @@ import java.io.IOException;
 //API FILE
 //Add(...),Change(...) methods using InTheFile
 //these are manager only methods!
-//the methods are used to add new products or change old ones
 public class Products {
     //those 2 methods are used to add and change products from the products.txt file
     //to have the following format:
@@ -57,76 +56,8 @@ public class Products {
         FileManagement.Write(filename, line+5, overwrite, "Ποσότητα: "+quantity);
     }
 
-    public static void searchproduct(String title)
-    {
-        String current;
-        int line = 0;
-        try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
-            while ((current = reader.readLine()) != null) {
-                line++;
-                if (current.equals("Τίτλος: " + title)) { // Compare the current line to content
-                    for (int i = line; i < line + 6; i++) {
-                        System.out.println(current);
-                        current = reader.readLine();
-                    }
-                    current = null;
-                }
-                else if (current.equals("Κατηγορία: " + title)) { // Compare the current line to content
-                    for (line=line-2; line< line + 4; line++) {
-                        System.out.println(current);
-                        current = reader.readLine();
-                    }
-                }
 
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading the file: " + e.getMessage());
-        }
-    }
 
-    public static void searchproduct(String category, String subcategory)
-    {
-        String current;
-        int line = 0;
-        try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
-            while ((current = reader.readLine()) != null) {
-                line++;
-                if (current.equals("Κατηγορία: " + category)) {
-                    current = reader.readLine();
-                        if (current.equals("Υποκατηγορία: " + subcategory)) {
-                            for (line = line - 2; line < line + 4; line++) {
-                                System.out.println(current);
-                                current = reader.readLine();
-                            }
-                        }
-                }
-
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading the file: " + e.getMessage());
-        }
-    }
-
-    public static void searchproduct() {
-        int line = 0;
-        String current;
-        try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
-            while ((current = reader.readLine()) != null) {
-                line++;
-                System.out.println(current);
-
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading the file: " + e.getMessage());
-        }
-    }
-int sum=0;//μετεπειτα αρχικοποιηση στην κλαση
-    public static void addtobasket(String title,int quantity,double cost)
-    {
-      FileManagement.Write("basket.txt",1,false,title+" "+quantity+" "+cost);
-      sum =sum+cost;
-
-    }
 
 
 
