@@ -29,7 +29,7 @@ public class Main {
         //gui is needed for this to work
         //if the user chooses to sign up:
         //  input   name
-        //          lasname
+        //          lastname
         //          username
         //          password
         //  if (boolean check=Access.signup == true)
