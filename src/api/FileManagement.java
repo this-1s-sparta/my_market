@@ -94,7 +94,7 @@ public class FileManagement {
     }
 
     //this method does exactly what the ThatLine method does
-    //but it can start from a ceratain "line"...
+    //but it can start from a certain "line"...
     public static int FromThatLine(int startLine,String filename, String content) {
         int line = 0;
         String current;

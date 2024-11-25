@@ -55,10 +55,4 @@ public class Products {
         FileManagement.Write(filename , line+4, overwrite, "Τιμή: "+price);
         FileManagement.Write(filename, line+5, overwrite, "Ποσότητα: "+quantity);
     }
-
-
-
-
-
-
 }
