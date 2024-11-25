@@ -25,7 +25,6 @@ public class Statistics {
             line=FileManagement.FromThatLine(line, filename,"Ποσότητα: 0kg");
         }
     }
-
     //NOT TESTED!!!!!!!!
     //Best will look in the history.txt file for the most used products
     //this will be done by searching for every product on "products.txt"
