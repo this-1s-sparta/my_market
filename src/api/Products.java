@@ -119,13 +119,6 @@ public class Products {
             System.err.println("Error reading the file: " + e.getMessage());
         }
     }
-int sum=0;//μετεπειτα αρχικοποιηση στην κλαση
-    public static void addtobasket(String title,int quantity,double cost)
-    {
-      Write("basket.txt",1,0,title+" "+quantity+" "+cost);
-      sum =sum+cost;
-
-    }
 
 
 
