@@ -63,7 +63,7 @@ public class Access{
             }
             // If username doesn't exist, add new user to file
             int lastline = FileManagement.LastLine("client.csv");
-            FileManagement.Write("manager.csv",lastline,false,username+","+password);
+            FileManagement.Write("client.csv",lastline,false,username+","+password);
             return true;
         } catch (IOException e) {
             System.out.println("An error occurred while reading or writing to the file.");

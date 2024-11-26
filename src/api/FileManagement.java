@@ -1,5 +1,6 @@
 package api;
 import java.io.*;
+import java.nio.file.*;
 //the FileManagement class has:
 //the Write(...) method, the LastLine(...) method,ThatLine(...) method ...
 //those methods are used to make file management easier
@@ -55,8 +56,22 @@ public class FileManagement {
             System.out.println(e.getMessage());
         }
         // Replace the original file with the edited.
-        if (!inputFile.delete() || !tempFile.renameTo(inputFile)) {
-            System.out.println("Error replacing the original file.");
+
+        try (
+                BufferedReader reader = new BufferedReader(new FileReader(tempFile));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(inputFile))
+        ) {
+            String currentLine;
+            while ((currentLine = reader.readLine()) != null) {
+                writer.write(currentLine);
+                writer.newLine(); // Add a newline after each line
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while copying tempFile to inputFile: " + e.getMessage());
+        }
+        // delete tempFile after copying
+        if (!tempFile.delete()) {
+            System.out.println("Failed to delete temporary file.");
         }
     }
 
