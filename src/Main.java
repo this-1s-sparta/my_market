@@ -1,6 +1,9 @@
 import java.io.File;
 import java.io.IOException;
 import api.*;
+import javax.swing.*;
+import java.awt.*;
+import static java.lang.System.*;
 
 import static java.lang.System.*;
 //* = to import all the files of the package
@@ -65,6 +68,58 @@ public class Main {
             out.println("Wrong username or password");
         }
 
+        //this is the first frame
+        //it gives the option of log in and sign up
+        SwingUtilities.invokeLater(() -> {
+            JFrame mainFrame = new JFrame("Welcome to My Market");
+            mainFrame.setSize(300, 200); // Set the size of the frame
+            mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // stops running when X is pressed
+            mainFrame.setLayout(new FlowLayout(FlowLayout.CENTER)); // Center
+            Color customColor = new Color(100, 30, 200); // colour the frame
+            mainFrame.getContentPane().setBackground(customColor);
+
+            // Create buttons
+
+            JButton loginButton = new JButton("Login");
+            // loginButton.setBackground(new Color(80, 60, 100)); //to put colour on buttons
+            JButton signUpButton = new JButton("Sign Up");
+
+                // for login button
+            loginButton.addActionListener(e -> {
+                openLoginFrame(); // Open Login frame or perform Login action
+            });
+                //for signup button
+            signUpButton.addActionListener(e -> {
+                openSignUpFrame(); // Open Sign Up frame or perform Sign Up action
+            });
+
+            // Add the buttons to the frame
+            mainFrame.add(loginButton);
+            mainFrame.add(signUpButton);
+
+            // visible frame
+            mainFrame.setVisible(true);
+        });
+    }
+
+    //if the user selects login
+    private static void openLoginFrame() {
+        JFrame loginFrame = new JFrame("Login");
+        loginFrame.setSize(300, 200);
+        loginFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        loginFrame.setVisible(true);
+
+    }
+
+    // Method to open Sign Up frame
+    private static void openSignUpFrame() {
+        JFrame signUpFrame = new JFrame("Sign Up");
+        signUpFrame.setSize(300, 200);
+        signUpFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        signUpFrame.setVisible(true);
+    }
+
+
         //TESTS 1-4 check that the Access methods all work
         //boolean x=Access.signup("nadia","password123"); //-> works
         // test 2 boolean x=Access.signup("nadia","password123"); //-> works
@@ -79,5 +134,4 @@ public class Main {
         //test 6
         //TEST 6 checks that Statistics.Zero works
         //Statistics.Zero("products.txt"); //->works
-    }
 }
