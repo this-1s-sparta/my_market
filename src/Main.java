@@ -51,20 +51,19 @@ public class Main {
 
         //name and password will be input from the gui
         //for now change manually here :)
-
-//        String username="user1";
-//        String password="password1";
-//        boolean check1=Access.login(username,password,"client.txt");
-//        boolean check2=Access.login(username,password,"manager.txt");
-//        if (check1) {
-//            client user = new client(username, password);
-//        }
-//        else if (check2) {
-//            manager user = new manager(username, password);
-//        }
-//        else {
-//            out.println("Wrong username or password");
-//        }
+        String username="user1";
+        String password="password1";
+        boolean check1=Access.login(username,password,"client.csv");
+        boolean check2=Access.login(username,password,"manager.csv");
+        if (check1) {
+            client user = new client(username, password);
+        }
+        else if (check2) {
+            manager user = new manager(username, password);
+        }
+        else {
+            out.println("Wrong username or password");
+        }
 
         //TESTS 1-4 check that the Access methods all work
         //boolean x=Access.signup("nadia","password123"); //-> works
@@ -79,6 +78,6 @@ public class Main {
 
         //test 6
         //TEST 6 checks that Statistics.Zero works
-        //Statistics.Zero("products.txt"); //->works
+        Statistics.Zero("products.txt"); //->works
     }
 }

@@ -1,9 +1,5 @@
 package api;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
 //API FILE
 //Add(...),Change(...) methods using InTheFile
 //these are manager only methods!
@@ -23,7 +19,7 @@ public class Products {
         //LastLine from FileManagement is used to find where the product will be added
         int line=FileManagement.LastLine("products.txt");
         line++;
-        InTheFile(NewContent,line,false,"products.txt");
+        InTheFile(NewContent,line,false, "products.txt");
     }
 
     //OldTitle must be in the form :"Τίτλος: Πορτοκάλια 1kg"
@@ -32,7 +28,7 @@ public class Products {
     public static void Change(String OldTitle, String NewContent) {
         int line=FileManagement.ThatLine("products.txt",OldTitle);
         //find the line of the title in the file and overwrite with the new content
-        InTheFile(NewContent,line,true,"products.txt");
+        InTheFile(NewContent,line,true, "products.txt");
     }
 
     //this method is called to make changes in the file in the wanted format

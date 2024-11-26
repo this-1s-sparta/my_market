@@ -28,8 +28,6 @@ public class Access{
             System.out.println(e.getMessage());
             //IOException is needed when working with BufferedReader.
         }
-        //MESSAGE
-        System.out.println("Wrong username or password.");
         return false;
         //false if username was not found or password doesn't match
     }
