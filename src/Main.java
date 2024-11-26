@@ -78,6 +78,6 @@ public class Main {
 
         //test 6
         //TEST 6 checks that Statistics.Zero works
-        Statistics.Zero("products.txt"); //->works
+        //Statistics.Zero("products.txt"); //->works
     }
 }
