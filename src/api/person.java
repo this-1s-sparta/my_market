@@ -6,9 +6,9 @@ import java.util.ArrayList;
 
 public class person {
     String username;
-    int password;
+    String password;
 //constructor με παραμέτρους το username και το password
-    public person(String username, int password) {
+    public person(String username, String password) {
         this.username = username;
         this.password = password;
     }
@@ -17,7 +17,7 @@ public class person {
         return username;
     }
 //getter για το password
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 //setter για το username
@@ -25,7 +25,7 @@ public class person {
         this.username = username;
     }
 //setter για το password
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

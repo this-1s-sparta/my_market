@@ -2,7 +2,7 @@ package api;
 
 public class manager extends person
 {
-public manager(String username, int password)
+public manager(String username, String password)
 {
     super(username,password);
 }
