@@ -10,7 +10,7 @@ public class LoginFrame {
     public static void openLoginFrame() {
         // Create the login frame
         JFrame loginFrame = new JFrame("Login");
-        loginFrame.setSize(400, 150);
+        loginFrame.setSize(430, 150);
         loginFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         loginFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
         Color customColor = new Color(150, 0, 180); // colour the frame
@@ -30,14 +30,12 @@ public class LoginFrame {
 
         JLabel messageLabel = new JLabel(" ");
 
-        // Login button
+        //Login button
         JButton loginButton = new JButton("Login");
-        String username = usernameField.getText(); //save to username
-        String password = passwordField.getText(); //save to username
-        System.out.println(username);
-        System.out.println(password);
         //this is the action that will be taken after login is pressed
         loginButton.addActionListener(e -> {
+            String username = usernameField.getText(); //save to username
+            String password = passwordField.getText(); //save to password
             boolean check1=Access.login(usernameField.getText(),passwordField.getText(),"client.csv");
             boolean check2=Access.login(usernameField.getText(),passwordField.getText(),"manager.csv");
             boolean message=false;
@@ -53,7 +51,6 @@ public class LoginFrame {
                 messageLabel.setText("Wrong Username or Password");
             }
         });
-
 
         // Add to the panel
         panel.add(usernameLabel);

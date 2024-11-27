@@ -44,8 +44,6 @@ public class Access{
                 String[] fields = line.split(",");
                 if (fields[0].trim().equals(username)) {
                     // Username already exists
-                    //MESSAGE
-                    System.out.println("Username already exists.");
                     return false;
                 }
             }
@@ -54,8 +52,6 @@ public class Access{
                 String[] fields = line.split(",");
                 if (fields[0].trim().equals(username)) {
                     // Username already exists
-                    //MESSAGE
-                    System.out.println("Username already exists.");
                     return false;
                 }
             }
