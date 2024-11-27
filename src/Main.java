@@ -37,7 +37,7 @@ public class Main {
             mainFrame.setSize(300, 150); // Set the size of the frame
             mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // stops running when X is pressed
             mainFrame.setLayout(new FlowLayout(FlowLayout.CENTER)); // Center
-            Color customColor = new Color(100, 30, 200); // colour the frame
+            Color customColor = new Color(100, 30, 200); // color the frame
             mainFrame.getContentPane().setBackground(customColor);
 
             // Create buttons
@@ -47,13 +47,13 @@ public class Main {
 
             // for login button
             loginButton.addActionListener(e -> {
-                LoginFrame.openLoginFrame(); // Open Login frame or perform Login action
-                // this is located on the gui file
+                LoginFrame.openLoginFrame();
+                //when "log in' is pressed the LoginFrame is opened
             });
             //for signup button
             signUpButton.addActionListener(e -> {
-                SignUpFrame.openSignUpFrame(); // Open Sign Up frame or perform Sign Up action
-                //this is located on the gui file
+                SignUpFrame.openSignUpFrame();
+                //when "sign up" is pressed SignUpFrame is opened
             });
             // Add the buttons to the frame
             mainFrame.add(loginButton);
@@ -61,6 +61,8 @@ public class Main {
             // visible frame
             mainFrame.setVisible(true);
         });
+
+
 
         //TESTS 1-4 check that the Access methods all work
         //boolean x=Access.signup("nadia","password123"); //-> works

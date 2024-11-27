@@ -6,7 +6,7 @@ import java.awt.*;
 import static java.lang.System.out;
 
 public class LoginFrame {
-
+    //this is called by Main
     public static void openLoginFrame() {
         // Create the login frame
         JFrame loginFrame = new JFrame("Login");
@@ -41,11 +41,11 @@ public class LoginFrame {
             boolean message=false;
             if (check1) {
                 client user = new client(username, password);
-                ClientLogged.Start();
+                ClientLoggedFrame.StartFrame();
             }
             else if (check2) {
                 manager user = new manager(username, password);
-                ManagerLogged.Start();
+                ManagerLoggedFrame.StartFrame();
             }
             else {
                 messageLabel.setText("Wrong Username or Password");

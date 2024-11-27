@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SignUpFrame {
-    // Method to open Sign Up frame
+    // this is called by Main
     public static void openSignUpFrame() {
         JFrame signupFrame = new JFrame("Sign Up");
         signupFrame.setSize(400, 250);
@@ -46,15 +46,11 @@ public class SignUpFrame {
                 boolean check1 = Access.signup(usernameField.getText(), passwordField.getText());
                 if (check1) {
                     client user = new client(username, password);
-                    ClientLogged.Start();
-                } else {
+                    ClientLoggedFrame.StartFrame();
+                } else
                     messageLabel.setText("Username already exists");
-                }
-
-            } else {
+            } else
                 messageLabel.setText("All fields are required");
-            }
-
         });
         // Add to the panel
         panel.add(nameLabel);
