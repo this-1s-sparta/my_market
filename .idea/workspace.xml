@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="TRY">
-      <change afterPath="$PROJECT_DIR$/src/api/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/History.java" afterDir="false" />
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="29/11">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/productinCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/ProductInCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/History.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +152,7 @@
       <workItem from="1732567243327" duration="2048000" />
       <workItem from="1732792519197" duration="54000" />
       <workItem from="1732792597753" duration="1102000" />
-      <workItem from="1732793720104" duration="3560000" />
+      <workItem from="1732793720104" duration="5092000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -233,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732531580652</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="29/11">
+      <option name="closed" value="true" />
+      <created>1732833452778</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1732833452778</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,6 +254,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="TRY" />
-    <option name="LAST_COMMIT_MESSAGE" value="TRY" />
+    <MESSAGE value="29/11" />
+    <option name="LAST_COMMIT_MESSAGE" value="29/11" />
   </component>
 </project>

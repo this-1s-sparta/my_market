@@ -1,13 +1,22 @@
 package api;
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
 
 public class History{
 
 
 
-        public static void addToHistory(Cart c,String username)
-        {
+    public static void addToHistory(Cart c,String username)
+    {
+        String filePath = "History.txt";
+        File file = new File(filePath);
+
+        try {
+            // Check if the file exists
+            if (!file.exists()) {file.createNewFile();}
             int i=1;
             int j=FileManagement.LastLine("History.txt");
             FileManagement.Write("History.txt",j,false,"@"+username);
@@ -23,8 +32,18 @@ public class History{
                 i+=3;
             }
             FileManagement.Write("History.txt",j+i,false,"Σύνολο Καλαθιού: "+c.SumOfCart());
-
+        } catch (IOException e) {
+            // Handle exceptions
+            System.out.println("An error occurred.");
+            e.printStackTrace();
         }
+    }
+
+    public void ShowHistory(String username)
+    {
+
+
+    }
 
 
 
