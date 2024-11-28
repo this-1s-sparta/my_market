@@ -40,11 +40,11 @@ public class LoginFrame {
             boolean check2=Access.login(usernameField.getText(),passwordField.getText(),"manager.csv");
             boolean message=false;
             if (check1) {
-                client user = new client(username, password);
+                Client user = new Client(username, password);
                 ClientLoggedFrame.StartFrame();
             }
             else if (check2) {
-                manager user = new manager(username, password);
+                Manager user = new Manager(username, password);
                 ManagerLoggedFrame.StartFrame();
             }
             else {

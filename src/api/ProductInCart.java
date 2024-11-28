@@ -1,11 +1,11 @@
-
 package api;
-public class productinCart {
+
+public class ProductInCart {
     String name;
     int quantity;
     double price;
 
-    public productinCart(String name, int quantity, double price) {
+    public ProductInCart(String name, int quantity, double price) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;

@@ -5,14 +5,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
+
 public class Cart {
-    ArrayList<productinCart> cart;
-    Cart()
+    ArrayList<ProductInCart> cart;
+    public Cart()
     {
         cart = new ArrayList<>();
     }
 
-    public void AddToCart(productinCart p)
+    public void AddToCart(ProductInCart p)
     {
         int a;
         AtomicInteger flag=new AtomicInteger();
@@ -35,7 +36,7 @@ public class Cart {
             System.out.println("Available quantity not enough");
     }
 
-    public void DeleteFromCart(productinCart p)
+    public void DeleteFromCart(ProductInCart p)
     {
         AtomicInteger flag=new AtomicInteger();
         int newq=p.quantity+AvailableQuantity(p.name,flag),i;
@@ -49,9 +50,9 @@ public class Cart {
 
     }
 
-    public void ChangeCart(productinCart p)
+    public void ChangeCart(ProductInCart p)
     {
-        for(productinCart p1 : cart)
+        for(ProductInCart p1 : cart)
         {
             if(p1.name.equals(p.name))
             {
@@ -79,7 +80,7 @@ public class Cart {
     public double SumOfCart()
     {
         double sum = 0;
-        for(productinCart p1 : cart)
+        for(ProductInCart p1 : cart)
         {
             sum += p1.price;
         }

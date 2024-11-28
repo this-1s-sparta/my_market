@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="TRY">
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/productinCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/ProductInCart.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +40,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/auth-csd-oop-2024/mymarket-4607-4683.git&quot;,
-    &quot;accountId&quot;: &quot;cac871b5-d4f6-47d0-abe1-dd2a420815a1&quot;
+    &quot;accountId&quot;: &quot;8735b662-b4bc-4f6b-a9b4-852f9f727bad&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -73,6 +81,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="api" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -146,6 +157,9 @@
       <workItem from="1732301433732" duration="5617000" />
       <workItem from="1732532052089" duration="10605000" />
       <workItem from="1732567243327" duration="2048000" />
+      <workItem from="1732792519197" duration="54000" />
+      <workItem from="1732792597753" duration="1102000" />
+      <workItem from="1732793720104" duration="3560000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
