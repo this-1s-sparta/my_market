@@ -80,36 +80,36 @@ public class Main {
         //test 6
         //TEST 6 checks that Statistics.Zero works
         //Statistics.Zero("products.txt"); //->works
-        //ProductInCart p=new productinCart("Νερό Μεταλλικό 1,5lt",1,0.5);
-        //Cart mycart=new Cart();
-        //mycart.AddToCart(p);
-       // productinCart p1=new productinCart("Καρότα 1kg",4,4);
-        //productinCart p2=new productinCart("Φιλέτο Σολομού 300g",2,24);
-        //mycart.AddToCart(p1);
-        //mycart.AddToCart(p2);
-        //Cart cart2=new Cart();
-       // cart2.AddToCart(p2);
-        //double price1=p1.price/p1.quantity;
-        //p1.quantity=6;
-        //p1.price=price1*p1.quantity;
+        ProductInCart p=new ProductInCart("Νερό Μεταλλικό 1,5lt",1,0.5);
+        Cart mycart=new Cart();
+        mycart.AddToCart(p);
+        ProductInCart p1=new ProductInCart("Καρότα 1kg",4,4);
+        ProductInCart p2=new ProductInCart("Φιλέτο Σολομού 300g",2,24);
+        mycart.AddToCart(p1);
+        mycart.AddToCart(p2);
+        Cart cart2=new Cart();
+       cart2.AddToCart(p2);
+        double price1=p1.getPrice()/p1.getQuantity();
+        p1.setQuantity(6);
+        p1.setPrice(price1*p1.getQuantity());
 
-       // mycart.ChangeCart(p1);
-        //History.addToHistory(mycart,"user1");
-        //History.addToHistory(cart2,"user1");
-        //History.ShowHistory("user1");
+       mycart.ChangeCart(p1);
+       History.addToHistory(mycart,"user1");
+        History.addToHistory(cart2,"user1");
+        History.ShowHistory("user1");
 
 
 
-        //Search.searchproduct("Καρότα 1kg");
-        //Search.searchproduct();
+        Search.searchproduct("Καρότα 1kg");
+        Search.searchproduct();
         //** for(productinCart p3: mycart.cart)
         // {
         //    System.out.println(p3.name);
         //    System.out.println(p3.quantity);
         //    System.out.println(p3.price);
         // }
-        //price1=mycart.SumOfCart();
-        //System.out.println(price1);**//
+        price1=mycart.SumOfCart();
+        System.out.println(price1);
 
 
     }
