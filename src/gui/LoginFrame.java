@@ -3,8 +3,6 @@ import api.*;
 import javax.swing.*;
 import java.awt.*;
 
-import static java.lang.System.out;
-
 public class LoginFrame {
     //this is called by Main
     public static void openLoginFrame() {
@@ -34,17 +32,14 @@ public class LoginFrame {
         JButton loginButton = new JButton("Login");
         //this is the action that will be taken after login is pressed
         loginButton.addActionListener(e -> {
-            String username = usernameField.getText(); //save to username
-            String password = passwordField.getText(); //save to password
             boolean check1=Access.login(usernameField.getText(),passwordField.getText(),"client.csv");
             boolean check2=Access.login(usernameField.getText(),passwordField.getText(),"manager.csv");
-            boolean message=false;
             if (check1) {
-                Client user = new Client(username, password);
+                Client user = new Client(usernameField.getText(), passwordField.getText());
                 ClientLoggedFrame.StartFrame();
             }
             else if (check2) {
-                Manager user = new Manager(username, password);
+                Manager user = new Manager(usernameField.getText(), passwordField.getText());
                 ManagerLoggedFrame.StartFrame();
             }
             else {

@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="29/11">
-      <change afterPath="$PROJECT_DIR$/src/api/products.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/LogOutFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/History.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/FileManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/FileManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Statistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/products.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ClientCartFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientCartFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ClientHistoryFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientHistoryFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ClientSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientSearchFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ManagerAddFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerAddFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ManagerStatisticsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerStatisticsFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +100,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in MyMarket">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="MyMarket" />
@@ -114,8 +126,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in MyMarket" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in MyMarket" />
       </list>
     </recent_temporary>
   </component>

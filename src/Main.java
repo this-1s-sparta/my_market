@@ -48,7 +48,7 @@ public class Main {
             // for login button
             loginButton.addActionListener(e -> {
                 LoginFrame.openLoginFrame();
-                //when "log in' is pressed the LoginFrame is opened
+                //when "log in" is pressed the LoginFrame is opened
             });
             //for signup button
             signUpButton.addActionListener(e -> {
@@ -73,13 +73,13 @@ public class Main {
         //System.out.println(y);
 
         //TEST 5 checks that Products.Add and Products.Change work
-        //TEST 5 checks that Products methods work
         //Products.Add("Τίτλος"+"\n"+"Περιγραφή"+"\n"+"Κατηγορία"+"\n"+"Υποκατηγορία"+"\n"+"Τιμή"+"\n"+"Ποσότητα"); //->works
         //Products.Change("Τίτλος: Τίτλος","Τ"+"\n"+"Π"+"\n"+"Κ"+"\n"+"Υ"+"\n"+"Τ"+"\n"+"Π"); //->works
 
         //test 6
         //TEST 6 checks that Statistics.Zero works
         //Statistics.Zero("products.txt"); //->works
+
         //ProductInCart p=new productinCart("Νερό Μεταλλικό 1,5lt",1,0.5);
         //Cart mycart=new Cart();
         //mycart.AddToCart(p);

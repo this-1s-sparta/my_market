@@ -1,6 +1,5 @@
 package api;
 import java.io.*;
-import java.nio.file.*;
 //the FileManagement class has:
 //the Write(...) method, the LastLine(...) method,ThatLine(...) method ...
 //those methods are used to make file management easier
@@ -11,7 +10,7 @@ public class FileManagement {
     //line is the line I want to write on
     //overwrite if true I overwrite
     //          if false I add on that line (text will be added next to the already written text)
-    //content is the text I want to written on the file
+    //content is the text I want written on the file
     public static void Write(String filename, int line, boolean overwrite, String content) {
         File inputFile = new File(filename);
         File tempFile = new File("temp_" + filename);

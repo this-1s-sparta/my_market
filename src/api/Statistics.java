@@ -80,7 +80,7 @@ public class Statistics {
             int line=Position("best.csv",count);
             FileManagement.Write("best.csv",line,false ,search+","+count + "\n");
         }
-        //after we exit the for loop the best.csv file has the form that we want it to have and it is shorted
+        //after we exit the for loop the best.csv file has the form that we want it to have and, it is shorted
         //to find the most shown products we only need to call it and check the "best.cvs" file
     }
 
