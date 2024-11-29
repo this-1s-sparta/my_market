@@ -11,11 +11,12 @@ public class ManagerLoggedFrame {
         startFrame.setVisible(true);
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 9, 10, 10));
+        panel.setLayout(new GridLayout(4, 9, 10, 10));
 
         JButton Search = new JButton("Search");
         JButton Add = new JButton("Add");
         JButton Statistics = new JButton("Statistics");
+        JButton LogOut = new JButton("Log out");
         //this is the action that will be taken after login is pressed
         Search.addActionListener(e -> {
             ManagerSearchFrame.SearchFrame();
@@ -29,9 +30,14 @@ public class ManagerLoggedFrame {
             ManagerStatisticsFrame.StatisticsFrame();
         });
 
+        LogOut.addActionListener(e -> {
+            LogOutFrame.OutFrame();
+        });
+
         panel.add(Search);
         panel.add(Add);
         panel.add(Statistics);
+        panel.add(LogOut);
         startFrame.add(panel);
         // Make the frame visible
         startFrame.setVisible(true);
