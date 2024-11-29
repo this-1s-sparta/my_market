@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="commit 27/11">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="29/11">
+      <change afterPath="$PROJECT_DIR$/src/api/products.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/History.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +34,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/auth-csd-oop-2024/mymarket-4607-4683.git&quot;,
-    &quot;accountId&quot;: &quot;cac871b5-d4f6-47d0-abe1-dd2a420815a1&quot;
+    &quot;accountId&quot;: &quot;8735b662-b4bc-4f6b-a9b4-852f9f727bad&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -73,12 +75,11 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="api" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\nadia\IdeaProjects\mymarket-4607-4683" />
-      <recent name="C:\Users\nadia\IdeaProjects\mymarket-4607-4683\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="api" />
@@ -87,7 +88,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in MyMarket">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="MyMarket" />
@@ -113,8 +114,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in MyMarket" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -150,8 +151,9 @@
       <workItem from="1732301433732" duration="5617000" />
       <workItem from="1732532052089" duration="10605000" />
       <workItem from="1732567243327" duration="2048000" />
-      <workItem from="1732643369550" duration="11055000" />
-      <workItem from="1732731698448" duration="11112000" />
+      <workItem from="1732792519197" duration="54000" />
+      <workItem from="1732792597753" duration="1102000" />
+      <workItem from="1732793720104" duration="7523000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -225,71 +227,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732531580652</updated>
     </task>
-    <task id="LOCAL-00010" summary="commit 25/11">
+    <task id="LOCAL-00010" summary="29/11">
       <option name="closed" value="true" />
-      <created>1732570959474</created>
+      <created>1732833452778</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1732570959474</updated>
+      <updated>1732833452778</updated>
     </task>
-    <task id="LOCAL-00011" summary="commit 25/11">
+    <task id="LOCAL-00011" summary="29/11">
       <option name="closed" value="true" />
-      <created>1732589333051</created>
+      <created>1732835066998</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1732589333051</updated>
+      <updated>1732835066998</updated>
     </task>
-    <task id="LOCAL-00012" summary="commit 26/11">
-      <option name="closed" value="true" />
-      <created>1732648552019</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1732648552019</updated>
-    </task>
-    <task id="LOCAL-00013" summary="commit 26/11">
-      <option name="closed" value="true" />
-      <created>1732648730805</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1732648730805</updated>
-    </task>
-    <task id="LOCAL-00014" summary="commit 26/11">
-      <option name="closed" value="true" />
-      <created>1732654498089</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1732654498089</updated>
-    </task>
-    <task id="LOCAL-00015" summary="commit 27/11">
-      <option name="closed" value="true" />
-      <created>1732737726344</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1732737726344</updated>
-    </task>
-    <task id="LOCAL-00016" summary="commit 27/11">
-      <option name="closed" value="true" />
-      <created>1732740471721</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1732740471721</updated>
-    </task>
-    <task id="LOCAL-00017" summary="commit 27/11">
-      <option name="closed" value="true" />
-      <created>1732742983509</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1732742983509</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,9 +263,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="TRY" />
-    <MESSAGE value="commit 25/11" />
-    <MESSAGE value="commit 26/11" />
-    <MESSAGE value="commit 27/11" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit 27/11" />
+    <MESSAGE value="29/11" />
+    <option name="LAST_COMMIT_MESSAGE" value="29/11" />
   </component>
 </project>

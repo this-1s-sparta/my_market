@@ -1,14 +1,10 @@
 package api;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 
-public class person {
+public class Person {
     String username;
     String password;
 //constructor με παραμέτρους το username και το password
-    public person(String username, String password) {
+    public Person(String username, String password) {
         this.username = username;
         this.password = password;
     }
