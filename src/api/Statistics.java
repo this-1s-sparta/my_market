@@ -33,55 +33,65 @@ public class Statistics {
     //for every product on "products.txt" a search will be done on "history.txt"
     //the contents of "best.cvs" will look like:
     //      title of product,times found on history
-    public static void Best(String history,String products){
-        File file = new File("best.csv");
+    public static void Best() {
+        String products = "products.txt";
+        String history = "History.txt";
+        String bestFile = "best.txt";
+        // Create or clear the best.txt file at the beginning
         try {
-            // Check if the file exists
-            if (file.exists()) {
-                // Delete the file
-                if (!file.delete()) {
-                    System.err.println("Failed to delete existing best.csv file.");
-                    return; // Stop further execution
+            File best = new File(bestFile);
+            if (best.exists()) {
+                if (!best.delete()) {
+                    System.err.println("Unable to clear the existing best.txt file.");
+                    return;
                 }
             }
-            // Create a new file
-            if (!file.createNewFile()) {
-                System.err.println("Failed to create new best.csv file.");
+            if (!best.createNewFile()) {
+                System.err.println("Unable to create best.txt file.");
+                return;
             }
         } catch (IOException e) {
-            System.err.println("An error occurred while handling best.csv: " + e.getMessage());
+            System.err.println("Error creating or clearing best.txt: " + e.getMessage());
+            return;
         }
-        //now I am sure that I have a file called "best.csv"
-        int Plines=FileManagement.LastLine(products);
-        int Hlines=FileManagement.LastLine(history);
-        //I check how many line products.txt and history.txt has
-        //I know that line 1 has the title of a product
-        int ProdStart=1;
-        String search = "";
-        for ( ; ProdStart <= Plines ; ProdStart += 7){
-            //the for loop gives search the title of each product of products.txt
-            try {
-                search = Files.readAllLines(Paths.get(products)).get(ProdStart);
-            } catch (IOException | IndexOutOfBoundsException e) {
-                System.err.println("An error occurred: " + e.getMessage());
-            }
-            //then the while loop searches of "search" on history.txt and counts how many times it is found
-            int HistStart=1;
-            int count=0;
-            while (HistStart <= Hlines) {
-                int nextLine = FileManagement.FromThatLine(HistStart, history, search);
-                if (nextLine == -1) {
-                    break; // No more occurrences
-                }
-                count++; // Increment the count for each occurrence
-                HistStart = nextLine; // Start from the next line after the found content
-            }
 
-            int line=Position("best.csv",count);
-            FileManagement.Write("best.csv",line,false ,search+","+count + "\n");
+        try (BufferedReader readerprod = new BufferedReader(new FileReader(products))) {
+            String productLine;
+            int times = 0;
+            int Last = FileManagement.LastLine(products);
+
+            // Reading each line of products.txt
+            while (times <= Last) {
+                productLine = readerprod.readLine();
+                if (productLine == null) {
+                    break; // Exit if there are no more lines to process
+                }
+
+                times++; // Increment the counter
+
+                if (times % 7 == 1) { // Process only every 7th line
+                    try (BufferedReader readerhist = new BufferedReader(new FileReader(history))) {
+                        String historyLine;
+                        int count = 0; // Counter for occurrences of the product in History.txt
+
+                        // Count occurrences in History.txt
+                        while ((historyLine = readerhist.readLine()) != null) {
+                            if (productLine.equals(historyLine)) {
+                                count++; // Increment the count for each match
+                            }
+                        }
+
+                        // Write the product and its count to best.txt
+                        int line = Position(bestFile, count);
+                        FileManagement.Write(bestFile, line, false, productLine + "," + count + "\n");
+                    } catch (IOException e) {
+                        System.err.println("Error reading History.txt: " + e.getMessage());
+                    }
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading products.txt: " + e.getMessage());
         }
-        //after we exit the for loop the best.csv file has the form that we want it to have and, it is shorted
-        //to find the most shown products we only need to call it and check the "best.cvs" file
     }
 
     //Position will be called by Best() and is used to tell us where a new product should be put
@@ -91,7 +101,7 @@ public class Statistics {
         try (BufferedReader best = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = best.readLine()) != null) {
-                String[] parts = line.split(",");
+                String[] parts = line.split("@");
                 if (parts.length == 2) {
                     int existingCount = Integer.parseInt(parts[1]);
                     // If the new count is bigger, return the current position

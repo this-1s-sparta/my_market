@@ -60,7 +60,14 @@ public class History{
 
                     }
                 }
-
+//                line = reader.readLine();
+//                if (line != null && line.equals("@" + username)) {
+//                    while ((line = reader.readLine()) != null) {  // check that it's not null
+//                        if (!line.equals("@" + username)) {
+//                            System.out.println(line);
+//                        }
+//                    }
+//                }
             }
         } catch (IOException e) {
             e.printStackTrace();

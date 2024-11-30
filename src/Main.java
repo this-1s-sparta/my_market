@@ -63,23 +63,24 @@ public class Main {
         });
 
 
-
-        //TESTS 1-4 check that the Access methods all work
+        //TESTS 1 checks that the Access methods all work
+        //System.out.println("1st test");
         //boolean x=Access.signup("nadia","password123"); //-> works
-        // test 2
-        //boolean x = Access.signup("nadia", "password123"); //-> works
-        // test 3 boolean y = Access.login("nadia", "password123", "client.csv"); //->works
-        // test 4 boolean x=Access.login("nadia","password123","manager.csv"); //->works
-        //System.out.println(y);
+        //System.out.println(x);
+        //x = Access.signup("nadia", "password123"); //-> works
+        //System.out.println(x);
+        //x = Access.login("nadia", "password123", "client.csv"); //->works
+        //System.out.println(x);
+        //x=Access.login("nadia","password123","manager.csv"); //->works
+        //System.out.println(x);
 
-        //TEST 5 checks that Products.Add and Products.Change work
+        //TEST 2 checks that Products (Add and Change) work
+        //System.out.println("2nd test");
         //Products.Add("Τίτλος"+"\n"+"Περιγραφή"+"\n"+"Κατηγορία"+"\n"+"Υποκατηγορία"+"\n"+"Τιμή"+"\n"+"Ποσότητα"); //->works
         //Products.Change("Τίτλος: Τίτλος","Τ"+"\n"+"Π"+"\n"+"Κ"+"\n"+"Υ"+"\n"+"Τ"+"\n"+"Π"); //->works
 
-        //test 6
-        //TEST 6 checks that Statistics.Zero works
-        //Statistics.Zero("products.txt"); //->works
-
+        //TEST 3 checks that ProductInCart Product and Cart work
+        //System.out.println("3rd test");
         ProductInCart p=new ProductInCart("Νερό Μεταλλικό 1,5lt",1,0.5);
         Cart mycart=new Cart();
         mycart.AddToCart(p);
@@ -98,8 +99,8 @@ public class Main {
         History.addToHistory(cart2,"user1");
         History.ShowHistory("user1");
 
-
-
+        //TEST 4 checks that Search works
+        //System.out.println("4th test");
         //Search.searchproduct("Καρότα 1kg");
         //Search.searchproduct();
         //** for(productinCart p3: mycart.cart)
@@ -111,6 +112,10 @@ public class Main {
         price1=mycart.SumOfCart();
         System.out.println(price1);
 
+        //TEST 5 checks that Statistics (Zero and Best) work
+        //System.out.println("5th test");
+        Statistics.Zero("products.txt"); //->works
+        Statistics.Best();
 
     }
 }
