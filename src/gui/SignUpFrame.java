@@ -45,8 +45,8 @@ public class SignUpFrame {
                     lastnameField.getText() != null && !lastnameField.getText().trim().isEmpty()) {
                 boolean check1 = Access.signup(usernameField.getText(), passwordField.getText());
                 if (check1) {
-                    Client user = new Client(username, password);
-                    ClientLoggedFrame.StartFrame();
+                    Person user = new Person(username, password);
+                    ClientLoggedFrame.StartFrame(user);
                 } else
                     messageLabel.setText("Username already exists");
             } else

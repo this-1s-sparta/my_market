@@ -35,12 +35,12 @@ public class LoginFrame {
             boolean check1=Access.login(usernameField.getText(),passwordField.getText(),"client.csv");
             boolean check2=Access.login(usernameField.getText(),passwordField.getText(),"manager.csv");
             if (check1) {
-                Client user = new Client(usernameField.getText(), passwordField.getText());
-                ClientLoggedFrame.StartFrame();
+                Person user = new Person(usernameField.getText(), passwordField.getText());
+                ClientLoggedFrame.StartFrame(user);
             }
             else if (check2) {
-                Manager user = new Manager(usernameField.getText(), passwordField.getText());
-                ManagerLoggedFrame.StartFrame();
+                Person user = new Person(usernameField.getText(), passwordField.getText());
+                ManagerLoggedFrame.StartFrame(user);
             }
             else {
                 messageLabel.setText("Wrong Username or Password");

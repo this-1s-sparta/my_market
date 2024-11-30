@@ -1,11 +1,12 @@
 package gui;
 import javax.swing.*;
 import java.awt.*;
+import api.*;
 
 public class ManagerLoggedFrame {
     //this is called by LoginFrame
-    public static void StartFrame() {
-        JFrame startFrame = new JFrame("Welcome Client");
+    public static void StartFrame(Person user) {
+        JFrame startFrame = new JFrame("Welcome Manager "+ user.getUsername() );
         startFrame.setSize(300, 200);
         startFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         startFrame.setVisible(true);
