@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="commit 30/11">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/products.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Manager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +159,8 @@
       <workItem from="1732793720104" duration="7523000" />
       <workItem from="1732923717207" duration="11921000" />
       <workItem from="1732935749621" duration="14000" />
+      <workItem from="1732959945150" duration="192000" />
+      <workItem from="1732960297032" duration="2466000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -267,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732935734840</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="commit 30/11">
+      <option name="closed" value="true" />
+      <created>1732960121809</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1732960121809</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
