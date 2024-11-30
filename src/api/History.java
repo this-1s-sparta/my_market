@@ -52,24 +52,19 @@ public class History{
             for(int j=0;j<i;j++)
             {
                 line = reader.readLine();
-                if (line.equals("@" + username)) {
-                    while(!line.equals("\n")) {
-                        line = reader.readLine();
-                        if(!line.equals("@" + username))
+                if (line != null && line.equals("@" + username)) {
+                    while ((line = reader.readLine()) != null) {  // check that it's not null
+                        if (!line.equals("@" + username)) {
                             System.out.println(line);
 
                     }
                 }
-//                line = reader.readLine();
-//                if (line != null && line.equals("@" + username)) {
-//                    while ((line = reader.readLine()) != null) {  // check that it's not null
-//                        if (!line.equals("@" + username)) {
-//                            System.out.println(line);
-//                        }
-//                    }
-//                }
-            }
-        } catch (IOException e) {
+
+                        }
+                    }
+                }
+
+         catch (IOException e) {
             e.printStackTrace();
         }
 

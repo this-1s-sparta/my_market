@@ -81,23 +81,23 @@ public class Main {
 
         //TEST 3 checks that ProductInCart Product and Cart work
         //System.out.println("3rd test");
-        ProductInCart p=new ProductInCart("Νερό Μεταλλικό 1,5lt",1,0.5);
-        Cart mycart=new Cart();
-        mycart.AddToCart(p);
-        ProductInCart p1=new ProductInCart("Καρότα 1kg",4,4);
-        ProductInCart p2=new ProductInCart("Φιλέτο Σολομού 300g",2,24);
-        mycart.AddToCart(p1);
-        mycart.AddToCart(p2);
-        Cart cart2=new Cart();
-       cart2.AddToCart(p2);
-        double price1=p1.getPrice()/p1.getQuantity();
-        p1.setQuantity(6);
-        p1.setPrice(price1*p1.getQuantity());
+       // ProductInCart p=new ProductInCart("Νερό Μεταλλικό 1,5lt",1,0.5);
+        //Cart mycart=new Cart();
+        //mycart.AddToCart(p);
+       // ProductInCart p1=new ProductInCart("Καρότα 1kg",4,4);
+        //ProductInCart p2=new ProductInCart("Φιλέτο Σολομού 300g",2,24);
+        //mycart.AddToCart(p1);
+       // mycart.AddToCart(p2);
+       // Cart cart2=new Cart();
+       //cart2.AddToCart(p2);
+       // double price1=p1.getPrice()/p1.getQuantity();
+        //p1.setQuantity(6);
+       // p1.setPrice(price1*p1.getQuantity());
 
-       mycart.ChangeCart(p1);
-        History.addToHistory(mycart,"user1");
-        History.addToHistory(cart2,"user1");
-        History.ShowHistory("user1");
+       //mycart.ChangeCart(p1);
+        //History.addToHistory(mycart,"user1");
+        //History.addToHistory(cart2,"user1");
+        //History.ShowHistory("user1");
 
         //TEST 4 checks that Search works
         //System.out.println("4th test");
@@ -109,8 +109,8 @@ public class Main {
         //    System.out.println(p3.quantity);
         //    System.out.println(p3.price);
         // }
-        price1=mycart.SumOfCart();
-        System.out.println(price1);
+        //price1=mycart.SumOfCart();
+        //System.out.println(price1);
 
         //TEST 5 checks that Statistics (Zero and Best) work
         //System.out.println("5th test");
