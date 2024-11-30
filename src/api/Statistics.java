@@ -54,36 +54,30 @@ public class Statistics {
             System.err.println("Error creating or clearing best.txt: " + e.getMessage());
             return;
         }
-
         try (BufferedReader readerprod = new BufferedReader(new FileReader(products))) {
             String productLine;
             int times = 0;
             int Last = FileManagement.LastLine(products);
-
             // Reading each line of products.txt
             while (times <= Last) {
                 productLine = readerprod.readLine();
                 if (productLine == null) {
                     break; // Exit if there are no more lines to process
                 }
-
                 times++; // Increment the counter
-
                 if (times % 7 == 1) { // Process only every 7th line
                     try (BufferedReader readerhist = new BufferedReader(new FileReader(history))) {
                         String historyLine;
                         int count = 0; // Counter for occurrences of the product in History.txt
-
                         // Count occurrences in History.txt
                         while ((historyLine = readerhist.readLine()) != null) {
                             if (productLine.equals(historyLine)) {
                                 count++; // Increment the count for each match
                             }
                         }
-
                         // Write the product and its count to best.txt
                         int line = Position(bestFile, count);
-                        FileManagement.Write(bestFile, line, false, productLine + "," + count + "\n");
+                        FileManagement.Write(bestFile, line, false, productLine + "@" + count + "\n");
                     } catch (IOException e) {
                         System.err.println("Error reading History.txt: " + e.getMessage());
                     }
