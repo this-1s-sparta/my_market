@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="commit 30/11">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="commit 29/11">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/products.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Manager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ClientCartFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientCartFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ClientSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientSearchFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +36,12 @@
     &quot;assignee&quot;: &quot;this-1s-sparta&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/auth-csd-oop-2024/mymarket-4607-4683.git&quot;,
-    &quot;accountId&quot;: &quot;cac871b5-d4f6-47d0-abe1-dd2a420815a1&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/auth-csd-oop-2024/mymarket-4607-4683.git",
+    "accountId": "8735b662-b4bc-4f6b-a9b4-852f9f727bad"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -91,7 +93,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in MyMarket">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="MyMarket" />
@@ -117,8 +119,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in MyMarket" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -157,10 +159,8 @@
       <workItem from="1732792519197" duration="54000" />
       <workItem from="1732792597753" duration="1102000" />
       <workItem from="1732793720104" duration="7523000" />
-      <workItem from="1732923717207" duration="11921000" />
-      <workItem from="1732935749621" duration="14000" />
-      <workItem from="1732959945150" duration="192000" />
-      <workItem from="1732960297032" duration="2466000" />
+      <workItem from="1732923717207" duration="11644000" />
+      <workItem from="1733047759612" duration="7590000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -266,23 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732935223988</updated>
     </task>
-    <task id="LOCAL-00014" summary="commit 30/11">
+    <task id="LOCAL-00014" summary="30/11">
       <option name="closed" value="true" />
-      <created>1732935734840</created>
+      <created>1732963173604</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1732935734840</updated>
+      <updated>1732963173604</updated>
     </task>
-    <task id="LOCAL-00015" summary="commit 30/11">
-      <option name="closed" value="true" />
-      <created>1732960121809</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1732960121809</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,8 +296,8 @@
     <MESSAGE value="TRY" />
     <MESSAGE value="29/11" />
     <MESSAGE value="commit 29/11" />
-    <MESSAGE value="commit 30/11" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit 30/11" />
+    <MESSAGE value="30/11" />
+    <option name="LAST_COMMIT_MESSAGE" value="30/11" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

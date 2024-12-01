@@ -8,9 +8,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Cart {
     ArrayList<ProductInCart> cart;
+
     public Cart()
     {
         cart = new ArrayList<>();
+
     }
 
     public void AddToCart(ProductInCart p)
