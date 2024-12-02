@@ -6,8 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import static java.lang.System.*;
 
-import static java.lang.System.*;
-//* = to import all the files of the package
 public class Main {
     public static void main(String[] args) {
         try {
@@ -29,38 +27,7 @@ public class Main {
             out.println("An error occurred while working with the file.");
             out.println(e.getMessage());
         }
-
-        //this is the first frame
-        //it gives the option of log in and sign up
-        SwingUtilities.invokeLater(() -> {
-            JFrame mainFrame = new JFrame("Welcome to My Market");
-            mainFrame.setSize(300, 150); // Set the size of the frame
-            mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // stops running when X is pressed
-            mainFrame.setLayout(new FlowLayout(FlowLayout.CENTER)); // Center
-            Color customColor = new Color(100, 30, 200); // color the frame
-            mainFrame.getContentPane().setBackground(customColor);
-
-            // Create buttons
-            JButton loginButton = new JButton("Login");
-            // loginButton.setBackground(new Color(80, 60, 100)); //to put colour on buttons
-            JButton signUpButton = new JButton("Sign Up");
-
-            // for login button
-            loginButton.addActionListener(e -> {
-                LoginFrame.openLoginFrame();
-                //when "log in" is pressed the LoginFrame is opened
-            });
-            //for signup button
-            signUpButton.addActionListener(e -> {
-                SignUpFrame.openSignUpFrame();
-                //when "sign up" is pressed SignUpFrame is opened
-            });
-            // Add the buttons to the frame
-            mainFrame.add(loginButton);
-            mainFrame.add(signUpButton);
-            // visible frame
-            mainFrame.setVisible(true);
-        });
+        MainFrame.OpenMainFrame();
 
 
         //TESTS 1 checks that the Access methods all work
@@ -81,20 +48,20 @@ public class Main {
 
         //TEST 3 checks that ProductInCart Product and Cart work
         //System.out.println("3rd test");
-       // ProductInCart p=new ProductInCart("Νερό Μεταλλικό 1,5lt",1,0.5);
+        //ProductInCart p=new ProductInCart("Νερό Μεταλλικό 1,5lt",1,0.5);
         //Cart mycart=new Cart();
         //mycart.AddToCart(p);
-       // ProductInCart p1=new ProductInCart("Καρότα 1kg",4,4);
+        //ProductInCart p1=new ProductInCart("Καρότα 1kg",4,4);
         //ProductInCart p2=new ProductInCart("Φιλέτο Σολομού 300g",2,24);
         //mycart.AddToCart(p1);
-       // mycart.AddToCart(p2);
-       // Cart cart2=new Cart();
-       //cart2.AddToCart(p2);
-       // double price1=p1.getPrice()/p1.getQuantity();
+        //mycart.AddToCart(p2);
+        //Cart cart2=new Cart();
+        //cart2.AddToCart(p2);
+        //double price1=p1.getPrice()/p1.getQuantity();
         //p1.setQuantity(6);
-       // p1.setPrice(price1*p1.getQuantity());
+        //p1.setPrice(price1*p1.getQuantity());
 
-       //mycart.ChangeCart(p1);
+        //mycart.ChangeCart(p1);
         //History.addToHistory(mycart,"user1");
         //History.addToHistory(cart2,"user1");
         //History.ShowHistory("user1");
@@ -114,8 +81,8 @@ public class Main {
 
         //TEST 5 checks that Statistics (Zero and Best) work
         //System.out.println("5th test");
-        Statistics.Zero("products.txt"); //->works
-        Statistics.Best();
+        //Statistics.Zero(); //->works
+        //Statistics.Best();
 
     }
 }

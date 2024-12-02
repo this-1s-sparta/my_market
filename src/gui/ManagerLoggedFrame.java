@@ -23,16 +23,18 @@ public class ManagerLoggedFrame {
             ManagerSearchFrame.SearchFrame();
         });
 
+        Statistics.addActionListener(e -> {
+            //done
+            ManagerStatisticsFrame.StatisticsFrame();
+        });
+
         Add.addActionListener(e -> {
             ManagerAddFrame.AddFrame();
         });
 
-        Statistics.addActionListener(e -> {
-            ManagerStatisticsFrame.StatisticsFrame();
-        });
-
         LogOut.addActionListener(e -> {
-            LogOutFrame.OutFrame();
+            //done
+            LogOutFrame.CloseAll();
         });
 
         panel.add(Search);

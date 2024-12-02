@@ -4,12 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SignUpFrame {
-    // this is called by Main
+    // this is called by MainFrame
     public static void openSignUpFrame() {
         JFrame signupFrame = new JFrame("Sign Up");
         signupFrame.setSize(400, 250);
         signupFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        signupFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
+        signupFrame.setLayout(new GridBagLayout());
         Color customColor = new Color(150, 0, 180); // colour the frame
         signupFrame.getContentPane().setBackground(customColor);
 
@@ -32,6 +32,7 @@ public class SignUpFrame {
         JTextField passwordField = new JTextField(15);
 
         JLabel messageLabel = new JLabel(" ");
+        messageLabel.setForeground(Color.RED); //make message red
 
         //Login button
         JButton signupButton = new JButton("Sign Up");
@@ -46,6 +47,7 @@ public class SignUpFrame {
                 boolean check1 = Access.signup(usernameField.getText(), passwordField.getText());
                 if (check1) {
                     Person user = new Person(username, password);
+                    LogOutFrame.OutFrame(signupButton); //this closes the sign up frame
                     ClientLoggedFrame.StartFrame(user);
                 } else
                     messageLabel.setText("Username already exists");
