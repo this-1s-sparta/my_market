@@ -128,7 +128,7 @@ public class FileManagement {
         return -1; // Return -1 if content is not found
     }
     //this is a quick way to print a line ("lineToPrint") of a file ("filename")
-    public static void PrintLine(int lineToPrint,String filename) {
+    public static String GetLine(int lineToPrint,String filename) {
         int line = 0;
         String current;
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
@@ -136,15 +136,13 @@ public class FileManagement {
             while ((current = reader.readLine()) != null) {
                 line++;
                 if (line == lineToPrint) {
-                    System.out.println(current); // Print the line
-                    return;  // Return after printing the line
+                    return current;  // Return after printing the line
                 }
             }
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());
         }
         // If the loop finishes and the line is not found, print a message and return
-        System.out.println("Line " + lineToPrint + " not found.");
-        return;
+        return null;
     }
 }

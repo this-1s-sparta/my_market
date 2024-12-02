@@ -1,5 +1,4 @@
 package api;
-
 //API FILE
 //The access file has the login and sign up methods inside
 import java.io.FileReader;
@@ -66,4 +65,3 @@ public class Access{
         return false; // Return false if there's an error or if username already exists
     }
 }
-

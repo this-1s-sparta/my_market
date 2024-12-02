@@ -32,7 +32,8 @@ public class ClientLoggedFrame {
         });
 
         LogOut.addActionListener(e -> {
-            LogOutFrame.OutFrame();
+            //done
+            LogOutFrame.OutFrame(LogOut);
         });
 
         panel.add(Search);
