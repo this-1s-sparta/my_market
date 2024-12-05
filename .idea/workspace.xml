@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="commit 29/11">
-      <change afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="2/12">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/products.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Access.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Access.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/FileManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/FileManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Statistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/categories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/categories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Search.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LogOutFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LogOutFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ManagerStatisticsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerStatisticsFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/SignUpFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ClientSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientSearchFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +158,7 @@
       <workItem from="1732793720104" duration="7523000" />
       <workItem from="1732923717207" duration="11644000" />
       <workItem from="1733047759612" duration="7590000" />
+      <workItem from="1733398280675" duration="3250000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

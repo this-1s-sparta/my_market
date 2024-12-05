@@ -4,92 +4,88 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class Search {
 
-    public static void searchproduct(String title) {
-        String current;
-        int line = 0;
+    public static String searchproduct(String title) {
+        String current,result="";
         try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
-            while ((current = reader.readLine()) != null) {
-                line++;
-                if (current.equals("Τίτλος: " + title)) { // Compare the current line to content
-                    for (int i = line; i < line + 6; i++) {
-                        System.out.println(current);
-                        current = reader.readLine();
-                    }
+            current = reader.readLine();
+            while (current != null) {
+                if (current.equals("Τίτλος: " + title)) {
+                    result=current+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n";
+                    reader.readLine();
                     current = null;
                 } else {
-                    String l1 = current;
-                    line++;
-                    String l2 = reader.readLine();
-                    line++;
-                    current = reader.readLine();
-                    line++;
+                    String line=current+"\n"+reader.readLine()+"\n";
+                    current=reader.readLine();
                     if (current.equals("Κατηγορία: " + title)) {
-                        System.out.println(l1);
-                        System.out.println(l2);
-                        for (int i = line; i <= line + 3; i++) {
-                            System.out.println(current);
-                            current = reader.readLine();
-                        }
-                        line += 3;
+                        result=result+line+current+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n"+"\n";
+                        reader.readLine();
 
                     }
-
+                    else {
+                        reader.readLine();
+                        reader.readLine();
+                        reader.readLine();
+                        reader.readLine();
+                    }
+                    current=reader.readLine();
                 }
             }
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());
         }
+        return result;
     }
 
-    public static void searchproduct(String category, String subcategory) {
-        String current;
-        int line = 0;
-
+    public static String searchproduct(String category, String subcategory) {
+        String current,result="";
         try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
             while ((current = reader.readLine()) != null) {
-                line++;
-                String l1 = current;
-                line++;
-                String l2 = reader.readLine();
-                line++;
-                String l3 = reader.readLine();
-                line++;
-                if (l3.equals("Κατηγορία: " + category)) {
+                String line=current+"\n"+reader.readLine()+"\n";
+                current=reader.readLine();
+                if (current.equals("Κατηγορία: " + category)) {
+                    line=line+current+"\n";
                     current = reader.readLine();
                     if (current.equals("Υποκατηγορία: " + subcategory)) {
-                        System.out.println(l1);
-                        System.out.println(l2);
-                        System.out.println(l3);
-                        for (int i = line; i <= line + 2; i++) {
-                            System.out.println(current);
-                            current = reader.readLine();
-                        }
-                        line += 2;
+                        result=result+line+current+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n";
+                        reader.readLine();
+
+                    }else{
+                        reader.readLine();
+                        reader.readLine();
                     }
+                }else{
+                    reader.readLine();
+                    reader.readLine();
+                    reader.readLine();
+
                 }
+                current=reader.readLine();
+
 
             }
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());
         }
+        return result;
 
     }
 
-    public static void searchproduct() {
-        int line = 0;
-        String current;
+    public static String searchproduct() {
+        String current,result="";
         try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
             while ((current = reader.readLine()) != null) {
-                line++;
-                System.out.println(current);
+                result+=current+"\n";
 
             }
         } catch (IOException e) {
             System.err.println("Error reading the file: " + e.getMessage());
         }
+        return result;
     }
 
 
@@ -119,5 +115,12 @@ public class Search {
             throw new RuntimeException(e);
         }
         return titles;
+    }
+    public static String[] CategoryArray() {
+
+        String[] categories= {"Φρέσκα τρόφιμα","Kατεψυγμένα τρόφιμα","Προϊόντα ψυγείου","Αλλαντικά","Αλκοολούχα ποτά","Μη αλκοολούχα ποτά","Καθαριστικά για το σπίτι","Απορρυπαντικά ρούχων","Καλλυντικά","Προϊόντα στοματικής υγιεινής","Πάνες","Δημητριακά","Ζυμαρικά","Σνακ","Έλαια","Κονσέρβες","Χαρτικά"};
+
+
+        return categories;
     }
 }
