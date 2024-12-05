@@ -126,6 +126,47 @@ public class ClientSearchFrame {
             searchAllFrame.setVisible(true);
 
             });
+        JButton subcategoryButton = new JButton("Search By Category And Subcategory");
+        subcategoryButton.addActionListener(e1->{
+            JFrame searchSubategoryFrame = new JFrame("SearchBySubcategory");
+            searchSubategoryFrame.setSize(400, 250);
+            searchSubategoryFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            searchSubategoryFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
+            searchSubategoryFrame.getContentPane().setBackground(customColor);
+            JPanel panel4 = new JPanel();
+            panel4.setLayout(new GridLayout(5, 2, 10, 10));
+            panel4.setBackground(customColor);
+            String[] categories=Search.CategoryArray();
+            String[] sub=Search.SubCategoryArray();
+            JComboBox<String> comboBox1 = new JComboBox<>(categories);
+            comboBox1.setBounds(50, 50, 150, categories.length);
+            panel4.add(comboBox1);
+            JTextArea textArea4 = new JTextArea();
+            textArea4.setEditable(false);
+            comboBox1.addActionListener(ee -> {
+                panel4.remove(textArea4);
+                String selectedItem = (String) comboBox1.getSelectedItem();
+                JComboBox<String> comboBox2 = new JComboBox<>(sub);
+                comboBox2.setBounds(50, 50, 150, categories.length);
+                panel4.add(comboBox2);
+                comboBox1.addActionListener(e2 -> {
+                    panel4.remove(textArea4);
+                    String selectedItem2 = (String) comboBox2.getSelectedItem();
+                            textArea4.setText(Search.searchproduct(selectedItem,selectedItem2));
+                            panel4.add(textArea4);
+                        });
+
+
+
+            });
+
+            searchSubategoryFrame.add(panel4);
+            searchSubategoryFrame.setVisible(true);
+
+
+
+
+        });
 
 
         panel.add(new JLabel("Search"));
@@ -134,10 +175,11 @@ public class ClientSearchFrame {
 
         //panel.add(new JTextField());
        // panel.add(new JComboBox<>());
-        panel.add(categoryButton);
 
 
         panel.add(titleButton);
+        panel.add(categoryButton);
+        panel.add(subcategoryButton);
         searchFrame.add(panel);
         searchFrame.setVisible(true);
 
