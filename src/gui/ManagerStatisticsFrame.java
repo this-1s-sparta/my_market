@@ -10,28 +10,24 @@ import api.*;
 public class ManagerStatisticsFrame {
     // This is called by ManagerLoggedFrame
     public static void StatisticsFrame() {
-            // Create the main frame
+        //Create the main frame
         JFrame StatFrame = new JFrame("Statistics");
         StatFrame.setSize(500, 250); // Set the size of the frame
         StatFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Only close this frame
         StatFrame.setLayout(new GridBagLayout()); // Center components
-
-        // Set the background color
+        //Set the background color
         Color customColor = new Color(75, 150, 100);
         StatFrame.getContentPane().setBackground(customColor);
-
-        // Create a panel with GridLayout
+        //Create a panel with GridLayout
         JPanel panel = new JPanel(new GridLayout(1, 2, 10, 10)); // 1 row, 2 columns
         panel.setBackground(customColor); // Match panel color with frame
-
-        // Create buttons
+        //Create buttons
         JButton Unavailable = new JButton("Unavailable Products");
         Unavailable.setBackground(new Color(150, 0, 180));
         JButton Best = new JButton("Most Ordered Products");
         Best.setBackground(new Color(150, 0, 180));
 
-        // Add ActionListener for Unavailable Products
-        Unavailable.addActionListener(e -> {
+        Unavailable.addActionListener(e -> { //This action will be taken if Unavailable Products is pressed
             Statistics.Zero();
             JFrame ZeroFrame = new JFrame("Unavailable Products");
             ZeroFrame.setSize(400, 300);
@@ -52,8 +48,7 @@ public class ManagerStatisticsFrame {
             ZeroFrame.setVisible(true);
         });
 
-        // Add ActionListener for Most Ordered Products
-        Best.addActionListener(e -> {
+        Best.addActionListener(e -> { //This action will be taken if Best Products is pressed
             Statistics.Best();
             JFrame BestFrame = new JFrame("Most Ordered Products");
             BestFrame.setSize(400, 300);
@@ -88,6 +83,6 @@ public class ManagerStatisticsFrame {
         panel.add(Best);
         // Add the panel to the main frame
         StatFrame.add(panel);
-        StatFrame.setVisible(true);
+        StatFrame.setVisible(true); //Make Frame visible
     }
 }

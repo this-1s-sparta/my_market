@@ -12,10 +12,8 @@ public class Main {
             //if the client and manager files don't exist initialization must be done
             File client = new File("client.csv");
             File manager = new File("manager.csv");
-            File products = new File("products.txt");
-            //File categories = new File ("categories_subcategories.txt");
 
-            // The createNewFile() returns true if the file was created, and false if it hasn't.
+            // createNewFile() returns true if the file was created, and false if it hasn't.
             if (client.createNewFile() && manager.createNewFile()) {
                 FileManagement.Write("client.csv", 1, false, "user1,password1\nuser2,password2");
                 FileManagement.Write("manager.csv", 1, false, "admin1,password\nadmin2,password2");
@@ -27,9 +25,9 @@ public class Main {
             out.println("An error occurred while working with the file.");
             out.println(e.getMessage());
         }
-        MainFrame.OpenMainFrame();
+        MainFrame.OpenMainFrame(); //here I start the gui
 
-
+        //this will be moved in the test file later
         //TESTS 1 checks that the Access methods all work
         //System.out.println("1st test");
         //boolean x=Access.signup("nadia","password123"); //-> works
@@ -41,10 +39,11 @@ public class Main {
         //x=Access.login("nadia","password123","manager.csv"); //->works
         //System.out.println(x);
 
-        //TEST 2 checks that Products (Add and Change) work
+        //TEST 2 checks that Products (Add and Change) ->works
         //System.out.println("2nd test");
-        //Products.Add("Τίτλος"+"\n"+"Περιγραφή"+"\n"+"Κατηγορία"+"\n"+"Υποκατηγορία"+"\n"+"Τιμή"+"\n"+"Ποσότητα"); //->works
-        //Products.Change("Τίτλος: Τίτλος","Τ"+"\n"+"Π"+"\n"+"Κ"+"\n"+"Υ"+"\n"+"Τ"+"\n"+"Π"); //->works
+        //Products product = new Products("Τίτλος", "Περιγραφή", "Κατηγορία", "Υποκατηγορία", "Τιμή", "Ποσότητα");
+        //Products.Add(product);
+        //Products.Change("Τίτλος: Τίτλος", new Products("Τ", "Π", "Κ", "Υ", "Τ", "Π"));
 
         //TEST 3 checks that ProductInCart Product and Cart work
         //System.out.println("3rd test");
@@ -82,7 +81,7 @@ public class Main {
         //TEST 5 checks that Statistics (Zero and Best) work
         //System.out.println("5th test");
         //Statistics.Zero(); //->works
-        //Statistics.Best();
+        //Statistics.Best(); //->works
 
     }
 }

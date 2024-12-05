@@ -6,10 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="5/12">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/categories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/products.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Products.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ClientSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientSearchFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ManagerStatisticsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerStatisticsFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SignUpFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

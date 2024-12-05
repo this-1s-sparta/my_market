@@ -6,33 +6,34 @@ import api.*;
 public class ManagerLoggedFrame {
     //this is called by LoginFrame
     public static void StartFrame(Person user) {
+        // Create the Managers Start Frame
         JFrame startFrame = new JFrame("Welcome Manager "+ user.getUsername() );
         startFrame.setSize(300, 200);
         startFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         startFrame.setVisible(true);
-
+        //Create the panel
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 9, 10, 10));
-
+        //Create the Buttons
         JButton Search = new JButton("Search");
         JButton Add = new JButton("Add");
         JButton Statistics = new JButton("Statistics");
         JButton LogOut = new JButton("Log out");
-        //this is the action that will be taken after login is pressed
-        Search.addActionListener(e -> {
+
+        Search.addActionListener(e -> { //This action will be taken if Search is pressed
             ManagerSearchFrame.SearchFrame();
         });
 
-        Statistics.addActionListener(e -> {
+        Statistics.addActionListener(e -> { //This action will be taken if Statistics is pressed
             //done
             ManagerStatisticsFrame.StatisticsFrame();
         });
 
-        Add.addActionListener(e -> {
+        Add.addActionListener(e -> { //This action will be taken if Add is pressed
             ManagerAddFrame.AddFrame();
         });
 
-        LogOut.addActionListener(e -> {
+        LogOut.addActionListener(e -> { //This action will be taken if Log Out is pressed
             //done
             LogOutFrame.CloseAll();
         });
@@ -42,7 +43,6 @@ public class ManagerLoggedFrame {
         panel.add(Statistics);
         panel.add(LogOut);
         startFrame.add(panel);
-        // Make the frame visible
-        startFrame.setVisible(true);
+        startFrame.setVisible(true); // Make the frame visible
     }
 }
