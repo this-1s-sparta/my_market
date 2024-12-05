@@ -95,7 +95,7 @@ public class ClientSearchFrame {
 
         JButton searchButton = new JButton("Search");
         searchButton.addActionListener(e1->{
-            JFrame searchAllFrame = new JFrame("SearchByCategory");
+            JFrame searchAllFrame = new JFrame("Search");
             searchAllFrame.setSize(400, 250);
             searchAllFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             searchAllFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -172,9 +172,8 @@ public class ClientSearchFrame {
         panel.add(new JLabel("Search"));
         panel.add(searchButton);
 
-
         //panel.add(new JTextField());
-       // panel.add(new JComboBox<>());
+       //panel.add(new JComboBox<>());
 
 
         panel.add(titleButton);
