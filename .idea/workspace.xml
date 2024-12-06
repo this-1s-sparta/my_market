@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="5/12">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="12/5&#10;Products corrected and tested&#10;Made better commenting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/products.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Products.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ManagerStatisticsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerStatisticsFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/SignUpFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +32,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/auth-csd-oop-2024/mymarket-4607-4683.git&quot;,
-    &quot;accountId&quot;: &quot;8735b662-b4bc-4f6b-a9b4-852f9f727bad&quot;
+    &quot;accountId&quot;: &quot;cac871b5-d4f6-47d0-abe1-dd2a420815a1&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -164,6 +155,11 @@
       <workItem from="1732923717207" duration="11644000" />
       <workItem from="1733047759612" duration="7590000" />
       <workItem from="1733398280675" duration="5261000" />
+      <workItem from="1733430725852" duration="33000" />
+      <workItem from="1733431068458" duration="83000" />
+      <workItem from="1733431264515" duration="21000" />
+      <workItem from="1733437472914" duration="26000" />
+      <workItem from="1733438462063" duration="1314000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -293,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733402896738</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="12/5&#10;Products corrected and tested&#10;Made better commenting">
+      <option name="closed" value="true" />
+      <created>1733426488104</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1733426488104</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +322,8 @@
     <MESSAGE value="30/11" />
     <MESSAGE value="2/12" />
     <MESSAGE value="5/12" />
-    <option name="LAST_COMMIT_MESSAGE" value="5/12" />
+    <MESSAGE value="12/5&#10;Products corrected and tested&#10;Made better commenting" />
+    <option name="LAST_COMMIT_MESSAGE" value="12/5&#10;Products corrected and tested&#10;Made better commenting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
