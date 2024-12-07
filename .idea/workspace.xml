@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="5/12">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="7/12">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ClientSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientSearchFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -166,7 +164,7 @@
       <workItem from="1733505129275" duration="1205000" />
       <workItem from="1733506359186" duration="40000" />
       <workItem from="1733541168426" duration="7479000" />
-      <workItem from="1733599332686" duration="5337000" />
+      <workItem from="1733599332686" duration="6908000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -336,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733585321531</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="7/12">
+      <option name="closed" value="true" />
+      <created>1733605585555</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1733605585555</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,7 +371,8 @@
     <MESSAGE value="6/12&#10;PartialSearchLine in FileManagement" />
     <MESSAGE value="ψ" />
     <MESSAGE value="5/12" />
-    <option name="LAST_COMMIT_MESSAGE" value="5/12" />
+    <MESSAGE value="7/12" />
+    <option name="LAST_COMMIT_MESSAGE" value="7/12" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

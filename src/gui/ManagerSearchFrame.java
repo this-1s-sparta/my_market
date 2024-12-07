@@ -87,6 +87,19 @@ public class ManagerSearchFrame {
                 String givenCategory=(String) comboBox1.getSelectedItem();
                 String givenSubcategory=(String) comboBox2.getSelectedItem();
                 Search.searchproduct(givenTitle, givenCategory, givenSubcategory);
+                try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))){
+                    int line=0;
+                    for(int i=0;i<FileManagement.LastLine("search.txt");i+=6){
+                        String current=reader.readLine();
+                        String[] fields = current.split(":");
+                        String title = fields[1].trim();
+
+                    }
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
 
             });
 
