@@ -39,14 +39,19 @@ public class ClientSearchFrame {
             panel1.setLayout(new GridLayout(5, 2, 10, 10));
             panel1.setBackground(customColor);
             String[] titles=Search.TitleArray();
-            JComboBox<String> comboBox = new JComboBox<>(titles);
-            comboBox.setBounds(50, 50, 150, titles.length);
-            panel1.add(comboBox);
+            //JComboBox<String> comboBox = new JComboBox<>(titles);
+            //comboBox.setBounds(50, 50, 150, titles.length);
+            JTextField t=new JTextField(20);
+            panel1.add(t);
             JTextArea textArea = new JTextArea();
             textArea.setEditable(false);
-            comboBox.addActionListener(ee -> {
-                panel1.remove(textArea);
-                String selectedItem = (String) comboBox.getSelectedItem();
+            JButton submitbutton = new JButton("Submit");
+            submitbutton.setBounds(50, 150, 100, 30);
+            panel1.add(submitbutton);
+
+            submitbutton.addActionListener(ee -> {
+                //panel1.remove(textArea);
+                String selectedItem = t.getText();
                 textArea.setText(Search.searchproduct(selectedItem));
                 panel1.add(textArea);
 
@@ -128,40 +133,61 @@ public class ClientSearchFrame {
             });
         JButton subcategoryButton = new JButton("Search By Category And Subcategory");
         subcategoryButton.addActionListener(e1->{
-            JFrame searchSubategoryFrame = new JFrame("SearchBySubcategory");
-            searchSubategoryFrame.setSize(400, 250);
-            searchSubategoryFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            searchSubategoryFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
-            searchSubategoryFrame.getContentPane().setBackground(customColor);
+            JFrame searchSubcategoryFrame = new JFrame("SearchBySubcategory");
+            searchSubcategoryFrame.setSize(400, 250);
+            searchSubcategoryFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            searchSubcategoryFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
+            searchSubcategoryFrame.getContentPane().setBackground(customColor);
             JPanel panel4 = new JPanel();
             panel4.setLayout(new GridLayout(5, 2, 10, 10));
             panel4.setBackground(customColor);
             String[] categories=Search.CategoryArray();
-            String[] sub=Search.SubCategoryArray();
             JComboBox<String> comboBox1 = new JComboBox<>(categories);
+            JComboBox<String> comboBox2 = new JComboBox<>();
             comboBox1.setBounds(50, 50, 150, categories.length);
             panel4.add(comboBox1);
+            panel4.add(comboBox2);
             JTextArea textArea4 = new JTextArea();
             textArea4.setEditable(false);
             comboBox1.addActionListener(ee -> {
                 panel4.remove(textArea4);
-                String selectedItem = (String) comboBox1.getSelectedItem();
-                JComboBox<String> comboBox2 = new JComboBox<>(sub);
-                comboBox2.setBounds(50, 50, 150, categories.length);
-                panel4.add(comboBox2);
-                comboBox1.addActionListener(e2 -> {
-                    panel4.remove(textArea4);
-                    String selectedItem2 = (String) comboBox2.getSelectedItem();
-                            textArea4.setText(Search.searchproduct(selectedItem,selectedItem2));
-                            panel4.add(textArea4);
-                        });
-
+               String  selectedCategory = (String) comboBox1.getSelectedItem();
+                // Update the subcategories based on the selected category
+                String[] sub = new String[0];
+                if (selectedCategory != null) {
+                    int line = FileManagement.PartialSearchLine(0, "categories.txt", selectedCategory);
+                    if (line >= 1) { // Ensure a valid line was found
+                        try (BufferedReader reader = new BufferedReader(new FileReader("categories.txt"))) {
+                            String targetLine = null;
+                            for (int i = 1; i <= line; i++) {
+                                targetLine = reader.readLine();
+                            }
+                            if (targetLine != null && targetLine.contains("(") && targetLine.contains(")")) {
+                                int start = targetLine.indexOf('(') + 1;
+                                int end = targetLine.indexOf(')');
+                                String subcategories = targetLine.substring(start, end);
+                                sub = subcategories.split("@"); // Split by '@'
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        System.out.println("Category not found in the file.");
+                    }
+                    comboBox2.removeAllItems(); // Clear existing items
+                    for (String subcategory : sub) {
+                        comboBox2.addItem(subcategory);
+                    }
+                    String selectedSubcategory = (String) comboBox2.getSelectedItem();
+                    textArea4.setText(Search.searchproduct(selectedCategory,selectedSubcategory));
+                    panel4.add(textArea4);
+                }
 
 
             });
 
-            searchSubategoryFrame.add(panel4);
-            searchSubategoryFrame.setVisible(true);
+            searchSubcategoryFrame.add(panel4);
+            searchSubcategoryFrame.setVisible(true);
 
 
 
