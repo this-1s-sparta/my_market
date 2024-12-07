@@ -1,9 +1,128 @@
 package gui;
 
+import api.*;
+import javax.swing.*;
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class ManagerAddFrame {
-    //this is called by ManagerLoggedFrame
+    // Class-level static variables
+    private static String selectedCategory = null;
+    private static String selectedSub = null;
     public static void AddFrame() {
-        //this is the add method
-        // using it a manager can add a new product to the list of products
+        // Create the main frame
+        JFrame AddFrame = new JFrame("Add Product");
+        AddFrame.setSize(400, 300);
+        AddFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        AddFrame.setLayout(new GridBagLayout()); // Center alignment
+        Color customColor = new Color(150, 0, 180); // Custom background color
+        AddFrame.getContentPane().setBackground(customColor);
+
+        // Create the panel
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(7, 2, 5, 5)); // 2 columns, 6 rows with padding
+        panel.setBackground(customColor);
+
+        // Create labels and text fields
+        JLabel titleLabel = new JLabel("Title:");
+        JTextField titleField = new JTextField(15);
+
+        JLabel descriptionLabel = new JLabel("Description:");
+        JTextField descriptionField = new JTextField(100);
+
+        JLabel priceLabel = new JLabel("Price:");
+        JTextField priceField = new JTextField(5);
+
+        JLabel quantityLabel = new JLabel("Quantity:");
+        JTextField quantityField = new JTextField(5);
+
+        // Create the first combo box for categories
+        String[] categories = Search.CategoryArray();
+        JComboBox<String> comboBox1 = new JComboBox<>(categories);
+        comboBox1.setBounds(50, 50, 150, categories.length);
+
+        // Create the second combo box for subcategories
+        JComboBox<String> comboBox2 = new JComboBox<>();
+        comboBox2.setBounds(50, 50, 150, 10);
+
+        JLabel messageLabel = new JLabel(" ");
+        messageLabel.setForeground(Color.RED); //make message RED
+
+        // Add ActionListener for comboBox1 to dynamically update subcategories
+        comboBox1.addActionListener(ee -> {
+            selectedCategory = (String) comboBox1.getSelectedItem();
+            // Update the subcategories based on the selected category
+            String[] sub = new String[0];
+            if (selectedCategory != null) {
+                int line = FileManagement.PartialSearchLine(0, "categories.txt", selectedCategory);
+                if (line >= 1) { // Ensure a valid line was found
+                    try (BufferedReader reader = new BufferedReader(new FileReader("categories.txt"))) {
+                        String targetLine = null;
+                        for (int i = 1; i <= line; i++) {
+                            targetLine = reader.readLine();
+                        }
+                        if (targetLine != null && targetLine.contains("(") && targetLine.contains(")")) {
+                            int start = targetLine.indexOf('(') + 1;
+                            int end = targetLine.indexOf(')');
+                            String subcategories = targetLine.substring(start, end);
+                            sub = subcategories.split("@"); // Split by '@'
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    System.out.println("Category not found in the file.");
+                }
+            }
+            // Update comboBox2 with new subcategories
+            comboBox2.removeAllItems(); // Clear existing items
+            for (String subcategory : sub) {
+                comboBox2.addItem(subcategory);
+            }
+        });
+
+        // Add ActionListener for comboBox2 to handle subcategory selection
+        comboBox2.addActionListener(ee -> {
+            selectedSub = (String) comboBox2.getSelectedItem();
+        });
+
+        JButton AddButton = new JButton("Add");
+        AddButton.addActionListener(e -> {
+            String title = titleField.getText();
+            String category = selectedCategory;
+            String subcategory = selectedSub;
+            String description = descriptionField.getText();
+            String price = priceField.getText();
+            String quantity = quantityField.getText();
+            if (!(title == null || category == null || subcategory == null || description == null || price == null || quantity == null)) {
+                Products prod = new Products(title, category, subcategory, description, price, quantity);
+                Products.Add(prod);
+                messageLabel.setText("Add successful");
+                LogOutFrame.OutFrame(AddButton);
+            } else {
+                messageLabel.setText("Wrong information");
+            }
+        });
+
+        // Add components to the panel
+        panel.add(titleLabel);
+        panel.add(titleField);
+        panel.add(descriptionLabel);
+        panel.add(descriptionField);
+        panel.add(priceLabel);
+        panel.add(priceField);
+        panel.add(quantityLabel);
+        panel.add(quantityField);
+        panel.add(new JLabel("Category:")); // Label for category selection
+        panel.add(comboBox1);
+        panel.add(new JLabel("Subcategory:")); // Label for subcategory selection
+        panel.add(comboBox2);
+        panel.add(AddButton);
+        panel.add(messageLabel);
+        // Add the panel to the frame
+        AddFrame.add(panel);
+        AddFrame.setVisible(true);
     }
 }

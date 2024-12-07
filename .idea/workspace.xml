@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="6/12&#10;PartialSearchLine in FileManagement">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="ψ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ClientHistoryFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientHistoryFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ManagerAddFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerAddFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +166,7 @@
       <workItem from="1733438462063" duration="1314000" />
       <workItem from="1733505129275" duration="1205000" />
       <workItem from="1733506359186" duration="40000" />
+      <workItem from="1733541168426" duration="7479000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -315,7 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733506100747</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="ψ">
+      <option name="closed" value="true" />
+      <created>1733541306199</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1733541306199</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,7 +356,8 @@
     <MESSAGE value="12/5&#10;Products corrected and tested&#10;Made better commenting" />
     <MESSAGE value="c" />
     <MESSAGE value="6/12&#10;PartialSearchLine in FileManagement" />
-    <option name="LAST_COMMIT_MESSAGE" value="6/12&#10;PartialSearchLine in FileManagement" />
+    <MESSAGE value="ψ" />
+    <option name="LAST_COMMIT_MESSAGE" value="ψ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
