@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="c">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="6/12&#10;PartialSearchLine in FileManagement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/FileManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/FileManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/Product.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +160,8 @@
       <workItem from="1733431264515" duration="21000" />
       <workItem from="1733437472914" duration="26000" />
       <workItem from="1733438462063" duration="1314000" />
-      <workItem from="1733505129275" duration="915000" />
+      <workItem from="1733505129275" duration="1205000" />
+      <workItem from="1733506359186" duration="40000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -308,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733505153244</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="6/12&#10;PartialSearchLine in FileManagement">
+      <option name="closed" value="true" />
+      <created>1733506100747</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1733506100747</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +342,8 @@
     <MESSAGE value="5/12" />
     <MESSAGE value="12/5&#10;Products corrected and tested&#10;Made better commenting" />
     <MESSAGE value="c" />
-    <option name="LAST_COMMIT_MESSAGE" value="c" />
+    <MESSAGE value="6/12&#10;PartialSearchLine in FileManagement" />
+    <option name="LAST_COMMIT_MESSAGE" value="6/12&#10;PartialSearchLine in FileManagement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
