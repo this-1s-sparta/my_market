@@ -145,4 +145,20 @@ public class FileManagement {
         // If the loop finishes and the line is not found, print a message and return
         return null;
     }
+
+    public static int PartialSearchLine(int startline, String filename, String content) {
+        int line = 0;
+        String current;
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            while ((current = reader.readLine()) != null) {
+                line++; //skip until startline
+                if (line >= startline && current.startsWith(content)) {
+                    return line;
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading the file: " + e.getMessage());
+        }
+        return -1; // no match found
+    }
 }

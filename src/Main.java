@@ -16,7 +16,7 @@ public class Main {
             // createNewFile() returns true if the file was created, and false if it hasn't.
             if (client.createNewFile() && manager.createNewFile()) {
                 FileManagement.Write("client.csv", 1, false, "user1,password1\nuser2,password2");
-                FileManagement.Write("manager.csv", 1, false, "admin1,password\nadmin2,password2");
+                FileManagement.Write("manager.csv", 1, false, "admin1,password1\nadmin2,password2");
             }
 
         } catch (IOException e) {
