@@ -1,94 +1,104 @@
 package api;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class Search {
 
-    public static String searchproduct(String title) {
-        String current,result="";
-        try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
-            current = reader.readLine();
-            while (current != null) {
-                if (current.equals("Τίτλος: " + title)) {
-                    result=current+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n";
-                    reader.readLine();
-                    current = null;
-                } else {
-                    String line=current+"\n"+reader.readLine()+"\n";
-                    current=reader.readLine();
-                    if (current.equals("Κατηγορία: " + title)) {
-                        result=result+line+current+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n"+"\n";
-                        reader.readLine();
+    public static void searchproduct(String title, String category, String subcategory) {
+        try {
+            File search = new File("search.txt");
+            if (search.exists()) {
+                search.delete();
 
+            }
+            if (!search.createNewFile()) {
+                System.err.println("Unable to create best.txt file.");
+                return;
+            }
+        } catch (IOException e) {
+            System.err.println("Error creating or clearing best.txt: " + e.getMessage());
+            return;
+        }
+        //String current,result="";
+        if (!title.equals("")) {
+            int j = 0;
+            while (j <= FileManagement.LastLine("products.txt")) {
+                int line = FileManagement.PartialSearchLine(j, "products.txt", "Τίτλος: " + title);
+                if (line >= 1) {
+                    try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
+                        String targetLine = null;
+                        for (int i = 1; i <= line; i++) {
+                            targetLine = reader.readLine();
+                        }
+                        int k = FileManagement.LastLine("search.txt");
+                        for (int i = k; i < k + 6; i++) {
+                            FileManagement.Write("search.txt", i, false, targetLine + "\n");
+                            targetLine = reader.readLine();
+
+                        }
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                    else {
-                        reader.readLine();
-                        reader.readLine();
-                        reader.readLine();
-                        reader.readLine();
-                    }
-                    current=reader.readLine();
+                } else
+                    return;
+                j = j + line + 6;
+            }
+        }
+        if (category != null) {
+            if (subcategory != "-" && subcategory != null) {
+                int j = 0;
+                while (j <= FileManagement.LastLine("products.txt")) {
+                    int line = FileManagement.PartialSearchLine(j, "products.txt", "Υποκατηγορία: " + subcategory);
+                    if (line >= 1) {
+                        try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
+                            String targetLine = null;
+                            for (int i = 1; i <= line - 3; i++) {
+                                targetLine = reader.readLine();
+                            }
+                            int k = FileManagement.LastLine("search.txt");
+                            for (int i = k; i < k + 6; i++) {
+                                FileManagement.Write("search.txt", i, false, targetLine);
+                                targetLine = reader.readLine();
+
+                            }
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else
+                        return;
+                    j = j + line + 6;
+                }
+            } else {
+                int j = 0;
+                while (j <= FileManagement.LastLine("products.txt")) {
+                    int line = FileManagement.PartialSearchLine(j, "products.txt", "Κατηγορία: " + category);
+                    if (line >= 1) {
+                        try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
+                            String targetLine = null;
+                            for (int i = 1; i <= line - 2; i++) {
+                                targetLine = reader.readLine();
+                            }
+                            int k = FileManagement.LastLine("search.txt");
+                            for (int i = k; i < k + 6; i++) {
+                                FileManagement.Write("search.txt", i, false, targetLine);
+                                targetLine = reader.readLine();
+
+                            }
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else
+                        return;
+                    j = j + line + 6;
                 }
             }
-        } catch (IOException e) {
-            System.err.println("Error reading the file: " + e.getMessage());
         }
-        return result;
     }
-
-    public static String searchproduct(String category, String subcategory) {
-        String current,result="";
-        try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
-            while ((current = reader.readLine()) != null) {
-                String line=current+"\n"+reader.readLine()+"\n";
-                current=reader.readLine();
-                if (current.equals("Κατηγορία: " + category)) {
-                    line=line+current+"\n";
-                    current = reader.readLine();
-                    if (current.equals("Υποκατηγορία: " + subcategory)) {
-                        result=result+line+current+"\n"+reader.readLine()+"\n"+reader.readLine()+"\n";
-                        reader.readLine();
-
-                    }else{
-                        reader.readLine();
-                        reader.readLine();
-                    }
-                }else{
-                    reader.readLine();
-                    reader.readLine();
-                    reader.readLine();
-
-                }
-                current=reader.readLine();
-
-
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading the file: " + e.getMessage());
-        }
-        return result;
-
-    }
-
-    public static String searchproduct() {
-        String current,result="";
-        try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
-            while ((current = reader.readLine()) != null) {
-                result+=current+"\n";
-
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading the file: " + e.getMessage());
-        }
-        return result;
-    }
-
-
     public static String[] TitleArray() {
         String filePath = "products.txt";
         int j = 0;
@@ -125,6 +135,6 @@ public class Search {
     }
     public static String[] SubCategoryArray() {
         String[] sub="Φρούτα@Λαχανικά@Ψάρια@Κρέατα@Κατεψυγμένα λαχανικά@Κατεψυγμένα κρέατα@Κατεψυγμένες πίτσες@Κατεψυγμένα γεύματα@Τυριά@Γιαούρτια@Γάλα@Βούτυρο@Ζαμπόν@Σαλάμι@Μπέικον@Μπύρα@Κρασί@Ούζο@Τσίπουρο@Χυμοί@Αναψυκτικά@Νερό@Ενεργειακά ποτά@Καθαριστικά για το πάτωμα@Καθαριστικά για τα τζάμια@Καθαριστικά κουζίνας@Σκόνες πλυντηρίου@Υγρά πλυντηρίου@Μαλακτικά@Κρέμες προσώπου@Μακιγιάζ@Λοσιόν σώματος@Οδοντόκρεμες@Οδοντόβουρτσες@Στοματικά διαλύματα@Πάνες για μωρά@Πάνες ενηλίκων@Νιφάδες καλαμποκιού@Μούσλι@Βρώμη@Μακαρόνια@Κριθαράκι@Ταλιατέλες@Πατατάκια@Κράκερς@Μπάρες δημητριακών@Ελαιόλαδο@Ηλιέλαιο@Σογιέλαιο@Κονσέρβες ψαριών@Κονσέρβες λαχανικών@Κονσέρβες φρούτων@Χαρτί υγείας@Χαρτοπετσέτες@Χαρτομάντηλα".split("@");
-         return sub;
+        return sub;
     }
 }
