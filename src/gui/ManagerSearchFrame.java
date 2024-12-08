@@ -91,15 +91,14 @@ public class ManagerSearchFrame {
                 JFrame resultFrame = new JFrame("Results");
                 resultFrame.setSize(400, 250);
                 JPanel panelSearch = new JPanel();
+                String current;
                 try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))){
-                    int line=0;
-                    for(int i=1;i<FileManagement.LastLine("search.txt");i+=6){
+                    while((current=reader.readLine())!=null){
                         JTextArea textArea = new JTextArea();
                         textArea.setEditable(false);
-                        String current=reader.readLine();
                         textArea.append(current+"\n");
                         String[] fields = current.split(":");
-                        String title = fields[1].trim();
+                        String title =current;
                         current=reader.readLine();
                         textArea.append(current+"\n");
                         fields = current.split(":");
