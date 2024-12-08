@@ -1,6 +1,7 @@
 package gui;
 
 import api.FileManagement;
+import api.Products;
 import api.Search;
 
 import javax.swing.*;
@@ -87,12 +88,90 @@ public class ManagerSearchFrame {
                 String givenCategory=(String) comboBox1.getSelectedItem();
                 String givenSubcategory=(String) comboBox2.getSelectedItem();
                 Search.searchproduct(givenTitle, givenCategory, givenSubcategory);
+                JFrame resultFrame = new JFrame("Results");
+                resultFrame.setSize(400, 250);
+                JPanel panelSearch = new JPanel();
                 try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))){
                     int line=0;
-                    for(int i=0;i<FileManagement.LastLine("search.txt");i+=6){
+                    for(int i=1;i<FileManagement.LastLine("search.txt");i+=6){
+                        JTextArea textArea = new JTextArea();
+                        textArea.setEditable(false);
+                        JScrollPane scrollPane = new JScrollPane(textArea);
+                        resultFrame.add(scrollPane);
                         String current=reader.readLine();
+                        textArea.append(current+"\n");
                         String[] fields = current.split(":");
                         String title = fields[1].trim();
+                        current=reader.readLine();
+                        textArea.append(current+"\n");
+                        fields = current.split(":");
+                        String des = fields[1].trim();
+                        current=reader.readLine();
+                        textArea.append(current+"\n");
+                        fields = current.split(":");
+                        String category = fields[1].trim();
+                        current=reader.readLine();
+                        textArea.append(current+"\n");
+                        fields = current.split(":");
+                        String subcategory = fields[1].trim();
+                        current=reader.readLine();
+                        textArea.append(current+"\n");
+                        fields = current.split(":");
+                        String price = fields[1].trim();
+                        current=reader.readLine();
+                        textArea.append(current+"\n");
+                        fields = current.split(":");
+                        String quantity = fields[1].trim();
+                        panelSearch.add(textArea);
+                        JButton changeButton = new JButton("Change");
+                        panelSearch.add(changeButton);
+                        changeButton.addActionListener(ee -> {
+                            JFrame ChangeFrame = new JFrame("Change Product");
+                            ChangeFrame.setSize(400, 300);
+                            ChangeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                            ChangeFrame.setLayout(new GridBagLayout()); // Center alignment
+                            ChangeFrame.getContentPane().setBackground(customColor);
+
+                            // Create the panel
+                            JPanel changePanel = new JPanel();
+                            changePanel.setLayout(new GridLayout(7, 2, 5, 5)); // 2 columns, 6 rows with padding
+                            changePanel.setBackground(customColor);
+
+                            // Create labels and text fields
+                            changePanel.add(titleLabel);
+                            changePanel.add(titleField);
+                            titleField.setText(title);
+                            JLabel descriptionLabel = new JLabel("Description:");
+                            JTextField descriptionField = new JTextField(des);
+                            changePanel.add(categoryLabel);
+                            comboBox1.insertItemAt(category, 0);
+                            comboBox1.setSelectedIndex(0);
+                            changePanel.add(comboBox1);
+                            changePanel.add(subcategoryLabel);
+                            comboBox2.insertItemAt(subcategory, 0);
+                            comboBox2.setSelectedIndex(0);
+                            changePanel.add(comboBox2);
+                            JLabel priceLabel = new JLabel("Price:");
+                            JTextField priceField = new JTextField(price);
+                            JLabel quantityLabel = new JLabel("Quantity:");
+                            JTextField quantityField = new JTextField(quantity);
+                            JButton enterButton = new JButton("Enter");
+                            changePanel.add(priceLabel);
+                            changePanel.add(priceField);
+                            changePanel.add(quantityLabel);
+                            changePanel.add(quantityField);
+                            changePanel.add(enterButton);
+                            enterButton.addActionListener(ec->{
+                                Products p=new Products(titleField.getText(),descriptionField.getText(),(String)comboBox1.getSelectedItem(),(String)comboBox2.getSelectedItem(),priceField.getText(),quantityField.getText());
+                                Products.Change("Τίτλος: "+title,p);
+                            });
+                            ChangeFrame.add(changePanel);
+                            ChangeFrame.setVisible(true);
+
+
+
+                        });
+
 
                     }
                 } catch (FileNotFoundException ex) {
@@ -100,6 +179,8 @@ public class ManagerSearchFrame {
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+                resultFrame.add(panelSearch);
+                resultFrame.setVisible(true);
 
             });
 
