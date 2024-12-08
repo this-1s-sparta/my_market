@@ -1,5 +1,7 @@
 package gui;
 
+import api.FileManagement;
+import api.Products;
 import api.Search;
 
 import javax.swing.*;
@@ -26,165 +28,178 @@ public class ManagerSearchFrame {
             panel.setLayout(new GridLayout(5, 2, 10, 10));
             panel.setBackground(customColor);
 
-            JButton titleButton = new JButton("Search By Title");
-            titleButton.addActionListener(e->{
-                JFrame searchTitleFrame = new JFrame("SearchByTitle");
-                searchTitleFrame.setSize(400, 250);
-                searchTitleFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                searchTitleFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
-                searchTitleFrame.getContentPane().setBackground(customColor);
-                JPanel panel1 = new JPanel();
-                panel1.setLayout(new GridLayout(5, 2, 10, 10));
-                panel1.setBackground(customColor);
-                String[] titles= Search.TitleArray();
-                JComboBox<String> comboBox = new JComboBox<>(titles);
-                comboBox.setBounds(50, 50, 150, titles.length);
-                panel1.add(comboBox);
-                JTextArea textArea = new JTextArea();
-                textArea.setEditable(false);
-                comboBox.addActionListener(ee -> {
-                    panel1.remove(textArea);
-                    String selectedItem = (String) comboBox.getSelectedItem();
-                    textArea.setText(Search.searchproduct(selectedItem));
-                    panel1.add(textArea);
+
+            JLabel titleLabel=new JLabel("Title:");
+            JTextField titleField = new JTextField(20);
+            panel.add(titleLabel);
+            panel.add(titleField);
+
+            JLabel categoryLabel=new JLabel("Category:");
+            String[] categories=Search.CategoryArray();
+            JComboBox<String> comboBox1 = new JComboBox<>(categories);
+            comboBox1.insertItemAt(null, 0);
+            comboBox1.setSelectedIndex(0);
+
+            comboBox1.setBounds(50, 50, 150, categories.length);
+            panel.add(categoryLabel);
+            panel.add(comboBox1);
 
 
-                });
-                searchTitleFrame.add(panel1);
-                searchTitleFrame.setVisible(true);
-
-
-
-
-            });
-
-            JButton categoryButton = new JButton("Search By Category");
-            categoryButton.addActionListener(e1->{
-                JFrame searchCategoryFrame = new JFrame("SearchByCategory");
-                searchCategoryFrame.setSize(400, 250);
-                searchCategoryFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                searchCategoryFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
-                searchCategoryFrame.getContentPane().setBackground(customColor);
-                JPanel panel2 = new JPanel();
-                panel2.setLayout(new GridLayout(5, 2, 10, 10));
-                panel2.setBackground(customColor);
-                String[] categories=Search.CategoryArray();
-                JComboBox<String> comboBox1 = new JComboBox<>(categories);
-                comboBox1.setBounds(50, 50, 150, categories.length);
-                panel2.add(comboBox1);
-                JTextArea textArea1 = new JTextArea();
-                textArea1.setEditable(false);
-                comboBox1.addActionListener(ee -> {
-                    panel2.remove(textArea1);
-                    String selectedItem = (String) comboBox1.getSelectedItem();
-                    textArea1.setText(Search.searchproduct(selectedItem));
-                    panel2.add(textArea1);
-
-
-                });
-
-                searchCategoryFrame.add(panel2);
-                searchCategoryFrame.setVisible(true);
-
-
-
-
-            });
-
+            JLabel subcategoryLabel=new JLabel("Subcategory:");
+            JComboBox<String> comboBox2 = new JComboBox<>();
+            comboBox1.setBounds(50, 50, 150, categories.length);
+            panel.add(subcategoryLabel);
+            panel.add(comboBox2);
+            comboBox1.addActionListener(ee -> {
+                        String selectedCategory = (String) comboBox1.getSelectedItem();
+                        // Update the subcategories based on the selected category
+                        String[] sub = new String[0];
+                        if (selectedCategory != null) {
+                            int line = FileManagement.PartialSearchLine(0, "categories.txt", selectedCategory);
+                            if (line >= 1) { // Ensure a valid line was found
+                                try (BufferedReader reader = new BufferedReader(new FileReader("categories.txt"))) {
+                                    String targetLine = null;
+                                    for (int i = 1; i <= line; i++) {
+                                        targetLine = reader.readLine();
+                                    }
+                                    if (targetLine != null && targetLine.contains("(") && targetLine.contains(")")) {
+                                        int start = targetLine.indexOf('(') + 1;
+                                        int end = targetLine.indexOf(')');
+                                        String subcategories = targetLine.substring(start, end);
+                                        sub = subcategories.split("@"); // Split by '@'
+                                    }
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            } else {
+                                System.out.println("Category not found in the file.");
+                            }
+                            comboBox2.removeAllItems(); // Clear existing items
+                            comboBox2.addItem(null);
+                            for (String subcategory : sub) {
+                                comboBox2.addItem(subcategory);
+                            }
+                        }
+                    });
             JButton searchButton = new JButton("Search");
-            searchButton.addActionListener(e1->{
-                JFrame searchAllFrame = new JFrame("Search");
-                searchAllFrame.setSize(400, 250);
-                searchAllFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                searchAllFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
-                searchAllFrame.getContentPane().setBackground(customColor);
-                JPanel panel3 = new JPanel();
-                panel3.setLayout(new GridLayout(5, 2, 10, 10));
-                panel3.setBackground(customColor);
-                JTextArea textArea2 = new JTextArea();
-                textArea2.setEditable(false);
-                JScrollPane scrollPane = new JScrollPane(textArea2);
-                searchAllFrame.add(scrollPane);
-                try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
-                    String line;
-                    int count = 0;
-                    while ((line = reader.readLine()) != null) {
-                        textArea2.append(line + "\n");
+            searchButton.addActionListener(e -> {
+
+                String givenTitle=titleField.getText();
+                String givenCategory=(String) comboBox1.getSelectedItem();
+                String givenSubcategory=(String) comboBox2.getSelectedItem();
+                Search.searchproduct(givenTitle, givenCategory, givenSubcategory);
+                JFrame resultFrame = new JFrame("Results");
+                resultFrame.setSize(400, 250);
+                JPanel panelSearch = new JPanel();
+                String current;
+                try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))){
+                    while((current=reader.readLine())!=null){
+                        JTextArea textArea = new JTextArea();
+                        textArea.setEditable(false);
+                        textArea.append(current+"\n");
+                        String[] fields = current.split(":");
+                        String title =current;
+                        current=reader.readLine();
+                        textArea.append(current+"\n");
+                        fields = current.split(":");
+                        String des = fields[1].trim();
+                        current=reader.readLine();
+                        textArea.append(current+"\n");
+                        fields = current.split(":");
+                        String category = fields[1].trim();
+                        current=reader.readLine();
+                        textArea.append(current+"\n");
+                        fields = current.split(":");
+                        String subcategory = fields[1].trim();
+                        current=reader.readLine();
+                        textArea.append(current+"\n");
+                        fields = current.split(":");
+                        String price = fields[1].trim();
+                        current=reader.readLine();
+                        textArea.append(current+"\n");
+                        fields = current.split(":");
+                        String quantity = fields[1].trim();
+                        panelSearch.add(textArea);
+                        JButton changeButton = new JButton("Change");
+                        panelSearch.add(changeButton);
+                        changeButton.addActionListener(ee -> {
+                            JFrame ChangeFrame = new JFrame("Change Product");
+                            ChangeFrame.setSize(400, 300);
+                            ChangeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                            ChangeFrame.setLayout(new GridBagLayout()); // Center alignment
+                            ChangeFrame.getContentPane().setBackground(customColor);
+
+                            // Create the panel
+                            JPanel changePanel = new JPanel();
+                            changePanel.setLayout(new GridLayout(7, 2, 5, 5)); // 2 columns, 6 rows with padding
+                            changePanel.setBackground(customColor);
+
+                            // Create labels and text fields
+                            changePanel.add(titleLabel);
+                            changePanel.add(titleField);
+                            titleField.setText(title);
+                            JLabel descriptionLabel = new JLabel("Description:");
+                            JTextField descriptionField = new JTextField(des);
+                            changePanel.add(descriptionLabel);
+                            changePanel.add(descriptionField);
+                            changePanel.add(categoryLabel);
+                            comboBox1.insertItemAt(category, 0);
+                            comboBox1.setSelectedIndex(0);
+                            changePanel.add(comboBox1);
+                            changePanel.add(subcategoryLabel);
+                            comboBox2.insertItemAt(subcategory, 0);
+                            comboBox2.setSelectedIndex(0);
+                            changePanel.add(comboBox2);
+                            JLabel priceLabel = new JLabel("Price:");
+                            JTextField priceField = new JTextField(price);
+                            JLabel quantityLabel = new JLabel("Quantity:");
+                            JTextField quantityField = new JTextField(quantity);
+                            JButton enterButton = new JButton("Enter");
+                            changePanel.add(priceLabel);
+                            changePanel.add(priceField);
+                            changePanel.add(quantityLabel);
+                            changePanel.add(quantityField);
+                            changePanel.add(enterButton);
+                            enterButton.addActionListener(ec->{
+                                Products p=new Products(titleField.getText(),descriptionField.getText(),(String)comboBox1.getSelectedItem(),(String)comboBox2.getSelectedItem(),priceField.getText(),quantityField.getText());
+                                Products.Change("Τίτλος: "+title,p);
+                                ChangeFrame.dispose();
+                            });
+                            ChangeFrame.add(changePanel);
+                            ChangeFrame.setVisible(true);
+
+
+
+                        });
+
 
                     }
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+                } catch (FileNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
                 }
-                textArea2.setText(Search.searchproduct());
-                panel3.add(textArea2);
-
-                searchAllFrame.add(panel3);
-                searchAllFrame.setVisible(true);
-
-            });
-            JButton subcategoryButton = new JButton("Search By Category And Subcategory");
-            subcategoryButton.addActionListener(e1->{
-                JFrame searchSubategoryFrame = new JFrame("SearchBySubcategory");
-                searchSubategoryFrame.setSize(400, 250);
-                searchSubategoryFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                searchSubategoryFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
-                searchSubategoryFrame.getContentPane().setBackground(customColor);
-                JPanel panel4 = new JPanel();
-                panel4.setLayout(new GridLayout(5, 2, 10, 10));
-                panel4.setBackground(customColor);
-                String[] categories=Search.CategoryArray();
-                String[] sub=Search.SubCategoryArray();
-                JComboBox<String> comboBox1 = new JComboBox<>(categories);
-                comboBox1.setBounds(50, 50, 150, categories.length);
-                panel4.add(comboBox1);
-                JTextArea textArea4 = new JTextArea();
-                textArea4.setEditable(false);
-                comboBox1.addActionListener(ee -> {
-                    panel4.remove(textArea4);
-                    String selectedItem = (String) comboBox1.getSelectedItem();
-                    JComboBox<String> comboBox2 = new JComboBox<>(sub);
-                    comboBox2.setBounds(50, 50, 150, categories.length);
-                    panel4.add(comboBox2);
-                    comboBox1.addActionListener(e2 -> {
-                        panel4.remove(textArea4);
-                        String selectedItem2 = (String) comboBox2.getSelectedItem();
-                        textArea4.setText(Search.searchproduct(selectedItem,selectedItem2));
-                        panel4.add(textArea4);
-                    });
-
-
-
-                });
-
-                searchSubategoryFrame.add(panel4);
-                searchSubategoryFrame.setVisible(true);
-
-
-
+                resultFrame.add(panelSearch);
+                resultFrame.setVisible(true);
 
             });
 
 
-            panel.add(new JLabel("Search"));
             panel.add(searchButton);
 
             //panel.add(new JTextField());
             //panel.add(new JComboBox<>());
 
 
-            panel.add(titleButton);
-            panel.add(categoryButton);
-            panel.add(subcategoryButton);
+
             searchFrame.add(panel);
             searchFrame.setVisible(true);
 
+    }
 
-
-        }
+}
         //the manager can search for products if he wants he has the ability
         //to change the characteristics of a product
 
-    }
+
 

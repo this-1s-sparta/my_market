@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="7/12&#10;Add made in gui &amp; fixed login info">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="8/12">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/products.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +34,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/auth-csd-oop-2024/mymarket-4607-4683.git&quot;,
-    &quot;accountId&quot;: &quot;cac871b5-d4f6-47d0-abe1-dd2a420815a1&quot;
+    &quot;accountId&quot;: &quot;8735b662-b4bc-4f6b-a9b4-852f9f727bad&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -162,8 +164,9 @@
       <workItem from="1733438462063" duration="1314000" />
       <workItem from="1733505129275" duration="1205000" />
       <workItem from="1733506359186" duration="40000" />
-      <workItem from="1733541168426" duration="8613000" />
-      <workItem from="1733583787207" duration="1898000" />
+      <workItem from="1733541168426" duration="7479000" />
+      <workItem from="1733599332686" duration="6908000" />
+      <workItem from="1733613127555" duration="5972000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -325,15 +328,39 @@
       <option name="project" value="LOCAL" />
       <updated>1733541306199</updated>
     </task>
-    <task id="LOCAL-00021" summary="7/12&#10;Add made in gui &amp; fixed login info">
+    <task id="LOCAL-00021" summary="5/12">
       <option name="closed" value="true" />
-      <created>1733549728683</created>
+      <created>1733585321531</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1733549728683</updated>
+      <updated>1733585321531</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="7/12">
+      <option name="closed" value="true" />
+      <created>1733605585555</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1733605585555</updated>
+    </task>
+    <task id="LOCAL-00023" summary="8/12">
+      <option name="closed" value="true" />
+      <created>1733617355780</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1733617355780</updated>
+    </task>
+    <task id="LOCAL-00024" summary="8/12">
+      <option name="closed" value="true" />
+      <created>1733618109581</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1733618109581</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,13 +384,14 @@
     <MESSAGE value="commit 29/11" />
     <MESSAGE value="30/11" />
     <MESSAGE value="2/12" />
-    <MESSAGE value="5/12" />
     <MESSAGE value="12/5&#10;Products corrected and tested&#10;Made better commenting" />
     <MESSAGE value="c" />
     <MESSAGE value="6/12&#10;PartialSearchLine in FileManagement" />
     <MESSAGE value="ψ" />
-    <MESSAGE value="7/12&#10;Add made in gui &amp; fixed login info" />
-    <option name="LAST_COMMIT_MESSAGE" value="7/12&#10;Add made in gui &amp; fixed login info" />
+    <MESSAGE value="5/12" />
+    <MESSAGE value="7/12" />
+    <MESSAGE value="8/12" />
+    <option name="LAST_COMMIT_MESSAGE" value="8/12" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
