@@ -96,8 +96,6 @@ public class ManagerSearchFrame {
                     for(int i=1;i<FileManagement.LastLine("search.txt");i+=6){
                         JTextArea textArea = new JTextArea();
                         textArea.setEditable(false);
-                        JScrollPane scrollPane = new JScrollPane(textArea);
-                        resultFrame.add(scrollPane);
                         String current=reader.readLine();
                         textArea.append(current+"\n");
                         String[] fields = current.split(":");
@@ -143,6 +141,8 @@ public class ManagerSearchFrame {
                             titleField.setText(title);
                             JLabel descriptionLabel = new JLabel("Description:");
                             JTextField descriptionField = new JTextField(des);
+                            changePanel.add(descriptionLabel);
+                            changePanel.add(descriptionField);
                             changePanel.add(categoryLabel);
                             comboBox1.insertItemAt(category, 0);
                             comboBox1.setSelectedIndex(0);
@@ -164,6 +164,7 @@ public class ManagerSearchFrame {
                             enterButton.addActionListener(ec->{
                                 Products p=new Products(titleField.getText(),descriptionField.getText(),(String)comboBox1.getSelectedItem(),(String)comboBox2.getSelectedItem(),priceField.getText(),quantityField.getText());
                                 Products.Change("Τίτλος: "+title,p);
+                                ChangeFrame.dispose();
                             });
                             ChangeFrame.add(changePanel);
                             ChangeFrame.setVisible(true);
