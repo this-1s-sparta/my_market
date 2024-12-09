@@ -59,7 +59,7 @@ public class Search {
                                 targetLine = reader.readLine();
                             }
                             int k = FileManagement.LastLine("search.txt");
-                            for (int i = k; i < k + 6; i++) {
+                            for (int i = k; i < k + 5; i++) {
                                 FileManagement.Write("search.txt", i, false, targetLine);
                                 targetLine = reader.readLine();
 
@@ -98,6 +98,28 @@ public class Search {
                 }
             }
         }
+        else if (title.equals(""))
+        {
+            int k=FileManagement.LastLine("products.txt");
+            try (BufferedReader reader = new BufferedReader(new FileReader("products.txt"))) {
+                String targetLine = reader.readLine();
+                for(int i=1;targetLine!=null;i+=6)
+                {
+                    FileManagement.Write("search.txt", i, false, targetLine);
+                    for(int j=1;j<6;j++){
+                        targetLine = reader.readLine();
+                    FileManagement.Write("search.txt", i+j, false, targetLine);
+                    }
+                    reader.readLine();
+                    targetLine = reader.readLine();
+                }
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
     public static String[] TitleArray() {
         String filePath = "products.txt";
