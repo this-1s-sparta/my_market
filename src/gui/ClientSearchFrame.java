@@ -13,7 +13,7 @@ import java.nio.file.Path;
 
 public class ClientSearchFrame {
     //this is called by ClientLoggedFrame
-    public static void SearchFrame() {
+    public static void SearchFrame(Cart c) {
         //here a client can search for a product
         //for each product give the ability to view details, select quantity (if available)
         //or put to cart
@@ -28,14 +28,13 @@ public class ClientSearchFrame {
         panel.setLayout(new GridLayout(5, 2, 10, 10));
         panel.setBackground(customColor);
 
-
-        JLabel titleLabel=new JLabel("Title:");
+        JLabel titleLabel = new JLabel("Title:");
         JTextField titleField = new JTextField(20);
         panel.add(titleLabel);
         panel.add(titleField);
 
-        JLabel categoryLabel=new JLabel("Category:");
-        String[] categories=Search.CategoryArray();
+        JLabel categoryLabel = new JLabel("Category:");
+        String[] categories = Search.CategoryArray();
         JComboBox<String> comboBox1 = new JComboBox<>(categories);
         comboBox1.insertItemAt(null, 0);
         comboBox1.setSelectedIndex(0);
@@ -45,7 +44,7 @@ public class ClientSearchFrame {
         panel.add(comboBox1);
 
 
-        JLabel subcategoryLabel=new JLabel("Subcategory:");
+        JLabel subcategoryLabel = new JLabel("Subcategory:");
         JComboBox<String> comboBox2 = new JComboBox<>();
         comboBox1.setBounds(50, 50, 150, categories.length);
         panel.add(subcategoryLabel);
@@ -84,21 +83,78 @@ public class ClientSearchFrame {
         JButton searchButton = new JButton("Search");
         searchButton.addActionListener(e -> {
 
-            String givenTitle=titleField.getText();
-            String givenCategory=(String) comboBox1.getSelectedItem();
-            String givenSubcategory=(String) comboBox2.getSelectedItem();
+            String givenTitle = titleField.getText();
+            String givenCategory = (String) comboBox1.getSelectedItem();
+            String givenSubcategory = (String) comboBox2.getSelectedItem();
             Search.searchproduct(givenTitle, givenCategory, givenSubcategory);
+            JFrame resultFrame = new JFrame("Results");
+            resultFrame.setSize(400, 250);
+            JPanel panelSearch = new JPanel();
+            panelSearch.setLayout(new GridLayout(5, 2, 10, 10));
+            panelSearch.setPreferredSize(new Dimension(380, 1000));
+            String current;
 
+            try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))) {
+                current = reader.readLine();
+                while(current!=null && !current.equals("")) {
+                    String[] parts = new String[6];
+                    int i = 0;
+                    while (current != null && i < 6) {
+                        String[] fields = current.split(":");
+                        if (fields.length > 1)  // Check if the line is properly split
+                            parts[i] = fields[1];
+                        i++;
+                        current = reader.readLine();
+                    }
+                    String title = parts[0];
+                    String des = parts[1];
+                    String category = parts[2];
+                    String subcategory = parts[3];
+                    String price = parts[4];
+                    String quantity = parts[5];
+
+                    JTextArea textArea = new JTextArea();
+                    textArea.setEditable(false);
+                    textArea.append(title + "\n" + des + "\n" + category + "\n" + subcategory + "\n" + price + "\n" + quantity + "\n");
+                    panelSearch.add(textArea);
+
+
+                    JTextField addToCart = new JTextField(3);
+                    JLabel addToCartLabel = new JLabel("Add Quantity To Cart");
+                    panelSearch.add(addToCart);
+                    panelSearch.add(addToCartLabel);
+                    JButton addToCartButton = new JButton("Add To Cart");
+                    addToCartButton.addActionListener(eadd->{
+                        String priceW = price.replace("€","");
+                        priceW = priceW.replace(",",".");
+                        String quantityW = addToCart.getText();
+                        quantityW = quantityW.replace("kg","");
+                        quantityW = quantityW.replace(" pieces","");
+                        ProductInCart p=new ProductInCart(title,Integer.parseInt(quantityW),Double.parseDouble(priceW));
+                        c.AddToCart(p);
+                    });
+                    panelSearch.add(addToCartButton);
+
+
+
+
+
+
+                }} catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            JScrollPane scrollPane = new JScrollPane(panelSearch);
+            //panelSearch.add(scrollPane);
+            scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            resultFrame.add(scrollPane);
+            resultFrame.revalidate();
+            resultFrame.repaint();
+            resultFrame.add(panelSearch);
+            resultFrame.setVisible(true);
         });
-
-
         panel.add(searchButton);
-
         //panel.add(new JTextField());
         //panel.add(new JComboBox<>());
-
-
-
         searchFrame.add(panel);
         searchFrame.setVisible(true);
 

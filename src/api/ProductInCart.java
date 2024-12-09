@@ -8,7 +8,7 @@ public class ProductInCart {
     public ProductInCart(String name, int quantity, double price) {
         this.name = name;
         this.quantity = quantity;
-        this.price = price;
+        this.price = quantity*price;
     }
     public String getName() {
         return name;
