@@ -14,11 +14,29 @@ public class ClientLoggedFrame {
         //Create the panel
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 9, 10, 10));
+        Color customColor = new Color(0, 49, 4);
+        panel.setBackground(customColor);
+
         //Create the buttons
         JButton Search = new JButton("Search");
         JButton Cart = new JButton("Cart");
         JButton History = new JButton("History");
         JButton LogOut = new JButton("Log Out");
+
+        Color buttonBackground = new Color(88, 2, 101); // Forest green
+        Color buttonForeground = Color.WHITE;           // White text
+
+        Search.setBackground(buttonBackground);
+        Search.setForeground(buttonForeground);
+
+        Cart.setBackground(buttonBackground);
+        Cart.setForeground(buttonForeground);
+
+        History.setBackground(buttonBackground);
+        History.setForeground(buttonForeground);
+
+        LogOut.setBackground(buttonBackground);
+        LogOut.setForeground(buttonForeground);
 
         Search.addActionListener(e -> { //This action will be done if Search is pressed
             ClientSearchFrame.SearchFrame();
