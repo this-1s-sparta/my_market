@@ -121,17 +121,20 @@ public class ClientSearchFrame {
 
                     JTextField addToCart = new JTextField(3);
                     JLabel addToCartLabel = new JLabel("Add Quantity To Cart");
-                    panelSearch.add(addToCart);
                     panelSearch.add(addToCartLabel);
+                    panelSearch.add(addToCart);
                     JButton addToCartButton = new JButton("Add To Cart");
                     addToCartButton.addActionListener(eadd->{
                         String priceW = price.replace("€","");
                         priceW = priceW.replace(",",".");
-                        String quantityW = addToCart.getText();
-                        quantityW = quantityW.replace("kg","");
-                        quantityW = quantityW.replace(" pieces","");
-                        ProductInCart p=new ProductInCart(title,Integer.parseInt(quantityW),Double.parseDouble(priceW));
-                        c.AddToCart(p);
+                        ProductInCart p=new ProductInCart(title,Integer.parseInt(addToCart.getText()),Double.parseDouble(priceW));
+                        int k=c.AddToCart(p);
+                        if(k==0) {
+                            JLabel messageLabel = new JLabel(" ");
+                            messageLabel.setForeground(Color.RED);
+                            messageLabel.setText("Available quantity not enough");
+                        }
+                        resultFrame.dispose();
                     });
                     panelSearch.add(addToCartButton);
 
