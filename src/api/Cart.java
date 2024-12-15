@@ -15,7 +15,7 @@ public class Cart {
 
     }
 
-    public void AddToCart(ProductInCart p)
+    public int AddToCart(ProductInCart p)
     {
         int a;
         AtomicInteger flag=new AtomicInteger();
@@ -34,8 +34,11 @@ public class Cart {
                 FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + " pieces");
 
         }
-        else
-            System.out.println("Available quantity not enough");
+        else {
+            return 0;
+        }
+        return 1;
+
     }
 
     public void DeleteFromCart(ProductInCart p)
@@ -52,7 +55,7 @@ public class Cart {
 
     }
 
-    public void ChangeCart(ProductInCart p)
+    public int ChangeCart(ProductInCart p)
     {
         for(ProductInCart p1 : cart)
         {
@@ -74,9 +77,10 @@ public class Cart {
 
                 }
                 else
-                    System.out.println("Available quantity not enough");
+                return 0;
             }
         }
+        return 1;
     }
 
     public double SumOfCart()
@@ -111,24 +115,12 @@ public class Cart {
                     else if(words.length<=2){
                         flag.set(0);
                         String quantityword = words[words.length-1];
-                        char let[]=quantityword.toCharArray();
-                        char[] arr;
-                        int count=0;
-                        for(int j = 0; let[j]!='k'; j++)
-                        {
-                            count++;
-                        }
-                        arr=new char[count];
-                        for(int j = 0; let[j]!='k'; j++)
-                        {
-                            arr[j]=let[j];
-                        }
-                        quantityword=new String(arr);
+                        quantityword=quantityword.replace("kg","");
+                        System.out.println(quantityword);
                         return Integer.parseInt(quantityword);
-                    }
                 }
                 currentLineNumber++;
-            }
+            }}
         }catch (IOException e) {
             e.printStackTrace();
 

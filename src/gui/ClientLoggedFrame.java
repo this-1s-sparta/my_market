@@ -37,9 +37,10 @@ public class ClientLoggedFrame {
 
         LogOut.setBackground(buttonBackground);
         LogOut.setForeground(buttonForeground);
+        Cart c= new Cart();
 
         Search.addActionListener(e -> { //This action will be done if Search is pressed
-            ClientSearchFrame.SearchFrame();
+            ClientSearchFrame.SearchFrame(c);
         });
 
         Cart.addActionListener(e -> { //This action will be done if Cart is pressed
