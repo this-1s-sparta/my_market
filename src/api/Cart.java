@@ -73,7 +73,7 @@ public class Cart {
                     if (flag.get()==0)
                         FileManagement.Write("products.txt", i, true, "Ποσότητα: " + newq + "kg");
                     else
-                        FileManagement.Write("products.txt", i, true, "Ποσότητα: " + newq + " pieces");
+                        FileManagement.Write("products.txt", i, true, "Ποσότητα: " + newq + " τεμάχια");
 
                 }
                 else
