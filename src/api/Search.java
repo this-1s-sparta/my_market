@@ -59,7 +59,7 @@ public class Search {
                                 targetLine = reader.readLine();
                             }
                             int k = FileManagement.LastLine("search.txt");
-                            for (int i = k; i < k + 5; i++) {
+                            for (int i = k; i < k + 6; i++) {
                                 FileManagement.Write("search.txt", i, false, targetLine);
                                 targetLine = reader.readLine();
 

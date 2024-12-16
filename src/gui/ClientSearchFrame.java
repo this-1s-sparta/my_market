@@ -24,6 +24,7 @@ public class ClientSearchFrame {
         Color customColor = new Color(150, 0, 180); // colour the frame
         searchFrame.getContentPane().setBackground(customColor);
 
+
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 2, 10, 10));
         panel.setBackground(customColor);
@@ -117,26 +118,57 @@ public class ClientSearchFrame {
                     textArea.setEditable(false);
                     textArea.append(title + "\n" + des + "\n" + category + "\n" + subcategory + "\n" + price + "\n" + quantity + "\n");
                     panelSearch.add(textArea);
+                    final int[] quantitygiven = {0};
 
 
-                    JTextField addToCart = new JTextField(3);
-                    JLabel addToCartLabel = new JLabel("Add Quantity To Cart");
-                    panelSearch.add(addToCartLabel);
-                    panelSearch.add(addToCart);
-                    JButton addToCartButton = new JButton("Add To Cart");
-                    addToCartButton.addActionListener(eadd->{
-                        String priceW = price.replace("€","");
-                        priceW = priceW.replace(",",".");
-                        ProductInCart p=new ProductInCart(title,Integer.parseInt(addToCart.getText()),Double.parseDouble(priceW));
+
+                    //JTextField addToCart = new JTextField(3);
+                    //JLabel addToCartLabel = new JLabel("Add Quantity To Cart");
+                    //panelSearch.add(addToCartLabel);
+                    //panelSearch.add(addToCart);
+
+                        JLabel quantityLabel = new JLabel("Quantity: " + quantitygiven[0]);
+                        quantityLabel.setBounds(110, 50, 150, 30);  // Set position and size
+                    panelSearch.add(quantityLabel);
+
+                        // Create the "Minus" button
+                        JButton minusButton = new JButton("-");
+                        minusButton.setBounds(50, 100, 60, 30);  // Set position and size
+                    panelSearch.add(minusButton);
+
+                        // Create the "Plus" button
+                        JButton plusButton = new JButton("+");
+                        plusButton.setBounds(180, 100, 60, 30);  // Set position and size
+                    panelSearch.add(plusButton);
+
+                        // Action for "Minus" button
+                        minusButton.addActionListener(eq-> {
+                                if (quantitygiven[0] > 0) {
+                                    quantitygiven[0]--;  // Decrease the quantity
+                                    quantityLabel.setText("Quantity: " + quantitygiven[0]);
+                                }
+
+                        });
+
+                        // Action for "Plus" button
+                        plusButton.addActionListener(eq1-> {
+                                if (quantitygiven[0] < 100) {
+                                    quantitygiven[0]++;  // Increase the quantity
+                                    quantityLabel.setText("Quantity: " + quantitygiven[0]);
+                                }
+
+                        });
+                       /* String priceF=price.replace("€","");
+                        priceF=priceF.replace(",",".");
+                        ProductInCart p= new ProductInCart(title, quantitygiven[0],Double.parseDouble(priceF));
+
                         int k=c.AddToCart(p);
                         if(k==0) {
                             JLabel messageLabel = new JLabel(" ");
                             messageLabel.setForeground(Color.RED);
                             messageLabel.setText("Available quantity not enough");
                         }
-                        resultFrame.dispose();
-                    });
-                    panelSearch.add(addToCartButton);
+                        resultFrame.dispose();*/
 
 
 
