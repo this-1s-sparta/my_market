@@ -1,6 +1,8 @@
 package gui;
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileNotFoundException;
+
 import api.*;
 
 public class ClientLoggedFrame {
@@ -48,7 +50,11 @@ public class ClientLoggedFrame {
         });
 
         History.addActionListener(e -> { //This action will be done if History is pressed
-            ClientHistoryFrame.HistoryFrame();
+            try {
+                ClientHistoryFrame.HistoryFrame(user.getUsername());
+            } catch (FileNotFoundException ex) {
+                throw new RuntimeException(ex);
+            }
         });
 
         LogOut.addActionListener(e -> { //This action will be done if Logout is pressed

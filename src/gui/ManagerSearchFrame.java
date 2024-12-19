@@ -93,6 +93,8 @@ public class ManagerSearchFrame {
             panelSearch.setLayout(new GridLayout(5, 2, 10, 10));
             panelSearch.setPreferredSize(new Dimension(380, 1000));
             String current;
+            panelSearch.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+            resultFrame.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
             try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))) {
                 current = reader.readLine();

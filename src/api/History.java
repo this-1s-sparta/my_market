@@ -45,17 +45,33 @@ public class History{
 
     public static void ShowHistory(String username)
     {
+        try {
+            File historyuser = new File("historyuser.txt");
+            if (historyuser.exists()) {
+                historyuser.delete();
+
+            }
+            if (!historyuser.createNewFile()) {
+                System.err.println("Unable to create best.txt file.");
+                return;
+            }
+        } catch (IOException e) {
+            System.err.println("Error creating or clearing best.txt: " + e.getMessage());
+            return;
+        }
         try(BufferedReader reader = new BufferedReader(new FileReader("History.txt")))
         {
             String line;
             int i=FileManagement.LastLine("History.txt");
+            int k=1;
             for(int j=0;j<i;j++)
             {
                 line = reader.readLine();
                 if (line != null && line.equals("@" + username)) {
                     while ((line = reader.readLine()) != null) {  // check that it's not null
                         if (!line.equals("@" + username)) {
-                            System.out.println(line);
+                            FileManagement.Write("historyuser.txt",k,false,line);
+                            k++;
 
                     }
                 }
