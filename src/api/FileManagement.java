@@ -1,5 +1,7 @@
 package api;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 //the FileManagement class has:
 //the Write(...) method, the LastLine(...) method,ThatLine(...) method ...
 //those methods are used to make file management easier
@@ -160,5 +162,30 @@ public class FileManagement {
             System.err.println("Error reading the file: " + e.getMessage());
         }
         return -1; // no match found
+    }
+
+    //this is used for the testing methods
+    public static void deleteLines(String filename, int n) throws IOException {
+        //this method deletes the last n lines of a file
+        File inputFile = new File(filename);
+        List<String> lines = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+        }
+        // If there are more lines than N, remove the last N lines
+        if (lines.size() > n) {
+            lines = lines.subList(0, lines.size() - n);
+        } else {
+            lines.clear(); // Clear the file if it has fewer than N lines
+        }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(inputFile))) {
+            for (String line : lines) {
+                writer.write(line);
+                writer.newLine();
+            }
+        }
     }
 }

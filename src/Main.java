@@ -27,24 +27,6 @@ public class Main {
         }
         MainFrame.OpenMainFrame(); //here I start the gui
 
-        //this will be moved in the test file later
-        //TESTS 1 checks that the Access methods all work
-        //System.out.println("1st test");
-        //boolean x=Access.signup("nadia","password123"); //-> works
-        //System.out.println(x);
-        //x = Access.signup("nadia", "password123"); //-> works
-        //System.out.println(x);
-        //x = Access.login("nadia", "password123", "client.csv"); //->works
-        //System.out.println(x);
-        //x=Access.login("nadia","password123","manager.csv"); //->works
-        //System.out.println(x);
-
-        //TEST 2 checks that Products (Add and Change) ->works
-        //System.out.println("2nd test");
-        //Products product = new Products("Τίτλος", "Περιγραφή", "Κατηγορία", "Υποκατηγορία", "Τιμή", "Ποσότητα");
-        //Products.Add(product);
-        //Products.Change("Τίτλος: Τίτλος", new Products("Τ", "Π", "Κ", "Υ", "Τ", "Π"));
-
         //TEST 3 checks that ProductInCart Product and Cart work
         //System.out.println("3rd test");
         //ProductInCart p=new ProductInCart("Νερό Μεταλλικό 1,5lt",1,0.5);
@@ -77,11 +59,6 @@ public class Main {
         // }
         //price1=mycart.SumOfCart();
         //System.out.println(price1);
-
-        //TEST 5 checks that Statistics (Zero and Best) work
-        //System.out.println("5th test");
-        //Statistics.Zero(); //->works
-        //Statistics.Best(); //->works
 
     }
 }
