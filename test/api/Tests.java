@@ -35,7 +35,7 @@ public class Tests {
         assertNotEquals(result,check-1);
         //If the first test didn't fail after changing them they must NOT be equal
 
-        //After writing to check remember to delete the lines that where only written to test
+        //After checking remember to delete the lines that where only written to test
         //this is done so that the test will always work and not only on the initialization
         try {
             FileManagement.deleteLines("products.txt", 7); // Call the helper method
