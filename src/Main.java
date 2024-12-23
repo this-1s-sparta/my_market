@@ -2,8 +2,6 @@ import api.*;
 import gui.*;
 import java.io.File;
 import java.io.IOException;
-import javax.swing.*;
-import java.awt.*;
 import static java.lang.System.*;
 
 public class Main {

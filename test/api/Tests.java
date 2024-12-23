@@ -1,26 +1,61 @@
 package api;
 import org.junit.Before;
-import org.junit.Test; // Correct JUnit import
-
+import org.junit.Test;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import static org.junit.Assert.*;
 
-import static org.junit.Assert.*; // Correct static import for assertions
-
+//Make sure that the tests run more than one time!!!
 public class Tests {
+    //to run the 4 login and sign up test we must first check
+    //if the program has already been initialized
+    //to do that we check if "clients.txt" already exists
     @Test
-    public void testLogin() {
-        boolean result = Access.login("user1", "password1", "client.csv");
-        boolean expResult = true;
-        assertEquals(expResult, result);
+    public void testLoginTrue() {
+        File file = new File("client.txt");
+        // Check if the file exists
+        if (file.exists()) {
+            boolean result = Access.login("user1", "password1", "client.csv");
+            boolean expResult = true;
+            assertEquals(expResult, result);
+        }
     }
+
     @Test
-    public void testSignup() {
-        boolean result = Access.signup("user1", "password1");
-        boolean expResult = false;
-        assertEquals(expResult, result);
+    public void testLoginFalse() {
+        File file = new File("client.txt");
+        if (file.exists()) {
+            boolean result = Access.login("nadia", "password2", "client.csv");
+            boolean expResult = false;
+            assertEquals(expResult, result);
+        }
     }
+
+    @Test
+    public void testSignupTrue() {
+        File file = new File("client.txt");
+        // Check if the file exists
+        if (file.exists()) {
+            boolean result = Access.signup("nadia", "password");
+            boolean expResult = true;
+            assertEquals(expResult, result);
+            try {
+                FileManagement.deleteLines("client.csv", 1); // Call the helper method
+            } catch (IOException e) {
+                System.err.println("Error deleting lines: " + e.getMessage());
+            }
+        }
+    }
+
+    @Test
+    public void testSignupFalse() {
+        File file = new File("client.txt");
+        if (file.exists()) {
+            boolean result = Access.signup("user1", "password1");
+            boolean expResult = false;
+            assertEquals(expResult, result);
+        }
+    }
+
     @Test
     public void AddingChangingProducts() {
         Products product = new Products("Τίτλος", "Περιγραφή", "Κατηγορία", "Υποκατηγορία", "Τιμή", "Ποσότητα");

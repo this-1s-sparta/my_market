@@ -13,7 +13,7 @@ public class ManagerAddFrame {
     // Class-level variables
     private static String selectedCategory = null;
     private static String selectedSub = null;
-    private static String add = null;
+    private static String add = "τεμάχεια";
 
     public static void AddFrame() {
         // Create the main frame
@@ -26,7 +26,7 @@ public class ManagerAddFrame {
 
         // Create the panel
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(8, 2, 5, 5)); // 2 columns, 6 rows with padding
+        panel.setLayout(new GridLayout(7, 2, 5, 5)); // 2 columns, 6 rows with padding
         panel.setBackground(customColor);
 
         // Create labels and text fields
@@ -53,24 +53,6 @@ public class ManagerAddFrame {
 
         JLabel messageLabel = new JLabel(" ");
         messageLabel.setForeground(Color.RED); //make message RED
-
-        //chose for "temaxia" or "kila" to be written on "products.txt" for quantity
-        JRadioButton pieces = new JRadioButton("pieces");
-        JRadioButton kilos = new JRadioButton("kilos");
-        ButtonGroup group = new ButtonGroup();
-        group.add(pieces);
-        group.add(kilos);
-        //add is a class level variable so that I will be able to use it when I call Products.Add(..)
-        pieces.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                add=" kg";
-            }
-        });
-        kilos.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                add=" τεμάχια";
-            }
-        });
 
         // Add ActionListener for comboBox1 to update subcategories
         comboBox1.addActionListener(ee -> {
@@ -121,9 +103,14 @@ public class ManagerAddFrame {
             String price = priceField.getText();
             String quantity = quantityField.getText();
             //make sure that no variable is null (all of them are required)
-            if (!(title == null || category == null || subcategory == null || description == null || price == null || quantity == null || add==null)) {
+            if (!(title == null || category == null || subcategory == null || description == null || price == null || quantity == null)) {
                 //Make a Product variable and call the wanted method
-                Products prod = new Products(title, category, subcategory, description, price, quantity+add);
+                System.out.println(subcategory);
+                if (subcategory.equals("Φρούτα") || subcategory.equals("Λαχανικά")) {
+                    System.out.println(subcategory);
+                    add="kg";
+                }
+                Products prod = new Products(title, category, subcategory, description, price, quantity+" "+add);
                 Products.Add(prod);
                 LogOutFrame.OutFrame(AddButton); //Close the add window if adding was successful
             } else {
@@ -140,8 +127,6 @@ public class ManagerAddFrame {
         panel.add(priceField);
         panel.add(quantityLabel);
         panel.add(quantityField);
-        panel.add(kilos);
-        panel.add(pieces);
         panel.add(new JLabel("Category:")); // Label for category selection
         panel.add(comboBox1);
         panel.add(new JLabel("Subcategory:")); // Label for subcategory selection
