@@ -13,10 +13,11 @@ import java.nio.file.Path;
 
 public class ClientSearchFrame {
     //this is called by ClientLoggedFrame
-    public static void SearchFrame(Cart c) {
+    public static void SearchFrame() {
         //here a client can search for a product
         //for each product give the ability to view details, select quantity (if available)
         //or put to cart
+        Cart c=new Cart();
         JFrame searchFrame = new JFrame("Search");
         searchFrame.setSize(400, 250);
         searchFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -94,6 +95,8 @@ public class ClientSearchFrame {
             panelSearch.setLayout(new GridLayout(5, 2, 10, 10));
             panelSearch.setPreferredSize(new Dimension(380, 1000));
             String current;
+            JScrollPane scrollPane = new JScrollPane();
+            scrollPane.setViewportView(panelSearch);
 
             try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))) {
                 current = reader.readLine();
@@ -186,9 +189,10 @@ public class ClientSearchFrame {
                 }} catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
-            JScrollPane scrollPane = new JScrollPane(panelSearch);
+
             //panelSearch.add(scrollPane);
             scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            //panelSearch.add(scrollPane);
             resultFrame.add(scrollPane);
             resultFrame.revalidate();
             resultFrame.repaint();
