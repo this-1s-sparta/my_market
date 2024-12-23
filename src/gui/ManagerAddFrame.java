@@ -103,18 +103,16 @@ public class ManagerAddFrame {
             String price = priceField.getText();
             String quantity = quantityField.getText();
             //make sure that no variable is null (all of them are required)
-            if (!(title == null || category == null || subcategory == null || description == null || price == null || quantity == null)) {
-                //Make a Product variable and call the wanted method
-                System.out.println(subcategory);
-                if (subcategory.equals("Φρούτα") || subcategory.equals("Λαχανικά")) {
-                    System.out.println(subcategory);
-                    add="kg";
-                }
-                Products prod = new Products(title, category, subcategory, description, price, quantity+" "+add);
-                Products.Add(prod);
-                LogOutFrame.OutFrame(AddButton); //Close the add window if adding was successful
+            if (title.isEmpty() || category == null || subcategory == null || description.isEmpty() || price.isEmpty() || quantity.isEmpty()) {
+                messageLabel.setText("Information missing"); // Display message it fails
             } else {
-                messageLabel.setText("Information missing"); //print message if not successful
+                // Perform the add operation
+                if (subcategory.equals("Φρούτα") || subcategory.equals("Λαχανικά")) {
+                    add = "kg";
+                }
+                Products prod = new Products(title, category, subcategory, description, price, quantity + " " + add);
+                Products.Add(prod); // Add the product
+                LogOutFrame.OutFrame(AddButton); // Close the frame if successful
             }
         });
 
