@@ -44,7 +44,7 @@ public class Search {
                     }
                 } else
                     return;
-                j = j + line + 6;
+                j = j + 7;
             }
         }
         if (category != null) {
@@ -70,7 +70,7 @@ public class Search {
                         }
                     } else
                         return;
-                    j = j + line + 6;
+                    j = j + 7;
                 }
             } else {
                 int j = 0;
@@ -94,7 +94,7 @@ public class Search {
                         }
                     } else
                         return;
-                    j = j + line + 6;
+                    j = j + 7;
                 }
             }
         }
