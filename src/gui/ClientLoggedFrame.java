@@ -42,7 +42,7 @@ public class ClientLoggedFrame {
         Cart c= new Cart();
 
         Search.addActionListener(e -> { //This action will be done if Search is pressed
-            ClientSearchFrame.SearchFrame(c);
+            ClientSearchFrame.SearchFrame();
         });
 
         Cart.addActionListener(e -> { //This action will be done if Cart is pressed
