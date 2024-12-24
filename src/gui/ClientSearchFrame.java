@@ -19,6 +19,7 @@ public class ClientSearchFrame {
         //here a client can search for a product
         //for each product give the ability to view details, select quantity (if available)
         //or put to cart
+        Cart cart = new Cart();
         JFrame searchFrame = new JFrame("Search");
         searchFrame.setSize(400, 250);
         searchFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -203,7 +204,7 @@ public class ClientSearchFrame {
                 throw new RuntimeException(ex);
             }
             for (ProductInCart p :list){
-                c.AddToCart(p);
+                cart.AddToCart(p);
 
 
             }
@@ -222,6 +223,7 @@ public class ClientSearchFrame {
         //panel.add(new JComboBox<>());
         searchFrame.add(panel);
         searchFrame.setVisible(true);
+
 
     }
 }

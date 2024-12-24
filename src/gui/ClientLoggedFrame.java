@@ -39,7 +39,7 @@ public class ClientLoggedFrame {
 
         LogOut.setBackground(buttonBackground);
         LogOut.setForeground(buttonForeground);
-        Cart c= new Cart();
+        final Cart c= new Cart();
 
         Search.addActionListener(e -> { //This action will be done if Search is pressed
             ClientSearchFrame.SearchFrame(c);
@@ -48,7 +48,7 @@ public class ClientLoggedFrame {
         });
 
         Cart.addActionListener(e -> { //This action will be done if Cart is pressed
-            ClientCartFrame.CartFrame();
+            ClientCartFrame.CartFrame(c,user.getUsername());
             //this method gives the client the ability to
             //view his cart and change or finalize it
         });

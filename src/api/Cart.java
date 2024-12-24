@@ -15,6 +15,10 @@ public class Cart {
 
     }
 
+    public ArrayList<ProductInCart> getCart() {
+        return cart;
+    }
+
     public void AddToCart(ProductInCart p)
     {
         int a;
