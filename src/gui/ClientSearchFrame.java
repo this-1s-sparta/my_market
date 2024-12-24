@@ -10,14 +10,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ClientSearchFrame {
     //this is called by ClientLoggedFrame
-    public static void SearchFrame() {
+    public static void SearchFrame(Cart c) {
         //here a client can search for a product
         //for each product give the ability to view details, select quantity (if available)
         //or put to cart
-        Cart c=new Cart();
         JFrame searchFrame = new JFrame("Search");
         searchFrame.setSize(400, 250);
         searchFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -97,6 +98,7 @@ public class ClientSearchFrame {
             String current;
             JScrollPane scrollPane = new JScrollPane();
             scrollPane.setViewportView(panelSearch);
+            ArrayList<ProductInCart> list=new ArrayList<>();
 
             try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))) {
                 current = reader.readLine();
@@ -167,17 +169,28 @@ public class ClientSearchFrame {
                         String priceF=price.replace(",",".");
                         JButton addtocart=new JButton("Add to Cart");
                         panelSearch.add(addtocart);
+                    ProductInCart p= new ProductInCart(title, quantitygiven[0],Double.parseDouble(priceF));
                         addtocart.addActionListener(eq1-> {
-                        ProductInCart p= new ProductInCart(title, quantitygiven[0],Double.parseDouble(priceF));
-                        int k;
-                        if (quantitygiven[0]!=0){
-                            k=c.AddToCart(p);
-                            System.out.println(k);
-                        if(k==0) {
-                            JLabel messageLabel = new JLabel(" ");
-                            messageLabel.setForeground(Color.RED);
-                            messageLabel.setText("Available quantity not enough");
-                        }}
+                           /* AtomicInteger flag = new AtomicInteger(0);
+                            if(quantitygiven[0]>c.AvailableQuantity(title,flag)) {
+                                JLabel messageLabel = new JLabel(" ");
+                                messageLabel.setForeground(Color.RED);
+                                messageLabel.setText("Available quantity not enough");
+                                panelSearch.add(messageLabel);
+                            }
+                            else*/
+                                list.add(p);
+
+                       /* if (quantitygiven[0]!=0) {
+
+                                int k;
+                                k = c.AddToCart(p);  // Καλεί την AddToCart, αλλά εκτελείται στο κύριο νήμα χωρίς να μπλοκάρει το UI
+                                if (k == 0) {
+
+                                }*/
+
+
+
                         });
                         //resultFrame.dispose();
 
@@ -188,6 +201,11 @@ public class ClientSearchFrame {
 
                 }} catch (IOException ex) {
                 throw new RuntimeException(ex);
+            }
+            for (ProductInCart p :list){
+                c.AddToCart(p);
+
+
             }
 
             //panelSearch.add(scrollPane);

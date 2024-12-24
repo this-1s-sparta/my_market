@@ -15,7 +15,7 @@ public class Cart {
 
     }
 
-    public int AddToCart(ProductInCart p)
+    public void AddToCart(ProductInCart p)
     {
         int a;
         AtomicInteger flag=new AtomicInteger();
@@ -34,10 +34,7 @@ public class Cart {
                 FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + " pieces");
 
         }
-        else {
-            return 0;
-        }
-        return 1;
+
 
     }
 
