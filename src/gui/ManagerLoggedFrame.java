@@ -23,7 +23,7 @@ public class ManagerLoggedFrame {
         JButton LogOut = new JButton("Log out");
 
         Color buttonBackground = new Color(88, 2, 101); // Forest green
-        Color buttonForeground = Color.WHITE;           // White text
+        Color buttonForeground = Color.WHITE; // White text
 
         Search.setBackground(buttonBackground);
         Search.setForeground(buttonForeground);
@@ -39,18 +39,27 @@ public class ManagerLoggedFrame {
 
         Search.addActionListener(e -> { //This action will be taken if Search is pressed
             ManagerSearchFrame.SearchFrame();
+            //this method gives the manager the ability to
+            //search for products.If a products is opened the manager
+            //can then change the characteristics of that product
         });
 
         Statistics.addActionListener(e -> { //This action will be taken if Statistics is pressed
             ManagerStatisticsFrame.StatisticsFrame();
+            //this method gives the manager the ability to
+            //see what the best products are and what products are unavailable
         });
 
         Add.addActionListener(e -> { //This action will be taken if Add is pressed
             ManagerAddFrame.AddFrame();
+            //this method gives the manager the ability to
+            //add a new product on the "products.txt" file
         });
 
         LogOut.addActionListener(e -> { //This action will be taken if Log Out is pressed
             LogOutFrame.CloseAll();
+            //this gives the manager the ability to log out
+            //it then reopens the Mainframe
         });
 
         panel.add(Search);

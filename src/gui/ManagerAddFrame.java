@@ -91,6 +91,14 @@ public class ManagerAddFrame {
         // Add ActionListener for comboBox2 to handle subcategory selection
         comboBox2.addActionListener(ee -> {
             selectedSub = (String) comboBox2.getSelectedItem();
+            if (selectedSub.equals("Φρούτα") || selectedSub.equals("Λαχανικά")) {
+                add = "kg";
+            }
+            messageLabel.setText(add);
+            if (!(selectedSub.equals("Φρούτα") || selectedSub.equals("Λαχανικά"))) {
+                add = "τεμάχεια";
+            }
+            messageLabel.setText(add);
         });
 
         JButton AddButton = new JButton("Add");

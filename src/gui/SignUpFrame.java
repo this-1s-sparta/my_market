@@ -26,8 +26,10 @@ public class SignUpFrame {
         JTextField usernameField = new JTextField(15);
         JLabel passwordLabel = new JLabel("Password:");
         JTextField passwordField = new JTextField(15);
+
         JLabel messageLabel = new JLabel(" ");
         messageLabel.setForeground(Color.RED); //make message red
+        //this message will only change if the client is refused from signing up
 
         //Login button
         JButton signupButton = new JButton("Sign Up");

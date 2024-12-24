@@ -6,7 +6,8 @@ public class LogOutFrame {
     public static void OutFrame(JButton button) {
         JFrame parentFrame = (JFrame) SwingUtilities.getWindowAncestor(button);
         if (parentFrame != null) {
-            parentFrame.dispose(); // Close the frame that triggered the logout
+            parentFrame.dispose();
+            // Close the frame that triggered the logout
         }
     }
 
@@ -17,5 +18,8 @@ public class LogOutFrame {
             window.dispose();
         }
         MainFrame.OpenMainFrame();
+        //this closes all frames and reopens the Main Frame
+        //this does NOT stop the program from running...
+        //only logs the user out and gives the ability to any user to log in
     }
 }

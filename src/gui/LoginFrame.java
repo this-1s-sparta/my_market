@@ -28,6 +28,7 @@ public class LoginFrame {
 
         JLabel messageLabel = new JLabel(" ");
         messageLabel.setForeground(Color.RED); //make message RED
+        //the message will only change if the user is refused to log in
 
         JButton loginButton = new JButton("Log in");
         loginButton.addActionListener(e -> {    //This action will be taken if "Log in" is pressed

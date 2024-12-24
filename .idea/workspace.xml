@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="commit">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="commit last add changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/products.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ClientLoggedFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/LogOutFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LogOutFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/LoginFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/ManagerAddFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerAddFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerLoggedFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/SignUpFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/SignUpFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +214,8 @@
       <workItem from="1734907032797" duration="4659000" />
       <workItem from="1734911794502" duration="610000" />
       <workItem from="1734952106279" duration="3826000" />
-      <workItem from="1734956142274" duration="748000" />
+      <workItem from="1734956142274" duration="1129000" />
+      <workItem from="1735052408630" duration="3538000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -452,7 +457,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734955919341</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="commit last add changes">
+      <option name="closed" value="true" />
+      <created>1734957262683</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1734957262683</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,7 +500,8 @@
     <MESSAGE value="commit 15/12&#10;fixed and finalized add" />
     <MESSAGE value="commit 23/12 &#10;Started the tests and added a method in Filemanagement" />
     <MESSAGE value="commit 23/12 &#10;fixed initialization error in tests and finalized the add gui" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit 23/12 &#10;fixed initialization error in tests and finalized the add gui" />
+    <MESSAGE value="commit last add changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit last add changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

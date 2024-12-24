@@ -43,10 +43,14 @@ public class ClientLoggedFrame {
 
         Search.addActionListener(e -> { //This action will be done if Search is pressed
             ClientSearchFrame.SearchFrame();
+            //this method gives the client the ability to
+            //search for products and add them to his cart
         });
 
         Cart.addActionListener(e -> { //This action will be done if Cart is pressed
             ClientCartFrame.CartFrame();
+            //this method gives the client the ability to
+            //view his cart and change or finalize it
         });
 
         History.addActionListener(e -> { //This action will be done if History is pressed
@@ -55,6 +59,8 @@ public class ClientLoggedFrame {
             } catch (FileNotFoundException ex) {
                 throw new RuntimeException(ex);
             }
+            //this method gives the cliet the ability to
+            //view his history
         });
 
         LogOut.addActionListener(e -> { //This action will be done if Logout is pressed
