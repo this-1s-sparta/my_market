@@ -1,10 +1,7 @@
 package gui;
-
 import api.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -26,7 +23,7 @@ public class ManagerAddFrame {
 
         // Create the panel
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(7, 2, 5, 5)); // 2 columns, 6 rows with padding
+        panel.setLayout(new GridLayout(8, 2, 5, 5)); // 2 columns, 6 rows with padding
         panel.setBackground(customColor);
 
         // Create labels and text fields
@@ -51,23 +48,26 @@ public class ManagerAddFrame {
         JComboBox<String> comboBox2 = new JComboBox<>();
         comboBox2.setBounds(50, 50, 150, 10);
 
+        JLabel TypemesLabel = new JLabel("Choose category/subcategory");
+        TypemesLabel.setForeground(Color.WHITE); //make message RED
+
         JLabel messageLabel = new JLabel(" ");
         messageLabel.setForeground(Color.RED); //make message RED
 
         // Add ActionListener for comboBox1 to update subcategories
         comboBox1.addActionListener(ee -> {
             selectedCategory = (String) comboBox1.getSelectedItem();
-            // Update the subcategories based on the selected category
-            String[] sub = new String[0];
+            String[] sub = new String[0]; // Default empty subcategory array
             if (selectedCategory != null) {
                 int line = FileManagement.PartialSearchLine(0, "categories.txt", selectedCategory);
-                if (line >= 1) { // Ensure a valid line was found
+                if (line >= 1) {
                     try (BufferedReader reader = new BufferedReader(new FileReader("categories.txt"))) {
-                        //this is done to only return the subcategories of each category and not all the existing subcategories
                         String targetLine = null;
                         for (int i = 1; i <= line; i++) {
                             targetLine = reader.readLine();
                         }
+                        //find the correct category line
+                        //then split to get subcategories
                         if (targetLine != null && targetLine.contains("(") && targetLine.contains(")")) {
                             int start = targetLine.indexOf('(') + 1;
                             int end = targetLine.indexOf(')');
@@ -81,24 +81,22 @@ public class ManagerAddFrame {
                     System.out.println("Category not found in the file.");
                 }
             }
-            // Update comboBox2 with new subcategories
-            comboBox2.removeAllItems(); // Clear existing items
+            comboBox2.removeAllItems(); // Clear existing subcategories
             for (String subcategory : sub) {
                 comboBox2.addItem(subcategory);
             }
+            selectedSub = null; // check if selectedSub is reset
+            TypemesLabel.setText("Σε " + add); // Update label text
         });
 
-        // Add ActionListener for comboBox2 to handle subcategory selection
         comboBox2.addActionListener(ee -> {
-            selectedSub = (String) comboBox2.getSelectedItem();
-            if (selectedSub.equals("Φρούτα") || selectedSub.equals("Λαχανικά")) {
+            selectedSub = (String) comboBox2.getSelectedItem(); // Assign subcategory safely
+            if (selectedSub != null && (selectedSub.equals("Φρούτα") || selectedSub.equals("Λαχανικά"))) {
                 add = "kg";
-            }
-            messageLabel.setText(add);
-            if (!(selectedSub.equals("Φρούτα") || selectedSub.equals("Λαχανικά"))) {
+            } else {
                 add = "τεμάχεια";
             }
-            messageLabel.setText(add);
+            TypemesLabel.setText("Σε " + add);
         });
 
         JButton AddButton = new JButton("Add");
@@ -118,7 +116,7 @@ public class ManagerAddFrame {
                 if (subcategory.equals("Φρούτα") || subcategory.equals("Λαχανικά")) {
                     add = "kg";
                 }
-                Products prod = new Products(title, category, subcategory, description, price, quantity + " " + add);
+                Products prod = new Products(title, category, subcategory, description, price+"€", quantity + " " + add);
                 Products.Add(prod); // Add the product
                 LogOutFrame.OutFrame(AddButton); // Close the frame if successful
             }
@@ -131,13 +129,14 @@ public class ManagerAddFrame {
         panel.add(descriptionField);
         panel.add(priceLabel);
         panel.add(priceField);
-        panel.add(quantityLabel);
-        panel.add(quantityField);
         panel.add(new JLabel("Category:")); // Label for category selection
         panel.add(comboBox1);
         panel.add(new JLabel("Subcategory:")); // Label for subcategory selection
         panel.add(comboBox2);
+        panel.add(quantityLabel);
+        panel.add(quantityField);
         panel.add(messageLabel);
+        panel.add(TypemesLabel);
         panel.add(AddButton);
 
         // Add the panel to the frame

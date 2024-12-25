@@ -13,6 +13,7 @@ public class Main {
 
             // createNewFile() returns true if the file was created, and false if it hasn't.
             if (client.createNewFile() && manager.createNewFile()) {
+                //initialization
                 FileManagement.Write("client.csv", 1, false, "user1,password1\nuser2,password2");
                 FileManagement.Write("manager.csv", 1, false, "admin1,password1\nadmin2,password2");
             }
@@ -23,7 +24,7 @@ public class Main {
             out.println("An error occurred while working with the file.");
             out.println(e.getMessage());
         }
-        MainFrame.OpenMainFrame(); //here I start the gui
+        MainFrame.OpenMainFrame(); //here starts the gui
 
         //TEST 3 checks that ProductInCart Product and Cart work
         //System.out.println("3rd test");

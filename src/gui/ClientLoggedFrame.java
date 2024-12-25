@@ -2,7 +2,6 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 import java.io.FileNotFoundException;
-
 import api.*;
 
 public class ClientLoggedFrame {
@@ -12,10 +11,10 @@ public class ClientLoggedFrame {
         JFrame startFrame = new JFrame("Welcome Client "+ user.getUsername() );
         startFrame.setSize(300, 200);
         startFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        startFrame.setVisible(true);
+
         //Create the panel
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 9, 10, 10));
+        panel.setLayout(new GridLayout(4, 1, 10, 10));
         Color customColor = new Color(0, 49, 4);
         panel.setBackground(customColor);
 
@@ -25,8 +24,8 @@ public class ClientLoggedFrame {
         JButton History = new JButton("History");
         JButton LogOut = new JButton("Log Out");
 
-        Color buttonBackground = new Color(88, 2, 101); // Forest green
-        Color buttonForeground = Color.WHITE;           // White text
+        Color buttonBackground = new Color(88, 2, 101);
+        Color buttonForeground = Color.WHITE; // White text
 
         Search.setBackground(buttonBackground);
         Search.setForeground(buttonForeground);
@@ -39,6 +38,7 @@ public class ClientLoggedFrame {
 
         LogOut.setBackground(buttonBackground);
         LogOut.setForeground(buttonForeground);
+
         final Cart[] c = new Cart[1];
 
         Search.addActionListener(e -> { //This action will be done if Search is pressed
@@ -67,13 +67,14 @@ public class ClientLoggedFrame {
             } catch (FileNotFoundException ex) {
                 throw new RuntimeException(ex);
             }
-            //this method gives the cliet the ability to
+            //this method gives the client the ability to
             //view his history
         });
 
         LogOut.addActionListener(e -> { //This action will be done if Logout is pressed
-            //done
             LogOutFrame.OutFrame(LogOut);
+            //this gives the manager the ability to log out
+            //it then reopens the Mainframe
         });
 
         panel.add(Search);

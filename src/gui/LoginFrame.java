@@ -20,6 +20,7 @@ public class LoginFrame {
         // Create labels and text fields
         panel.setBackground(customColor);
 
+        //labels
         JLabel usernameLabel = new JLabel("Username:");
         JTextField usernameField = new JTextField(15);
 

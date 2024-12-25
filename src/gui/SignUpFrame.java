@@ -18,6 +18,8 @@ public class SignUpFrame {
         panel.setLayout(new GridLayout(5, 2, 10, 10));
         panel.setBackground(customColor);
 
+        //labels
+        //Name and Lastname are needed in the form but are never used
         JLabel nameLabel = new JLabel("Name:");
         JTextField nameField = new JTextField(15);
         JLabel lastnameLabel = new JLabel("Lastname:");

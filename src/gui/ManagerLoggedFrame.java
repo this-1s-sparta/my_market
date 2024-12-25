@@ -11,7 +11,7 @@ public class ManagerLoggedFrame {
         startFrame.setSize(300, 200);
         startFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        //Create and color the panel
+        //Create the panel
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 1, 10, 10));
         Color customColor = new Color(0, 49, 4);
@@ -22,7 +22,7 @@ public class ManagerLoggedFrame {
         JButton Statistics = new JButton("Statistics");
         JButton LogOut = new JButton("Log out");
 
-        Color buttonBackground = new Color(88, 2, 101); // Forest green
+        Color buttonBackground = new Color(88, 2, 101);
         Color buttonForeground = Color.WHITE; // White text
 
         Search.setBackground(buttonBackground);
