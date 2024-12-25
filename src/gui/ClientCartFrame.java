@@ -21,15 +21,16 @@ public class ClientCartFrame {
         panelcart.setLayout(new GridLayout(5, 2, 10, 10));
         panelcart.setBackground(customColor);
         JTextArea textArea = new JTextArea();
-        if (c.getCart().size()==0){
+        if (c==null){
             textArea.setText("No cart found");
         }else{
 
         for (ProductInCart p : c.getCart()) {
-            textArea.append(p.toString() + "\n");
+            textArea.append(p.getName()+" "+p.getQuantity()+" "+p.getPrice()+"\n");
             JButton deleteButton = new JButton("Delete");
             deleteButton.addActionListener(e -> {
-                c.DeleteFromCart(p);
+                panelcart.remove(textArea);
+                c.getCart().remove(p);
 
             });
             panelcart.add(deleteButton);
@@ -40,9 +41,16 @@ public class ClientCartFrame {
                 JTextField textField = new JTextField();
                 panelchange.add(label);
                 panelchange.add(textField);
+                if(!textField.getText().equals("")){
                 int k = Integer.parseInt(textField.getText());
-                p.setQuantity(k);
-                c.ChangeCart(p);
+                for(ProductInCart prod:c.getCart()){
+                    if(prod.getName().equals(p.getName())){
+                        p.setQuantity(k);
+                    }
+                }}
+                cartFrame.add(panelchange);
+
+
 
 
             });
@@ -52,9 +60,13 @@ public class ClientCartFrame {
                 JTextArea textArea2 = new JTextArea();
                 textArea2.setEditable(false);
                 textArea2.setText(c.SumOfCart() + "");
+                panelsum.add(textArea2);
             });
             JButton endButton = new JButton("Finish Order");
             endButton.addActionListener(e -> {
+                for (ProductInCart pro: c.getCart()){
+                    c.AddToCart(pro);
+                }
                 History.addToHistory(c, name);
                 cartFrame.dispose();
 

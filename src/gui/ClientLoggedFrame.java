@@ -39,16 +39,24 @@ public class ClientLoggedFrame {
 
         LogOut.setBackground(buttonBackground);
         LogOut.setForeground(buttonForeground);
-        final Cart c= new Cart();
+        final Cart[] c = new Cart[1];
 
         Search.addActionListener(e -> { //This action will be done if Search is pressed
-            ClientSearchFrame.SearchFrame(c);
+            c[0]=ClientSearchFrame.SearchFrame();
             //this method gives the client the ability to
             //search for products and add them to his cart
         });
 
-        Cart.addActionListener(e -> { //This action will be done if Cart is pressed
-            ClientCartFrame.CartFrame(c,user.getUsername());
+        Cart.addActionListener(e -> {//This action will be done if Cart is pressed
+            if(c[0]!=null)
+              ClientCartFrame.CartFrame(c[0],user.getUsername());
+            else
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Add products to your cart!",
+                        "Empty Cart",
+                        JOptionPane.ERROR_MESSAGE
+                );
             //this method gives the client the ability to
             //view his cart and change or finalize it
         });

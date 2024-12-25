@@ -26,7 +26,7 @@ public class Cart {
         a=AvailableQuantity(p.name,flag);
         if(p.quantity<=a)
         {
-            cart.add(p);
+            //cart.add(p);
             int newq;
             int i;
             newq=a-p.quantity;
@@ -46,7 +46,7 @@ public class Cart {
     {
         AtomicInteger flag=new AtomicInteger();
         int newq=p.quantity+AvailableQuantity(p.name,flag),i;
-        cart.remove(p);
+        //cart.remove(p);
         i=FileManagement.ThatLine("products.txt","Τίτλος: "+p.name);
         if (flag.get()==0) {
             FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + "kg");
