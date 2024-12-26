@@ -17,8 +17,10 @@ public class ClientCartFrame {
         Color customColor = new Color(150, 0, 180); // colour the frame
         cartFrame.getContentPane().setBackground(customColor);
 
+
         JPanel panelcart = new JPanel();
         panelcart.setLayout(new GridLayout(5, 2, 10, 10));
+        panelcart.setPreferredSize(new Dimension(380, 1000));
         panelcart.setBackground(customColor);
         if (c.getCart().size()==0){
             JTextArea textArea = new JTextArea();
@@ -38,42 +40,39 @@ public class ClientCartFrame {
             panelcart.add(deleteButton);
             JButton changeButton = new JButton("Change");
             changeButton.addActionListener(e -> {
-                JPanel panelchange = new JPanel();
-                JLabel label = new JLabel("Give new quantity:");
-                JTextField textField = new JTextField();
-                panelchange.add(label);
-                panelchange.add(textField);
-                if(!textField.getText().equals("")){
-                int k = Integer.parseInt(textField.getText());
-                for(ProductInCart prod:c.getCart()){
-                    if(prod.getName().equals(p.getName())){
-                        p.setQuantity(k);
+                String input = JOptionPane.showInputDialog(null, "Enter a number:", "Number Input", JOptionPane.QUESTION_MESSAGE);
+                try {
+                    // Convert the input to a number
+                    int number = Integer.parseInt(input);
+                    for(ProductInCart prod:c.getCart()) {
+                        if (prod.getName().equals(p.getName())) {
+                            p.setQuantity(number);
+                            p.setPrice(prod.getPrice());
+                        }
                     }
-                }}
-                cartFrame.add(panelchange);
+                    textArea.setText(p.getName()+" "+p.getQuantity()+" "+p.getPrice()+"\n");
+                } catch (NumberFormatException ee) {
+                    // Handle invalid input
+                    JOptionPane.showMessageDialog(null, "Invalid number entered. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
 
-
-
-
-            });
-            JButton sumButton = new JButton("Sum");
-            sumButton.addActionListener(e -> {
-                JPanel panelsum = new JPanel();
-                JTextArea textArea2 = new JTextArea();
-                textArea2.setEditable(false);
-                textArea2.setText(c.SumOfCart() + "");
-                panelsum.add(textArea2);
             });
 
             cartFrame.add(textArea);
             cartFrame.add(deleteButton);
             cartFrame.add(changeButton);
-            cartFrame.add(sumButton);
 
 
 
 
         }}
+        JButton sumButton = new JButton("Sum");
+        sumButton.addActionListener(e -> {
+            JTextArea textArea2 = new JTextArea();
+            textArea2.setEditable(false);
+            textArea2.setText(c.SumOfCart() + "");
+            panelcart.add(textArea2);
+        });
         JButton endButton = new JButton("Finish Order");
         endButton.addActionListener(e -> {
             for (ProductInCart pro: c.getCart()){
@@ -83,6 +82,7 @@ public class ClientCartFrame {
             cartFrame.dispose();
 
         });
+        cartFrame.add(sumButton);
         cartFrame.add(endButton);
         cartFrame.add(panelcart);
         cartFrame.setVisible(true);
