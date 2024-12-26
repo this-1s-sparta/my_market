@@ -19,9 +19,10 @@ public class ClientCartFrame {
 
 
         JPanel panelcart = new JPanel();
-        panelcart.setLayout(new GridLayout(5, 2, 10, 10));
         panelcart.setPreferredSize(new Dimension(380, 1000));
         panelcart.setBackground(customColor);
+        panelcart.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        cartFrame.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
         if (c.getCart().size()==0){
             JTextArea textArea = new JTextArea();
             textArea.setText("Empty cart!");
@@ -31,14 +32,19 @@ public class ClientCartFrame {
             JTextArea textArea = new JTextArea();
             textArea.append(p.getName()+" "+p.getQuantity()+" "+p.getPrice()+"\n");
             JButton deleteButton = new JButton("Delete");
+            JButton changeButton = new JButton("Change");
+            cartFrame.add(textArea);
+            cartFrame.add(deleteButton);
+            cartFrame.add(changeButton);
             deleteButton.addActionListener(e -> {
                 textArea.setText("");
-                c.getCart().remove(p);
+                c.cart.remove(p);
+                cartFrame.remove(textArea);
+                cartFrame.remove(deleteButton);
+                cartFrame.remove(changeButton);
 
 
             });
-            panelcart.add(deleteButton);
-            JButton changeButton = new JButton("Change");
             changeButton.addActionListener(e -> {
                 String input = JOptionPane.showInputDialog(null, "Enter a number:", "Number Input", JOptionPane.QUESTION_MESSAGE);
                 try {
@@ -58,20 +64,16 @@ public class ClientCartFrame {
 
             });
 
-            cartFrame.add(textArea);
-            cartFrame.add(deleteButton);
-            cartFrame.add(changeButton);
 
 
 
 
         }}
+        JTextArea textArea2 = new JTextArea();
         JButton sumButton = new JButton("Sum");
         sumButton.addActionListener(e -> {
-            JTextArea textArea2 = new JTextArea();
-            textArea2.setEditable(false);
-            textArea2.setText(c.SumOfCart() + "");
-            panelcart.add(textArea2);
+            double number=c.SumOfCart();
+            JOptionPane.showMessageDialog(null, "The sum of yor cart is: " + number, "Sum of Cart", JOptionPane.INFORMATION_MESSAGE);
         });
         JButton endButton = new JButton("Finish Order");
         endButton.addActionListener(e -> {

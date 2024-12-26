@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Cart {
-    ArrayList<ProductInCart> cart;
+    public ArrayList<ProductInCart> cart;
 
     public Cart()
     {
@@ -35,14 +35,14 @@ public class Cart {
                 FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + "kg");
             }
             else
-                FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + " pieces");
+                FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + " τεμάχια");
 
         }
 
 
     }
 
-    public void DeleteFromCart(ProductInCart p)
+    /*public void DeleteFromCart(ProductInCart p)
     {
         AtomicInteger flag=new AtomicInteger();
         int newq=p.quantity+AvailableQuantity(p.name,flag),i;
@@ -82,7 +82,7 @@ public class Cart {
             }
         }
         return 1;
-    }
+    }*/
 
     public double SumOfCart()
     {
