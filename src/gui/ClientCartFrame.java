@@ -20,17 +20,20 @@ public class ClientCartFrame {
         JPanel panelcart = new JPanel();
         panelcart.setLayout(new GridLayout(5, 2, 10, 10));
         panelcart.setBackground(customColor);
-        JTextArea textArea = new JTextArea();
-        if (c==null){
-            textArea.setText("No cart found");
+        if (c.getCart().size()==0){
+            JTextArea textArea = new JTextArea();
+            textArea.setText("Empty cart!");
         }else{
 
         for (ProductInCart p : c.getCart()) {
+            JTextArea textArea = new JTextArea();
             textArea.append(p.getName()+" "+p.getQuantity()+" "+p.getPrice()+"\n");
             JButton deleteButton = new JButton("Delete");
             deleteButton.addActionListener(e -> {
                 panelcart.remove(textArea);
                 c.getCart().remove(p);
+                panelcart.revalidate();
+                panelcart.repaint();
 
             });
             panelcart.add(deleteButton);
@@ -62,26 +65,27 @@ public class ClientCartFrame {
                 textArea2.setText(c.SumOfCart() + "");
                 panelsum.add(textArea2);
             });
-            JButton endButton = new JButton("Finish Order");
-            endButton.addActionListener(e -> {
-                for (ProductInCart pro: c.getCart()){
-                    c.AddToCart(pro);
-                }
-                History.addToHistory(c, name);
-                cartFrame.dispose();
 
-            });
+            cartFrame.add(textArea);
             cartFrame.add(deleteButton);
             cartFrame.add(changeButton);
             cartFrame.add(sumButton);
-            cartFrame.add(endButton);
 
 
 
 
         }}
+        JButton endButton = new JButton("Finish Order");
+        endButton.addActionListener(e -> {
+            for (ProductInCart pro: c.getCart()){
+                c.AddToCart(pro);
+            }
+            History.addToHistory(c, name);
+            cartFrame.dispose();
+
+        });
+        cartFrame.add(endButton);
         cartFrame.add(panelcart);
-        cartFrame.add(textArea);
         cartFrame.setVisible(true);
 
 

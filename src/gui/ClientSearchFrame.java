@@ -172,8 +172,9 @@ public class ClientSearchFrame {
                         panelSearch.add(addtocart);
 
                         addtocart.addActionListener(eq1-> {
+                            if(quantitygiven[0]!=0){
                             ProductInCart p= new ProductInCart(title, quantitygiven[0],Double.parseDouble(priceF));
-                            cart.getCart().add(p);
+                            cart.getCart().add(p);}
 
                         });
                         //resultFrame.dispose();
