@@ -77,7 +77,7 @@ public class ClientCartFrame {
         });
         JButton endButton = new JButton("Finish Order");
         endButton.addActionListener(e -> {
-            for (ProductInCart pro: c.getCart()){
+            for (ProductInCart pro: c.cart){
                 c.AddToCart(pro);
             }
             History.addToHistory(c, name);
