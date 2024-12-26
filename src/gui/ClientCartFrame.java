@@ -30,10 +30,9 @@ public class ClientCartFrame {
             textArea.append(p.getName()+" "+p.getQuantity()+" "+p.getPrice()+"\n");
             JButton deleteButton = new JButton("Delete");
             deleteButton.addActionListener(e -> {
-                panelcart.remove(textArea);
+                textArea.setText("");
                 c.getCart().remove(p);
-                panelcart.revalidate();
-                panelcart.repaint();
+
 
             });
             panelcart.add(deleteButton);
