@@ -81,6 +81,8 @@ public class Tests {
 
     @Test
     public void SearchingProductsByTitle() {
+        Search.searchproduct("Product 1",null,null);
+
 
 
 
