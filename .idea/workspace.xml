@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="27/12 SOK!">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="27/12">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/products.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/api/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/api/Tests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,7 +212,7 @@
       <workItem from="1734956142274" duration="1129000" />
       <workItem from="1735052408630" duration="3538000" />
       <workItem from="1735224833262" duration="7352000" />
-      <workItem from="1735314315695" duration="5065000" />
+      <workItem from="1735314315695" duration="6547000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -520,7 +518,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735318010612</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="27/12">
+      <option name="closed" value="true" />
+      <created>1735320137651</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1735320137651</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +566,8 @@
     <MESSAGE value="25/12 εορταστικο" />
     <MESSAGE value="26/12" />
     <MESSAGE value="27/12 SOK!" />
-    <option name="LAST_COMMIT_MESSAGE" value="27/12 SOK!" />
+    <MESSAGE value="27/12" />
+    <option name="LAST_COMMIT_MESSAGE" value="27/12" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
