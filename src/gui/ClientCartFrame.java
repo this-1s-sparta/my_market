@@ -53,7 +53,7 @@ public class ClientCartFrame {
                     for(ProductInCart prod:c.getCart()) {
                         if (prod.getName().equals(p.getName())) {
                             p.setQuantity(number);
-                            p.setPrice(prod.getPrice());
+                            p.setPrice(prod.getPriceOfOne());
                         }
                     }
                     textArea.setText(p.getName()+" "+p.getQuantity()+" "+p.getPrice()+"\n");
@@ -78,12 +78,14 @@ public class ClientCartFrame {
         JButton endButton = new JButton("Finish Order");
         endButton.addActionListener(e -> {
             for (ProductInCart pro: c.cart){
+               // textArea2.append(pro.getName()+" "+pro.getQuantity()+" "+pro.getPrice()+"\n");
                 c.AddToCart(pro);
             }
             History.addToHistory(c, name);
             cartFrame.dispose();
 
         });
+        //cartFrame.add(textArea2);
         cartFrame.add(sumButton);
         cartFrame.add(endButton);
         cartFrame.add(panelcart);

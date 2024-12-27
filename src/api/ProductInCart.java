@@ -3,12 +3,13 @@ package api;
 public class ProductInCart {
     String name;
     int quantity;
-    double price;
+    double price,priceOfOne;
 
     public ProductInCart(String name, int quantity, double price) {
         this.name = name;
         this.quantity = quantity;
-        this.price = quantity*price;
+        this.price = price*quantity;
+        this.priceOfOne = price;
     }
     public String getName() {
         return name;
@@ -29,7 +30,13 @@ public class ProductInCart {
 
     }
     public void setPrice(double price) {
-
         this.price = price*quantity;
+    }
+    public double getPriceOfOne() {
+        return priceOfOne;
+
+    }
+    public void setPriceOfOne(double price) {
+        this.priceOfOne = price;
     }
 }

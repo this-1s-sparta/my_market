@@ -172,16 +172,16 @@ public class ClientSearchFrame {
                         panelSearch.add(addtocart);
 
                         addtocart.addActionListener(eq1-> {
-                            ////AtomicInteger flag=new AtomicInteger();
-                            //int a=cart.AvailableQuantity(title,flag);
-                            if(quantitygiven[0]!=0 /*&& quantitygiven[0]>=a*/){
+                            AtomicInteger flag=new AtomicInteger();
+                            int a=cart.AvailableQuantity(title,flag);
+                            if(quantitygiven[0]!=0 && quantitygiven[0]<=a){
                             ProductInCart p= new ProductInCart(title, quantitygiven[0],Double.parseDouble(priceF));
                             cart.cart.add(p);}
-                            /*else if(quantitygiven[0]<a)
+                            else if(quantitygiven[0]>a)
                             {
                                 JOptionPane.showMessageDialog(null, "Not enough available quantity", "Error", JOptionPane.INFORMATION_MESSAGE);
 
-                            }*/
+                            }
 
                         });
                         //resultFrame.dispose();

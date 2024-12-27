@@ -29,7 +29,7 @@ public class Cart {
             int newq;
             int i;
             newq=a-p.quantity;
-            i=FileManagement.ThatLine("products.txt","Τίτλος: "+p.name);
+            i=FileManagement.ThatLine("products.txt","Τίτλος:"+p.name);
             if (flag.get()==0) {
                 FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + "kg");
             }
@@ -98,7 +98,7 @@ public class Cart {
     //if flag==0 product in kilograms
         public int AvailableQuantity(String name, AtomicInteger flag) {
             int i;
-            i = FileManagement.ThatLine("products.txt", "Τίτλος: " + name); // Locate the product title line
+            i = FileManagement.ThatLine("products.txt", "Τίτλος:" + name); // Locate the product title line
             String filePath = "products.txt";
 
             try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -107,7 +107,7 @@ public class Cart {
 
                 // Read file line by line
                 while ((currentLine = br.readLine()) != null) {
-                    if (currentLineNumber == i + 5) { // Look for the specific line (i + 5)
+                    if (currentLineNumber == i +5) {
                         if (currentLine.trim().isEmpty()) {
                             flag.set(5); // Empty line case
                             return -1;  // Indicate error or empty value
