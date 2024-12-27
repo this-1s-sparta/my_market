@@ -78,4 +78,10 @@ public class Tests {
             System.err.println("Error deleting lines: " + e.getMessage());
         }
     }
+
+    @Test
+    public void SearchingProductsByTitle() {
+
+
+    }
 }

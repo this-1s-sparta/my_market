@@ -162,8 +162,8 @@ public class ManagerSearchFrame {
                         changePanel.add(quantityField);
                         changePanel.add(enterButton);
                         enterButton.addActionListener(ec -> {
-                            Products p = new Products(titleField.getText(), descriptionField.getText(), (String) comboBox1.getSelectedItem(), (String) comboBox2.getSelectedItem(), priceField.getText(), quantityField.getText());
-                            Products.Change("Τίτλος: " + title, p);
+                            Products p = new Products(titleField.getText().trim(), ((String) comboBox1.getSelectedItem()).trim(), ((String) comboBox2.getSelectedItem()).trim(), descriptionField.getText().trim(), priceField.getText().trim(), quantityField.getText().trim());
+                            Products.Change("Τίτλος:" + title, p);
                             ChangeFrame.dispose();
                         });
                         ChangeFrame.add(changePanel);

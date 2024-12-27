@@ -3,6 +3,7 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import api.*;
 
@@ -50,11 +51,18 @@ public class ClientCartFrame {
                 try {
                     // Convert the input to a number
                     int number = Integer.parseInt(input);
+                    AtomicInteger flag=new AtomicInteger();
+                    int a=c.AvailableQuantity(p.getName(),flag);
+                    if(a>=number){
                     for(ProductInCart prod:c.getCart()) {
                         if (prod.getName().equals(p.getName())) {
                             p.setQuantity(number);
                             p.setPrice(prod.getPriceOfOne());
                         }
+                    }}
+                    else {
+                        JOptionPane.showMessageDialog(null, "Not enough available quantity", "Error", JOptionPane.INFORMATION_MESSAGE);
+
                     }
                     textArea.setText(p.getName()+" "+p.getQuantity()+" "+p.getPrice()+"\n");
                 } catch (NumberFormatException ee) {
