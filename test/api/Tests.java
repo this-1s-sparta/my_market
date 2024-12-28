@@ -208,7 +208,39 @@ public class Tests {
         }
     }
 
+    @Test
+    public void StatisticsZero(){
+        Products product = new Products("Τίτλος5", "Περιγραφή5", "Κατηγορία5", "Υποκατηγορία5", "Τιμή5", "0 τεμάχια");
+        Products.Add(product);
+        Statistics.Zero();
+        int check=FileManagement.ThatLine("zero.txt","Τίτλος: Τίτλος5");
+        assertEquals(check,1);
+        try{
+            FileManagement.deleteLines("zero.txt",1);
+            FileManagement.deleteLines("products.txt",7);
+        } catch (IOException e) {
+            System.err.println("Error deleting lines: " + e.getMessage());
+        }
+    }
 
-
+    @Test
+    public void StatisticsBest(){
+        Products pro = new Products("Τίτλος6", "Κατηγορία6", "Υποκατηγορία6","Περιγραφή6", "3", "150");
+        Products.Add(pro);
+        ProductInCart p=new ProductInCart(" Τίτλος6",2,3);
+        Cart c=new Cart();
+        c.cart.add(p);
+        c.AddToCart(p);
+        History.addToHistory(c,"user");
+        Statistics.Best();
+        int check=FileManagement.ThatLine("best.txt","Τίτλος: Τίτλος6@1");
+        assertEquals(2,check);
+        try{
+            FileManagement.deleteLines("products.txt",7);
+            FileManagement.deleteLines("History.txt",8);
+        } catch (IOException e) {
+            System.err.println("Error deleting lines: " + e.getMessage());
+        }
+    }
 
 }
