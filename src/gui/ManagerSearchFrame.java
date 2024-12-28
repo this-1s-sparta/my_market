@@ -14,23 +14,27 @@ import java.io.IOException;
 public class ManagerSearchFrame {
     //this is called by ManagerLoggedFrame
     public static void SearchFrame() {
-        //here a client can search for a product
-        //for each product give the ability to view details, select quantity (if available)
-        //or put to cart
+       //creates search frame
         JFrame searchFrame = new JFrame("Search");
         searchFrame.setSize(400, 250);
         searchFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         Color customColor = new Color(150, 0, 180); // colour the frame
         searchFrame.getContentPane().setBackground(customColor);
-
+         //creates panel
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 2, 10, 10));
         panel.setBackground(customColor);
+
+        //label and textField for title in order for the user to write the title he wants to search
+
 
         JLabel titleLabel = new JLabel("Title:");
         JTextField titleField = new JTextField(20);
         panel.add(titleLabel);
         panel.add(titleField);
+
+        //label and combobox with all the categories for category in order for the user to choose the category he wants to search
+
 
         JLabel categoryLabel = new JLabel("Category:");
         String[] categories = Search.CategoryArray();
@@ -41,6 +45,9 @@ public class ManagerSearchFrame {
         comboBox1.setBounds(50, 50, 150, categories.length);
         panel.add(categoryLabel);
         panel.add(comboBox1);
+
+        //label for subcategory and combobox which includes the subcategories of the category that is chosen
+        //if no category is chosen the combobox is empty
 
 
         JLabel subcategoryLabel = new JLabel("Subcategory:");
@@ -81,7 +88,7 @@ public class ManagerSearchFrame {
         });
         JButton searchButton = new JButton("Search");
         searchButton.addActionListener(e -> {
-
+            //when search button is pressed it takes all the data from the textField and the comboboxes and it calls tha function searchproduct with these three parametres
             String givenTitle = titleField.getText();
             String givenCategory = (String) comboBox1.getSelectedItem();
             String givenSubcategory = (String) comboBox2.getSelectedItem();
@@ -98,12 +105,13 @@ public class ManagerSearchFrame {
                     String[] parts = new String[6];
                     int i = 0;
                     while (current != null && i < 6) {
-                        String[] fields = current.split(":");
+                        String[] fields = current.split(":");//takes the part of the line after : which are the characteristics
                         if (fields.length > 1)  // Check if the line is properly split
                             parts[i] = fields[1];
                         i++;
                         current = reader.readLine();
                     }
+                    //assign each part to the right value
                     String title = parts[0];
                     String des = parts[1];
                     String category = parts[2];
@@ -111,16 +119,19 @@ public class ManagerSearchFrame {
                     String price = parts[4];
                     String quantity = parts[5];
 
+                    //creates textArea with th details of the product
+
                     JTextArea textArea = new JTextArea();
                     textArea.setEditable(false);
                     textArea.append(title + "\n" + des + "\n" + category + "\n" + subcategory + "\n" + price + "\n" + quantity + "\n");
                     panelSearch.add(textArea);
 
 
-                    JButton changeButton = new JButton("Change");
-                    panelSearch.add(changeButton);
+                    JButton changeButton = new JButton("Change");//creates change button
+                    panelSearch.add(changeButton);//adds change button to panel serach
 
-                    changeButton.addActionListener(ee -> {
+                    changeButton.addActionListener(ee -> {//when change button is pressed
+                        //creates change frame
                         JFrame ChangeFrame = new JFrame("Change Product");
                         ChangeFrame.setSize(400, 300);
                         ChangeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -157,17 +168,18 @@ public class ManagerSearchFrame {
                         changePanel.add(quantityLabel);
                         changePanel.add(quantityField);
                         changePanel.add(enterButton);
-                        enterButton.addActionListener(ec -> {
+                        enterButton.addActionListener(ec -> {//when enter button is pressed the changed data are taken and they create a new product which replace the old one
                             Products p = new Products(titleField.getText().trim(), ((String) comboBox1.getSelectedItem()).trim(), ((String) comboBox2.getSelectedItem()).trim(), descriptionField.getText().trim(), priceField.getText().trim(), quantityField.getText().trim());
-                            Products.Change("Τίτλος:" + title, p);
+                            Products.Change("Τίτλος:" + title, p);// the change methon is called
                             ChangeFrame.dispose();
                         });
-                        ChangeFrame.add(changePanel);
+                        ChangeFrame.add(changePanel);//panel ia added to frame
                         ChangeFrame.setVisible(true);
                     });
                 }} catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+            //frame add scroll pane
             JScrollPane scrollPane = new JScrollPane(panelSearch);
             scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             resultFrame.add(scrollPane);
@@ -175,6 +187,8 @@ public class ManagerSearchFrame {
             resultFrame.repaint();
             resultFrame.setVisible(true);
         });
+        //panel add searchbutton
+        //frame add panel
         panel.add(searchButton);
         searchFrame.add(panel);
         searchFrame.setVisible(true);

@@ -93,30 +93,32 @@ public class ClientSearchFrame {
         });
         JButton searchButton = new JButton("Search");//creates search button
         searchButton.addActionListener(e -> {
-
+              //when search button is pressed it takes all the data from the textField and the comboboxes and it calls tha function searchproduct with these three parametres
             String givenTitle = titleField.getText();
             String givenCategory = (String) comboBox1.getSelectedItem();
             String givenSubcategory = (String) comboBox2.getSelectedItem();
             Search.searchproduct(givenTitle, givenCategory, givenSubcategory);
+            //creates result frame
             JFrame resultFrame = new JFrame("Results");
             resultFrame.setSize(400, 250);
-            JPanel panelSearch = new JPanel();
+            JPanel panelSearch = new JPanel();//creates panel search
             panelSearch.setLayout(new BoxLayout(panelSearch, BoxLayout.Y_AXIS));
             String current;
-            ArrayList<ProductInCart> list=new ArrayList<>();
+            ArrayList<ProductInCart> list=new ArrayList<>();//creates new list
 
-            try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))) {
-                current = reader.readLine();
-                while(current!=null && !current.equals("")) {
+            try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))) {//opens search.txt file for reading
+                current = reader.readLine();//read line from file
+                while(current!=null && !current.equals("")) {//if line is not null nor empty
                     String[] parts = new String[6];
                     int i = 0;
                     while (current != null && i < 6) {
-                        String[] fields = current.split(":");
+                        String[] fields = current.split(":");//takes the data after teh : which are the characteristics of the product
                         if (fields.length > 1)  // Check if the line is properly split
                             parts[i] = fields[1];
                         i++;
                         current = reader.readLine();
                     }
+                    //assigns the table to each value
                     String title = parts[0];
                     String des = parts[1];
                     String category = parts[2];
@@ -124,11 +126,13 @@ public class ClientSearchFrame {
                     String price = parts[4];
                     String quantity = parts[5];
 
+                    //creates text area with the details of the product
                     JTextArea textArea = new JTextArea();
                     textArea.setEditable(false);
                     textArea.append(title + "\n" + des + "\n" + category + "\n" + subcategory + "\n" + price + "\n" + quantity + "\n");
                     panelSearch.add(textArea);
                     final int[] quantitygiven = {0};
+                    //adds quantity label
 
                         JLabel quantityLabel = new JLabel("Quantity: " + quantitygiven[0]);
                         //quantityLabel.setBounds(110, 50, 150, 30);  // Set position and size
@@ -161,12 +165,17 @@ public class ClientSearchFrame {
                                 }
 
                         });
+                        //fixes price to make it float
                         price=price.replace("€","");
                         String priceF=price.replace(",",".");
+                        //creates add to cart button
                         JButton addtocart=new JButton("Add to Cart");
                         panelSearch.add(addtocart);
 
-                        addtocart.addActionListener(eq1-> {
+                        addtocart.addActionListener(eq1-> {//when add to cart button is pressed
+                            //checks if available quantity is enough
+                            //if it is not a pop-up message appears
+                            //if it is the product is added to the cart
                             AtomicInteger flag=new AtomicInteger();
                             int a=cart.AvailableQuantity(title,flag);
                             if(quantitygiven[0]!=0 && quantitygiven[0]<=a){
@@ -179,7 +188,6 @@ public class ClientSearchFrame {
                             }
 
                         });
-                        //resultFrame.dispose();
 
 
 
@@ -189,6 +197,7 @@ public class ClientSearchFrame {
                 }} catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
+            //creates vertical scroll pane and adds it to the panel
 
             JScrollPane scrollPane = new JScrollPane(panelSearch);
             scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -197,6 +206,7 @@ public class ClientSearchFrame {
             resultFrame.repaint();
             resultFrame.setVisible(true);
         });
+        //adds the buttons/panel to the frame
         panel.add(searchButton);
         searchFrame.add(panel);
         searchFrame.setVisible(true);
