@@ -29,7 +29,7 @@ public class History{
             FileManagement.Write("History.txt",j,false,"Date:"+formattedDate);
             for(ProductInCart p:c.cart)
             {
-                FileManagement.Write("History.txt",j+i,false,"Τίτλος: "+p.name);
+                FileManagement.Write("History.txt",j+i,false,"Τίτλος:"+p.name);
                 FileManagement.Write("History.txt",j+i+1,false,"Ποσότητα: "+p.quantity);
                 FileManagement.Write("History.txt",j+i+2,false,"Τιμή: "+p.price);
                 i+=3;
@@ -69,16 +69,23 @@ public class History{
                 line = reader.readLine();
                 if (line != null && line.equals("@" + username)) {
                     while ((line = reader.readLine()) != null) {  // check that it's not null
-                        if (!line.equals("@" + username)) {
+                        if (!line.equals("")) {
                             FileManagement.Write("historyuser.txt",k,false,line);
                             k++;
 
-                    }
-                }
-
                         }
+                        else{
+                            FileManagement.Write("historyuser.txt",k,false,"");
+                            k++;
+                            break;
+                        }
+
+
                     }
+
                 }
+            }
+        }
 
          catch (IOException e) {
             e.printStackTrace();

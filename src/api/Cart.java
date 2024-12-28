@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class Cart {
-    ArrayList<ProductInCart> cart;
+    public ArrayList<ProductInCart> cart;
 
     public Cart()
     {
@@ -26,23 +26,22 @@ public class Cart {
         a=AvailableQuantity(p.name,flag);
         if(p.quantity<=a)
         {
-            //cart.add(p);
             int newq;
             int i;
             newq=a-p.quantity;
-            i=FileManagement.ThatLine("products.txt","Τίτλος: "+p.name);
+            i=FileManagement.ThatLine("products.txt","Τίτλος:"+p.name);
             if (flag.get()==0) {
                 FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + "kg");
             }
             else
-                FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + " pieces");
+                FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + " τεμάχια");
 
         }
 
 
     }
 
-    public void DeleteFromCart(ProductInCart p)
+    /*public void DeleteFromCart(ProductInCart p)
     {
         AtomicInteger flag=new AtomicInteger();
         int newq=p.quantity+AvailableQuantity(p.name,flag),i;
@@ -82,7 +81,7 @@ public class Cart {
             }
         }
         return 1;
-    }
+    }*/
 
     public double SumOfCart()
     {
@@ -97,36 +96,47 @@ public class Cart {
     //returns available quantity in int cast for the product with the given name from product.txt file
     //if flag==1 product in pieces
     //if flag==0 product in kilograms
-    public int AvailableQuantity(String name,AtomicInteger flag)
-    {
-        int i;
-        i=FileManagement.ThatLine("products.txt","Τίτλος: "+name);
-        String filePath = "products.txt";
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))){
-            String currentLine;
-            int currentLineNumber = 1;
-            while ((currentLine = br.readLine()) != null || currentLineNumber <= i+5) {
-                if (currentLineNumber == i+5) {
-                    String[] words = currentLine.split("\\s+");
-                    if (words.length>=3){
-                        flag.set(1);
-                        String quantityword = words[words.length - 2];
-                        return Integer.parseInt(quantityword);
-                    }
-                    else if(words.length<=2){
-                        flag.set(0);
-                        String quantityword = words[words.length-1];
-                        quantityword=quantityword.replace("kg","");
-                        System.out.println(quantityword);
-                        return Integer.parseInt(quantityword);
-                }
-                currentLineNumber++;
-            }}
-        }catch (IOException e) {
-            e.printStackTrace();
+        public int AvailableQuantity(String name, AtomicInteger flag) {
+            int i;
+            i = FileManagement.ThatLine("products.txt", "Τίτλος:" + name); // Locate the product title line
+            String filePath = "products.txt";
 
+            try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+                String currentLine;
+                int currentLineNumber = 1;
+
+                // Read file line by line
+                while ((currentLine = br.readLine()) != null) {
+                    if (currentLineNumber == i +5) {
+                        if (currentLine.trim().isEmpty()) {
+                            flag.set(5); // Empty line case
+                            return -1;  // Indicate error or empty value
+                        }
+
+                        String[] words = currentLine.trim().split("\\s+");
+                        if (words.length >= 3) {
+                            flag.set(1); // Multi-word line with a clear quantity
+                            String quantityWord = words[words.length - 2]; // Second last word
+                            return Integer.parseInt(quantityWord);
+                        } else if (words.length == 2) {
+                            flag.set(0); // Line with minimal words
+                            String quantityWord = words[words.length - 1].replace("kg", ""); // Handle "kg"
+                            return Integer.parseInt(quantityWord);
+                        } else {
+                            flag.set(0); // Unexpected format
+                            return -1;
+                        }
+                    }
+                    currentLineNumber++;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid number format in line: " + e.getMessage());
+            }
+
+            return -1; // Default return value for errors or not found
         }
-        return -1;
     }
 
 
@@ -138,6 +148,3 @@ public class Cart {
 
 
 
-
-
-}

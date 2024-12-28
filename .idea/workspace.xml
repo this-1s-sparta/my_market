@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="commit 25/12 kala xristougenna">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="28/12">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/products.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +33,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/auth-csd-oop-2024/mymarket-4607-4683.git&quot;,
-    &quot;accountId&quot;: &quot;cac871b5-d4f6-47d0-abe1-dd2a420815a1&quot;
+    &quot;accountId&quot;: &quot;8735b662-b4bc-4f6b-a9b4-852f9f727bad&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -49,31 +50,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;JUnit.AccessTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in MyMarket.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Tests.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.AccessTest.executor": "Run",
+    "JUnit.All in MyMarket.executor": "Run",
+    "JUnit.Tests.CartTest.executor": "Run",
+    "JUnit.Tests.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="api" />
@@ -88,7 +90,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.Tests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="MyMarket" />
@@ -142,10 +144,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests.CartTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyMarket" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="api" />
+      <option name="MAIN_CLASS_NAME" value="api.Tests" />
+      <option name="METHOD_NAME" value="CartTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.Tests" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.Tests.CartTest" />
         <item itemvalue="JUnit.AccessTest" />
         <item itemvalue="JUnit.All in MyMarket" />
       </list>
@@ -209,13 +228,11 @@
       <workItem from="1734911794502" duration="610000" />
       <workItem from="1734952106279" duration="3826000" />
       <workItem from="1734956142274" duration="1129000" />
-      <workItem from="1735052408630" duration="3739000" />
-      <workItem from="1735057109143" duration="915000" />
-      <workItem from="1735151502466" duration="2437000" />
-      <workItem from="1735154205834" duration="1315000" />
-      <workItem from="1735156112891" duration="2197000" />
-      <workItem from="1735227156362" duration="8000" />
-      <workItem from="1735321503757" duration="166000" />
+      <workItem from="1735052408630" duration="3538000" />
+      <workItem from="1735224833262" duration="7352000" />
+      <workItem from="1735314315695" duration="6633000" />
+      <workItem from="1735321957630" duration="1146000" />
+      <workItem from="1735380396782" duration="12195000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -465,23 +482,119 @@
       <option name="project" value="LOCAL" />
       <updated>1734957262683</updated>
     </task>
-    <task id="LOCAL-00032" summary="commit 12/24 added comments and fixed add">
+    <task id="LOCAL-00032" summary="26/12">
       <option name="closed" value="true" />
-      <created>1735056156895</created>
+      <created>1735204647869</created>
       <option name="number" value="00032" />
       <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
-      <updated>1735056156895</updated>
+      <updated>1735204647869</updated>
     </task>
-    <task id="LOCAL-00033" summary="commit 25/12 kala xristougenna">
+    <task id="LOCAL-00033" summary="26/12">
       <option name="closed" value="true" />
-      <created>1735158235427</created>
+      <created>1735226071621</created>
       <option name="number" value="00033" />
       <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1735158235427</updated>
+      <updated>1735226071621</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="26/12">
+      <option name="closed" value="true" />
+      <created>1735227411573</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1735227411573</updated>
+    </task>
+    <task id="LOCAL-00035" summary="26/12">
+      <option name="closed" value="true" />
+      <created>1735231257038</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1735231257038</updated>
+    </task>
+    <task id="LOCAL-00036" summary="26/12">
+      <option name="closed" value="true" />
+      <created>1735232933311</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1735232933311</updated>
+    </task>
+    <task id="LOCAL-00037" summary="26/12">
+      <option name="closed" value="true" />
+      <created>1735233884953</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1735233884953</updated>
+    </task>
+    <task id="LOCAL-00038" summary="27/12 SOK!">
+      <option name="closed" value="true" />
+      <created>1735318010612</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1735318010612</updated>
+    </task>
+    <task id="LOCAL-00039" summary="27/12">
+      <option name="closed" value="true" />
+      <created>1735320137651</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1735320137651</updated>
+    </task>
+    <task id="LOCAL-00040" summary="27/12">
+      <option name="closed" value="true" />
+      <created>1735321458028</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1735321458028</updated>
+    </task>
+    <task id="LOCAL-00041" summary="27/12">
+      <option name="closed" value="true" />
+      <created>1735330981022</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1735330981022</updated>
+    </task>
+    <task id="LOCAL-00042" summary="28/12 tests">
+      <option name="closed" value="true" />
+      <created>1735383066632</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1735383066632</updated>
+    </task>
+    <task id="LOCAL-00043" summary="28/12">
+      <option name="closed" value="true" />
+      <created>1735388555247</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1735388555247</updated>
+    </task>
+    <task id="LOCAL-00044" summary="28/12">
+      <option name="closed" value="true" />
+      <created>1735392014816</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1735392014816</updated>
+    </task>
+    <task id="LOCAL-00045" summary="28/12">
+      <option name="closed" value="true" />
+      <created>1735392517227</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1735392517227</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,9 +630,14 @@
     <MESSAGE value="commit 23/12 &#10;Started the tests and added a method in Filemanagement" />
     <MESSAGE value="commit 23/12 &#10;fixed initialization error in tests and finalized the add gui" />
     <MESSAGE value="commit last add changes" />
-    <MESSAGE value="commit 12/24 added comments and fixed add" />
     <MESSAGE value="commit 25/12 kala xristougenna" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit 25/12 kala xristougenna" />
+    <MESSAGE value="25/12 εορταστικο" />
+    <MESSAGE value="26/12" />
+    <MESSAGE value="27/12 SOK!" />
+    <MESSAGE value="27/12" />
+    <MESSAGE value="28/12 tests" />
+    <MESSAGE value="28/12" />
+    <option name="LAST_COMMIT_MESSAGE" value="28/12" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

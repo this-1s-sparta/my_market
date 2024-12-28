@@ -5,10 +5,7 @@ import api.History;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class ClientHistoryFrame {
     //this is called by ClientLoggedFrame
@@ -17,16 +14,20 @@ public class ClientHistoryFrame {
         JFrame historyFrame = new JFrame("History");
         historyFrame.setSize(400, 250);
         historyFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        historyFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
+        //historyFrame.setLayout(new BoxLayout(BoxLayout.CENTER));
         Color customColor = new Color(150, 0, 180); // colour the frame
         historyFrame.getContentPane().setBackground(customColor);
 
 
+
         JPanel panelHistory = new JPanel();
-        panelHistory.setLayout(new GridLayout(5, 2, 10, 10));
+        panelHistory.setLayout(new BoxLayout(panelHistory, BoxLayout.Y_AXIS));
         panelHistory.setBackground(customColor);
 
-        JTextArea textArea = new JTextArea();
+
+        JTextArea textArea = new JTextArea(5,20);
+
+        //scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         textArea.setEditable(false);
         History.ShowHistory(name);
         try (BufferedReader br = new BufferedReader(new FileReader("historyuser.txt"))) {
@@ -39,7 +40,11 @@ public class ClientHistoryFrame {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        panelHistory.add(new JScrollPane(textArea));
+        textArea.setLineWrap(false);                // Enable word wrapping
+        textArea.setWrapStyleWord(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        panelHistory.add(scrollPane);
         historyFrame.add(panelHistory);
         historyFrame.setVisible(true);
 

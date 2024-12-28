@@ -20,7 +20,6 @@ public class ManagerSearchFrame {
         JFrame searchFrame = new JFrame("Search");
         searchFrame.setSize(400, 250);
         searchFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        searchFrame.setLayout(new FlowLayout(FlowLayout.CENTER));
         Color customColor = new Color(150, 0, 180); // colour the frame
         searchFrame.getContentPane().setBackground(customColor);
 
@@ -90,11 +89,8 @@ public class ManagerSearchFrame {
             JFrame resultFrame = new JFrame("Results");
             resultFrame.setSize(400, 250);
             JPanel panelSearch = new JPanel();
-            panelSearch.setLayout(new GridLayout(5, 2, 10, 10));
-            panelSearch.setPreferredSize(new Dimension(380, 1000));
             String current;
-            panelSearch.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-            resultFrame.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+            panelSearch.setLayout(new BoxLayout(panelSearch, BoxLayout.Y_AXIS));
 
             try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))) {
                 current = reader.readLine();
@@ -162,8 +158,8 @@ public class ManagerSearchFrame {
                         changePanel.add(quantityField);
                         changePanel.add(enterButton);
                         enterButton.addActionListener(ec -> {
-                            Products p = new Products(titleField.getText(), descriptionField.getText(), (String) comboBox1.getSelectedItem(), (String) comboBox2.getSelectedItem(), priceField.getText(), quantityField.getText());
-                            Products.Change("Τίτλος: " + title, p);
+                            Products p = new Products(titleField.getText().trim(), ((String) comboBox1.getSelectedItem()).trim(), ((String) comboBox2.getSelectedItem()).trim(), descriptionField.getText().trim(), priceField.getText().trim(), quantityField.getText().trim());
+                            Products.Change("Τίτλος:" + title, p);
                             ChangeFrame.dispose();
                         });
                         ChangeFrame.add(changePanel);
@@ -173,17 +169,13 @@ public class ManagerSearchFrame {
                 throw new RuntimeException(ex);
             }
             JScrollPane scrollPane = new JScrollPane(panelSearch);
-            //panelSearch.add(scrollPane);
             scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             resultFrame.add(scrollPane);
             resultFrame.revalidate();
             resultFrame.repaint();
-            resultFrame.add(panelSearch);
             resultFrame.setVisible(true);
         });
         panel.add(searchButton);
-        //panel.add(new JTextField());
-        //panel.add(new JComboBox<>());
         searchFrame.add(panel);
         searchFrame.setVisible(true);
 

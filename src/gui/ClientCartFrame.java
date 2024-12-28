@@ -3,6 +3,7 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import api.*;
 
@@ -17,71 +18,85 @@ public class ClientCartFrame {
         Color customColor = new Color(150, 0, 180); // colour the frame
         cartFrame.getContentPane().setBackground(customColor);
 
+
         JPanel panelcart = new JPanel();
-        panelcart.setLayout(new GridLayout(5, 2, 10, 10));
+        panelcart.setPreferredSize(new Dimension(380, 1000));
         panelcart.setBackground(customColor);
-        JTextArea textArea = new JTextArea();
-        if (c==null){
-            textArea.setText("No cart found");
+        panelcart.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        cartFrame.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        if (c.getCart().size()==0){
+            JTextArea textArea = new JTextArea();
+            textArea.setText("Empty cart!");
         }else{
 
         for (ProductInCart p : c.getCart()) {
+            JTextArea textArea = new JTextArea();
             textArea.append(p.getName()+" "+p.getQuantity()+" "+p.getPrice()+"\n");
             JButton deleteButton = new JButton("Delete");
-            deleteButton.addActionListener(e -> {
-                panelcart.remove(textArea);
-                c.getCart().remove(p);
-
-            });
-            panelcart.add(deleteButton);
             JButton changeButton = new JButton("Change");
-            changeButton.addActionListener(e -> {
-                JPanel panelchange = new JPanel();
-                JLabel label = new JLabel("Give new quantity:");
-                JTextField textField = new JTextField();
-                panelchange.add(label);
-                panelchange.add(textField);
-                if(!textField.getText().equals("")){
-                int k = Integer.parseInt(textField.getText());
-                for(ProductInCart prod:c.getCart()){
-                    if(prod.getName().equals(p.getName())){
-                        p.setQuantity(k);
-                    }
-                }}
-                cartFrame.add(panelchange);
-
-
-
-
-            });
-            JButton sumButton = new JButton("Sum");
-            sumButton.addActionListener(e -> {
-                JPanel panelsum = new JPanel();
-                JTextArea textArea2 = new JTextArea();
-                textArea2.setEditable(false);
-                textArea2.setText(c.SumOfCart() + "");
-                panelsum.add(textArea2);
-            });
-            JButton endButton = new JButton("Finish Order");
-            endButton.addActionListener(e -> {
-                for (ProductInCart pro: c.getCart()){
-                    c.AddToCart(pro);
-                }
-                History.addToHistory(c, name);
-                cartFrame.dispose();
-
-            });
+            cartFrame.add(textArea);
             cartFrame.add(deleteButton);
             cartFrame.add(changeButton);
-            cartFrame.add(sumButton);
-            cartFrame.add(endButton);
+            deleteButton.addActionListener(e -> {
+                textArea.setText("");
+                c.cart.remove(p);
+                cartFrame.remove(textArea);
+                cartFrame.remove(deleteButton);
+                cartFrame.remove(changeButton);
+
+
+            });
+            changeButton.addActionListener(e -> {
+                String input = JOptionPane.showInputDialog(null, "Enter a number:", "Number Input", JOptionPane.QUESTION_MESSAGE);
+                try {
+                    // Convert the input to a number
+                    int number = Integer.parseInt(input);
+                    AtomicInteger flag=new AtomicInteger();
+                    int a=c.AvailableQuantity(p.getName(),flag);
+                    if(a>=number){
+                    for(ProductInCart prod:c.getCart()) {
+                        if (prod.getName().equals(p.getName())) {
+                            p.setQuantity(number);
+                            p.setPrice(prod.getPriceOfOne());
+                        }
+                    }}
+                    else {
+                        JOptionPane.showMessageDialog(null, "Not enough available quantity", "Error", JOptionPane.INFORMATION_MESSAGE);
+
+                    }
+                    textArea.setText(p.getName()+" "+p.getQuantity()+" "+p.getPrice()+"\n");
+                } catch (NumberFormatException ee) {
+                    // Handle invalid input
+                    JOptionPane.showMessageDialog(null, "Invalid number entered. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            });
+
 
 
 
 
         }}
+        JTextArea textArea2 = new JTextArea();
+        JButton sumButton = new JButton("Sum");
+        sumButton.addActionListener(e -> {
+            double number=c.SumOfCart();
+            JOptionPane.showMessageDialog(null, "The sum of yor cart is: " + number, "Sum of Cart", JOptionPane.INFORMATION_MESSAGE);
+        });
+        JButton endButton = new JButton("Finish Order");
+        endButton.addActionListener(e -> {
+            for (ProductInCart pro: c.cart){
+               // textArea2.append(pro.getName()+" "+pro.getQuantity()+" "+pro.getPrice()+"\n");
+                c.AddToCart(pro);
+            }
+            History.addToHistory(c, name);
+            cartFrame.dispose();
+
+        });
+        //cartFrame.add(textArea2);
+        cartFrame.add(sumButton);
+        cartFrame.add(endButton);
         cartFrame.add(panelcart);
-        cartFrame.add(textArea);
         cartFrame.setVisible(true);
 
 

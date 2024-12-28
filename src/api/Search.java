@@ -44,7 +44,7 @@ public class Search {
                     }
                 } else
                     return;
-                j = j + 7;//moves the indicator to the line of the next product's title in order to check again
+                j = line+1;//moves the indicator to the line of the next line in order to check again
             }
         }
         if (category != null) {//checks if user has given a category
@@ -70,7 +70,7 @@ public class Search {
                         }
                     } else
                         return;
-                    j = j + 7;//moves the indicator to the line of the next product's title in order to check again
+                    j = line+1;//moves the indicator to the line of the next line in order to check again
                 }
             } else {//the user has only given category and not subcategory
                 int j = 0;
@@ -94,7 +94,7 @@ public class Search {
                         }
                     } else
                         return;
-                    j = j + 7;//moves the indicator to the line of the next product's title in order to check again
+                    j = line+1;//moves the indicator to the line of the next line in order to check again
                 }
             }
         }
