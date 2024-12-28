@@ -94,11 +94,8 @@ public class ClientSearchFrame {
             JFrame resultFrame = new JFrame("Results");
             resultFrame.setSize(400, 250);
             JPanel panelSearch = new JPanel();
-            panelSearch.setLayout(new GridLayout(5, 2, 10, 10));
-            panelSearch.setPreferredSize(new Dimension(380, 1000));
+            panelSearch.setLayout(new BoxLayout(panelSearch, BoxLayout.Y_AXIS));
             String current;
-            JScrollPane scrollPane = new JScrollPane();
-            scrollPane.setViewportView(panelSearch);
             ArrayList<ProductInCart> list=new ArrayList<>();
 
             try (BufferedReader reader = new BufferedReader(new FileReader("search.txt"))) {
@@ -119,21 +116,12 @@ public class ClientSearchFrame {
                     String subcategory = parts[3];
                     String price = parts[4];
                     String quantity = parts[5];
-                    panelSearch.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-                    resultFrame.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
                     JTextArea textArea = new JTextArea();
                     textArea.setEditable(false);
                     textArea.append(title + "\n" + des + "\n" + category + "\n" + subcategory + "\n" + price + "\n" + quantity + "\n");
                     panelSearch.add(textArea);
                     final int[] quantitygiven = {0};
-
-
-
-                    //JTextField addToCart = new JTextField(3);
-                    //JLabel addToCartLabel = new JLabel("Add Quantity To Cart");
-                    //panelSearch.add(addToCartLabel);
-                    //panelSearch.add(addToCart);
 
                         JLabel quantityLabel = new JLabel("Quantity: " + quantitygiven[0]);
                         //quantityLabel.setBounds(110, 50, 150, 30);  // Set position and size
@@ -196,12 +184,11 @@ public class ClientSearchFrame {
             }
 
             //panelSearch.add(scrollPane);
+            JScrollPane scrollPane = new JScrollPane(panelSearch);
             scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-            //panelSearch.add(scrollPane);
             resultFrame.add(scrollPane);
             resultFrame.revalidate();
             resultFrame.repaint();
-            resultFrame.add(panelSearch);
             resultFrame.setVisible(true);
         });
         panel.add(searchButton);

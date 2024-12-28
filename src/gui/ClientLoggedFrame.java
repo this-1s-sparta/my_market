@@ -1,6 +1,7 @@
 package gui;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.io.FileNotFoundException;
 import api.*;
 
@@ -61,12 +62,26 @@ public class ClientLoggedFrame {
             //view his cart and change or finalize it
         });
 
-        History.addActionListener(e -> { //This action will be done if History is pressed
+        History.addActionListener(e -> {
+            String filePath = "History.txt";
+            File file = new File(filePath);
+            // Check if the file exists
+            if (!file.exists()){
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Make your first purchase!",
+                        "No History",
+                        JOptionPane.ERROR_MESSAGE
+                );//This action will be done if History is pressed
+
+            }
+            else{
+
             try {
                 ClientHistoryFrame.HistoryFrame(user.getUsername());
             } catch (FileNotFoundException ex) {
                 throw new RuntimeException(ex);
-            }
+            }}
             //this method gives the client the ability to
             //view his history
         });
