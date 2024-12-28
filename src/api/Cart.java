@@ -9,88 +9,46 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Cart {
     public ArrayList<ProductInCart> cart;
 
-    public Cart()
+    public Cart()//constructor for object cart
     {
         cart = new ArrayList<>();
 
     }
 
-    public ArrayList<ProductInCart> getCart() {
+    public ArrayList<ProductInCart> getCart() {//returns the list of cart
         return cart;
     }
 
-    public void AddToCart(ProductInCart p)
+    public void AddToCart(ProductInCart p)//when order is finished proceeds to make the right adjusts to products.txt
     {
         int a;
         AtomicInteger flag=new AtomicInteger();
-        a=AvailableQuantity(p.name,flag);
-        if(p.quantity<=a)
+        a=AvailableQuantity(p.name,flag);//a is the current available quantity, flag=0 if quantity is in kg, flag=1 if quantity is in pieces
+        if(p.quantity<=a) //if available quantity is enough
         {
             int newq;
             int i;
-            newq=a-p.quantity;
-            i=FileManagement.ThatLine("products.txt","Τίτλος:"+p.name);
+            newq=a-p.quantity;//new quantity = available quantity - quantity that is purchased
+            i=FileManagement.ThatLine("products.txt","Τίτλος:"+p.name);//finds the first line of the product the one with its title
             if (flag.get()==0) {
-                FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + "kg");
+                FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + "kg");//edits the available quantity(kg) in products.txt
             }
             else
-                FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + " τεμάχια");
+                FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + " τεμάχια");//edits the available quantity(pieces) in products.txt
 
         }
 
 
     }
-
-    /*public void DeleteFromCart(ProductInCart p)
-    {
-        AtomicInteger flag=new AtomicInteger();
-        int newq=p.quantity+AvailableQuantity(p.name,flag),i;
-        //cart.remove(p);
-        i=FileManagement.ThatLine("products.txt","Τίτλος: "+p.name);
-        if (flag.get()==0) {
-            FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + "kg");
-        }
-        else
-            FileManagement.Write("products.txt", i+5, true, "Ποσότητα: " + newq + " pieces");
-
-    }
-
-    public int ChangeCart(ProductInCart p)
-    {
-        for(ProductInCart p1 : cart)
-        {
-            if(p1.name.equals(p.name))
-            {
-                int a;
-                AtomicInteger flag=new AtomicInteger();
-                a=AvailableQuantity(p.name,flag);
-                if(p.quantity<=a+p1.quantity)
-                {
-                    p1.price = p.price;
-                    int newq=a-p.quantity+p1.quantity;
-                    p1.quantity = p.quantity;
-                    int i=FileManagement.ThatLine("products.txt",p.name);
-                    if (flag.get()==0)
-                        FileManagement.Write("products.txt", i, true, "Ποσότητα: " + newq + "kg");
-                    else
-                        FileManagement.Write("products.txt", i, true, "Ποσότητα: " + newq + " τεμάχια");
-
-                }
-                else
-                return 0;
-            }
-        }
-        return 1;
-    }*/
 
     public double SumOfCart()
     {
         double sum = 0;
-        for(ProductInCart p1 : cart)
+        for(ProductInCart p1 : cart)//goes through the list of the cart and adds all the prices
         {
             sum += p1.price;
         }
-        return sum;
+        return sum;//returns the sum of cart
     }
 
     //returns available quantity in int cast for the product with the given name from product.txt file
@@ -119,7 +77,7 @@ public class Cart {
                             String quantityWord = words[words.length - 2]; // Second last word
                             return Integer.parseInt(quantityWord);
                         } else if (words.length == 2) {
-                            flag.set(0); // Line with minimal words
+                            flag.set(0); // Line with minimal words->quantity in kgs
                             String quantityWord = words[words.length - 1].replace("kg", ""); // Handle "kg"
                             return Integer.parseInt(quantityWord);
                         } else {

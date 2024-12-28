@@ -3,24 +3,24 @@ package api;
 public class Person {
     String username;
     String password;
-//constructor με παραμέτρους το username και το password
+//constructor for objects of the class with username and password
     public Person(String username, String password) {
         this.username = username;
         this.password = password;
     }
-//getter για το username
+//getter for the username
     public String getUsername() {
         return username;
     }
-//getter για το password
+//getter for the password
     public String getPassword() {
         return password;
     }
-//setter για το username
+//setter for the username
     public void setUsername(String username) {
         this.username = username;
     }
-//setter για το password
+//setter for the password
     public void setPassword(String password) {
         this.password = password;
     }
