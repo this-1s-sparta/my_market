@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="28/12">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/products.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ManagerSearchFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +90,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.Tests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="MyMarket" />
@@ -162,8 +162,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.Tests" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.Tests.CartTest" />
         <item itemvalue="JUnit.AccessTest" />
         <item itemvalue="JUnit.All in MyMarket" />
@@ -232,7 +232,7 @@
       <workItem from="1735224833262" duration="7352000" />
       <workItem from="1735314315695" duration="6633000" />
       <workItem from="1735321957630" duration="1146000" />
-      <workItem from="1735380396782" duration="11894000" />
+      <workItem from="1735380396782" duration="12195000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -586,7 +586,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735392014816</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="28/12">
+      <option name="closed" value="true" />
+      <created>1735392517227</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1735392517227</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
