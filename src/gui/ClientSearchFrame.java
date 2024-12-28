@@ -19,7 +19,8 @@ public class ClientSearchFrame {
         //here a client can search for a product
         //for each product give the ability to view details, select quantity (if available)
         //or put to cart
-        Cart cart = new Cart();
+        Cart cart = new Cart();//creates object cart
+        //creates the search frame
         JFrame searchFrame = new JFrame("Search");
         searchFrame.setSize(400, 250);
         searchFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -27,15 +28,19 @@ public class ClientSearchFrame {
         Color customColor = new Color(150, 0, 180); // colour the frame
         searchFrame.getContentPane().setBackground(customColor);
 
-
+        //creates panel
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 2, 10, 10));
         panel.setBackground(customColor);
+
+        //label and textField for title in order for the user to write the title he wants to search
 
         JLabel titleLabel = new JLabel("Title:");
         JTextField titleField = new JTextField(20);
         panel.add(titleLabel);
         panel.add(titleField);
+
+        //label and combobox with all the categories for category in order for the user to choose the category he wants to search
 
         JLabel categoryLabel = new JLabel("Category:");
         String[] categories = Search.CategoryArray();
@@ -47,6 +52,8 @@ public class ClientSearchFrame {
         panel.add(categoryLabel);
         panel.add(comboBox1);
 
+        //label for subcategory and combobox which includes the subcategories of the category that is chosen
+        //if no category is chosen the combobox is empty
 
         JLabel subcategoryLabel = new JLabel("Subcategory:");
         JComboBox<String> comboBox2 = new JComboBox<>();
@@ -84,7 +91,7 @@ public class ClientSearchFrame {
                 }
             }
         });
-        JButton searchButton = new JButton("Search");
+        JButton searchButton = new JButton("Search");//creates search button
         searchButton.addActionListener(e -> {
 
             String givenTitle = titleField.getText();

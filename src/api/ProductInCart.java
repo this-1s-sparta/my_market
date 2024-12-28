@@ -5,7 +5,7 @@ public class ProductInCart {
     int quantity;
     double price,priceOfOne;
 
-    public ProductInCart(String name, int quantity, double price) {
+    public ProductInCart(String name, int quantity, double price) {//constructor for objects of the class
         this.name = name;
         this.quantity = quantity;
         this.price = price*quantity;
@@ -13,30 +13,30 @@ public class ProductInCart {
     }
     public String getName() {
         return name;
-    }
-    public void setName(String name) {
+    }//returns name
+    public void setName(String name) {//sets name
         this.name = name;
 
     }
     public int getQuantity() {
         return quantity;
-    }
-    public void setQuantity(int quantity) {
+    }//return quality
+    public void setQuantity(int quantity) {//sets quantity
         this.quantity = quantity;
 
     }
-    public double getPrice() {
+    public double getPrice() {//returns price
         return price;
 
     }
-    public void setPrice(double price) {
+    public void setPrice(double price) {//sets price
         this.price = price*quantity;
     }
-    public double getPriceOfOne() {
+    public double getPriceOfOne() {//returns price of one
         return priceOfOne;
 
     }
-    public void setPriceOfOne(double price) {
+    public void setPriceOfOne(double price) {//sets price of one
         this.priceOfOne = price;
     }
 }
