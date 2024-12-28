@@ -1,4 +1,6 @@
 package api;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import org.junit.Before;
 import org.junit.Test;
 import java.io.*;
@@ -81,10 +83,87 @@ public class Tests {
 
     @Test
     public void SearchingProductsByTitle() {
-        Search.searchproduct("Product 1",null,null);
+        Products p = new Products("Κασέρι","Αγελαδινό","Κίτρινο Τυρί","Κίτρινο τυρί","2,00","10");
+        Products.Add(p);
+        Search.searchproduct("Κασέρι",null,null);
+        int result=FileManagement.ThatLine("search.txt","Τίτλος: Κασέρι");
+        assertEquals(result,1);
+        result=FileManagement.ThatLine("search.txt","Ποσότητα: 10");
+        assertEquals(result,6);
+        try {
+            FileManagement.deleteLines("products.txt", 7); // Call the helper method
+        } catch (IOException e) {
+            System.err.println("Error deleting lines: " + e.getMessage());
+        }
 
+    }
+
+    @Test
+    public void SearchingProductsByCategory() {
+        Products p = new Products("Τίτλος1", "Κατηγορία1", "Υποκατηγορία1","Περιγραφή1", "Τιμή1", "Ποσότητα1");
+        Products.Add(p);
+        Search.searchproduct("","Κατηγορία1",null);
+        int result=FileManagement.ThatLine("search.txt","Τίτλος: Τίτλος1");
+        assertEquals(result,1);
+        result=FileManagement.ThatLine("search.txt","Κατηγορία: Κατηγορία1");
+        assertEquals(result,3);
+        result=FileManagement.ThatLine("search.txt","Ποσότητα: Ποσότητα1");
+        assertEquals(result,6);
+        try {
+            FileManagement.deleteLines("products.txt", 7); // Call the helper method
+        } catch (IOException e) {
+            System.err.println("Error deleting lines: " + e.getMessage());
+        }
+
+    }
+
+    @Test
+    public void SearchingProductsBySubcategory() {
+        Products p = new Products("Τίτλος1", "Κατηγορία1", "Υποκατηγορία1","Περιγραφή1", "Τιμή1", "Ποσότητα1");
+        Products.Add(p);
+        Search.searchproduct("","Κατηγορία1","Υποκατηγορία1");
+        int result=FileManagement.ThatLine("search.txt","Τίτλος: Τίτλος1");
+        assertEquals(result,1);
+        result=FileManagement.ThatLine("search.txt","Κατηγορία: Κατηγορία1");
+        assertEquals(result,3);
+        result=FileManagement.ThatLine("search.txt","Υποκατηγορία: Υποκατηγορία1");
+        assertEquals(result,4);
+        result=FileManagement.ThatLine("search.txt","Ποσότητα: Ποσότητα1");
+        assertEquals(result,6);
+        try {
+            FileManagement.deleteLines("products.txt", 7); // Call the helper method
+        } catch (IOException e) {
+            System.err.println("Error deleting lines: " + e.getMessage());
+        }
+
+    }
+
+    @Test
+    public void SearchByNothing(){
+        Products p = new Products("Τίτλος1", "Κατηγορία1", "Υποκατηγορία1","Περιγραφή1", "Τιμή1", "Ποσότητα1");
+        Products.Add(p);
+        Search.searchproduct("",null,null);
+        try(BufferedReader br=new BufferedReader(new FileReader("products.txt"))){
+            String current=br.readLine();
+            int result=FileManagement.ThatLine("search.txt",current);
+            assertEquals(result,1);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        int i=FileManagement.LastLine("search.txt");
+        int result=FileManagement.ThatLine("search.txt","Ποσότητα: Ποσότητα1");
+        assertEquals(result,i-1);
+        try {
+            FileManagement.deleteLines("products.txt", 7); // Call the helper method
+        } catch (IOException e) {
+            System.err.println("Error deleting lines: " + e.getMessage());
+        }
 
 
 
     }
+
+
 }
