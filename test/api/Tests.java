@@ -95,6 +95,8 @@ public class Tests {
         } catch (IOException e) {
             System.err.println("Error deleting lines: " + e.getMessage());
         }
+        File file=new File("search.txt");
+        file.delete();
 
     }
 
@@ -114,6 +116,8 @@ public class Tests {
         } catch (IOException e) {
             System.err.println("Error deleting lines: " + e.getMessage());
         }
+        File file=new File("search.txt");
+        file.delete();
 
     }
 
@@ -135,6 +139,8 @@ public class Tests {
         } catch (IOException e) {
             System.err.println("Error deleting lines: " + e.getMessage());
         }
+        File file=new File("search.txt");
+        file.delete();
 
     }
 
@@ -160,6 +166,8 @@ public class Tests {
         } catch (IOException e) {
             System.err.println("Error deleting lines: " + e.getMessage());
         }
+        File file=new File("search.txt");
+        file.delete();
 
 
 
@@ -206,6 +214,8 @@ public class Tests {
         } catch (IOException e) {
             System.err.println("Error deleting lines: " + e.getMessage());
         }
+        File file=new File("historyuser.txt");
+        file.delete();
     }
 
     @Test
