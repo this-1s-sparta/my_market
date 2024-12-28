@@ -119,16 +119,16 @@ public class Tests {
 
     @Test
     public void SearchingProductsBySubcategory() {
-        Products p = new Products("Τίτλος1", "Κατηγορία1", "Υποκατηγορία1","Περιγραφή1", "Τιμή1", "Ποσότητα1");
+        Products p = new Products("Τίτλος2", "Κατηγορία2", "Υποκατηγορία2","Περιγραφή2", "Τιμή2", "Ποσότητα2");
         Products.Add(p);
-        Search.searchproduct("","Κατηγορία1","Υποκατηγορία1");
-        int result=FileManagement.ThatLine("search.txt","Τίτλος: Τίτλος1");
+        Search.searchproduct("","Κατηγορία2","Υποκατηγορία2");
+        int result=FileManagement.ThatLine("search.txt","Τίτλος: Τίτλος2");
         assertEquals(result,1);
-        result=FileManagement.ThatLine("search.txt","Κατηγορία: Κατηγορία1");
+        result=FileManagement.ThatLine("search.txt","Κατηγορία: Κατηγορία2");
         assertEquals(result,3);
-        result=FileManagement.ThatLine("search.txt","Υποκατηγορία: Υποκατηγορία1");
+        result=FileManagement.ThatLine("search.txt","Υποκατηγορία: Υποκατηγορία2");
         assertEquals(result,4);
-        result=FileManagement.ThatLine("search.txt","Ποσότητα: Ποσότητα1");
+        result=FileManagement.ThatLine("search.txt","Ποσότητα: Ποσότητα2");
         assertEquals(result,6);
         try {
             FileManagement.deleteLines("products.txt", 7); // Call the helper method
@@ -140,7 +140,7 @@ public class Tests {
 
     @Test
     public void SearchByNothing(){
-        Products p = new Products("Τίτλος1", "Κατηγορία1", "Υποκατηγορία1","Περιγραφή1", "Τιμή1", "Ποσότητα1");
+        Products p = new Products("Τίτλος3", "Κατηγορία3", "Υποκατηγορία3","Περιγραφή3", "Τιμή3", "Ποσότητα3");
         Products.Add(p);
         Search.searchproduct("",null,null);
         try(BufferedReader br=new BufferedReader(new FileReader("products.txt"))){
@@ -153,7 +153,7 @@ public class Tests {
             throw new RuntimeException(e);
         }
         int i=FileManagement.LastLine("search.txt");
-        int result=FileManagement.ThatLine("search.txt","Ποσότητα: Ποσότητα1");
+        int result=FileManagement.ThatLine("search.txt","Ποσότητα: Ποσότητα3");
         assertEquals(result,i-1);
         try {
             FileManagement.deleteLines("products.txt", 7); // Call the helper method
@@ -164,6 +164,51 @@ public class Tests {
 
 
     }
+
+    @Test
+    public void CartTest(){
+        Products pro = new Products("Τίτλος4", "Κατηγορία4", "Υποκατηγορία4","Περιγραφή4", "3", "150");
+        Products.Add(pro);
+        int priorquantity=Integer.parseInt(pro.quantity);
+        ProductInCart p=new ProductInCart(" Τίτλος4",2,3);
+        Cart c=new Cart();
+        c.cart.add(p);
+        c.AddToCart(p);
+        assertEquals(c.cart.size(),1);
+        assertEquals(p.quantity,2);
+        double sum=0;
+        for(ProductInCart prod:c.cart)
+        {
+            sum+=prod.price;
+        }
+        assertEquals(sum,c.SumOfCart(),0);
+        try {
+            FileManagement.deleteLines("products.txt", 7); // Call the helper method
+        } catch (IOException e) {
+            System.err.println("Error deleting lines: " + e.getMessage());
+        }
+        History.addToHistory(c,"abcd");
+
+
+
+    }
+
+    @Test
+    public void HistoryTest(){
+        History.ShowHistory("abcd");
+        int i=FileManagement.ThatLine("historyuser.txt","Τίτλος: Τίτλος4");
+        assertEquals(i,2);
+        i= FileManagement.PartialSearchLine(1,"historyuser.txt","Σύνολο Καλαθιού:");
+        int j=FileManagement.LastLine("historyuser.txt");
+        assertEquals(j-2,i);
+        try {
+            FileManagement.deleteLines("History.txt", 8); // Call the helper method
+        } catch (IOException e) {
+            System.err.println("Error deleting lines: " + e.getMessage());
+        }
+    }
+
+
 
 
 }
