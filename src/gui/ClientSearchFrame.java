@@ -183,7 +183,6 @@ public class ClientSearchFrame {
                 throw new RuntimeException(ex);
             }
 
-            //panelSearch.add(scrollPane);
             JScrollPane scrollPane = new JScrollPane(panelSearch);
             scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             resultFrame.add(scrollPane);
@@ -192,8 +191,6 @@ public class ClientSearchFrame {
             resultFrame.setVisible(true);
         });
         panel.add(searchButton);
-        //panel.add(new JTextField());
-        //panel.add(new JComboBox<>());
         searchFrame.add(panel);
         searchFrame.setVisible(true);
 
