@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="28/12">
-      <change beforePath="$PROJECT_DIR$/products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/products.txt" afterDir="false" />
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="c">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/api/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/api/Tests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,12 +30,12 @@
     &quot;assignee&quot;: &quot;this-1s-sparta&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/auth-csd-oop-2024/mymarket-4607-4683.git",
-    "accountId": "cac871b5-d4f6-47d0-abe1-dd2a420815a1"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/auth-csd-oop-2024/mymarket-4607-4683.git&quot;,
+    &quot;accountId&quot;: &quot;cac871b5-d4f6-47d0-abe1-dd2a420815a1&quot;
   }
-}]]></component>
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -163,10 +163,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Tests" />
+        <item itemvalue="JUnit.All in MyMarket" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.Tests.CartTest" />
         <item itemvalue="JUnit.AccessTest" />
-        <item itemvalue="JUnit.All in MyMarket" />
       </list>
     </recent_temporary>
   </component>
@@ -234,6 +234,7 @@
       <workItem from="1735321957630" duration="1146000" />
       <workItem from="1735380396782" duration="12224000" />
       <workItem from="1735401309046" duration="3203000" />
+      <workItem from="1735407165550" duration="842000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />
@@ -619,7 +620,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735404090138</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="c">
+      <option name="closed" value="true" />
+      <created>1735405217249</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1735405217249</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -650,7 +659,6 @@
     <MESSAGE value="7/12" />
     <MESSAGE value="8/12" />
     <MESSAGE value="commit 8/12&#10;changed the colors of the panel and the buttons on Clinet and Manager Logged Frames" />
-    <MESSAGE value="c" />
     <MESSAGE value="commit 15/12&#10;fixed and finalized add" />
     <MESSAGE value="commit 23/12 &#10;Started the tests and added a method in Filemanagement" />
     <MESSAGE value="commit 23/12 &#10;fixed initialization error in tests and finalized the add gui" />
@@ -662,7 +670,8 @@
     <MESSAGE value="27/12" />
     <MESSAGE value="28/12 tests" />
     <MESSAGE value="28/12" />
-    <option name="LAST_COMMIT_MESSAGE" value="28/12" />
+    <MESSAGE value="c" />
+    <option name="LAST_COMMIT_MESSAGE" value="c" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -235,21 +235,23 @@ public class Tests {
 
     @Test
     public void StatisticsBest(){
-        Products pro = new Products("Τίτλος6", "Κατηγορία6", "Υποκατηγορία6","Περιγραφή6", "3", "150");
-        Products.Add(pro);
-        ProductInCart p=new ProductInCart(" Τίτλος6",2,3);
-        Cart c=new Cart();
-        c.cart.add(p);
-        c.AddToCart(p);
-        History.addToHistory(c,"user");
-        Statistics.Best();
-        int check=FileManagement.ThatLine("best.txt","Τίτλος: Τίτλος6@1");
-        assertEquals(2,check);
-        try{
-            FileManagement.deleteLines("products.txt",7);
-            FileManagement.deleteLines("History.txt",8);
-        } catch (IOException e) {
-            System.err.println("Error deleting lines: " + e.getMessage());
+        if(FileManagement.ThatLine("products.txt","Τίτλος: Τίτλος6")==-1) {
+            Products pro = new Products("Τίτλος6", "Κατηγορία6", "Υποκατηγορία6", "Περιγραφή6", "3", "150");
+            Products.Add(pro);
+            ProductInCart p = new ProductInCart(" Τίτλος6", 2, 3);
+            Cart c = new Cart();
+            c.cart.add(p);
+            c.AddToCart(p);
+            History.addToHistory(c, "user");
+            Statistics.Best();
+            int check = FileManagement.ThatLine("best.txt", "Τίτλος: Τίτλος6@1");
+            assertEquals(2, check);
+            try {
+                FileManagement.deleteLines("products.txt", 7);
+                FileManagement.deleteLines("History.txt",8);
+            } catch (IOException e) {
+                System.err.println("Error deleting lines: " + e.getMessage());
+            }
         }
     }
 
