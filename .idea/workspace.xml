@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="commit 28/2">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="28/12">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,12 +29,12 @@
     &quot;assignee&quot;: &quot;this-1s-sparta&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/auth-csd-oop-2024/mymarket-4607-4683.git&quot;,
-    &quot;accountId&quot;: &quot;cac871b5-d4f6-47d0-abe1-dd2a420815a1&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/auth-csd-oop-2024/mymarket-4607-4683.git",
+    "accountId": "373a3057-e627-4922-9181-147dcab02078"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -49,32 +49,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;JUnit.AccessTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in MyMarket.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Tests.CartTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.Tests.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.AccessTest.executor": "Run",
+    "JUnit.All in MyMarket.executor": "Run",
+    "JUnit.Tests.CartTest.executor": "Run",
+    "JUnit.Tests.SearchByNothing.executor": "Run",
+    "JUnit.Tests.StatisticsBest.executor": "Run",
+    "JUnit.Tests.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="api" />
@@ -89,41 +92,10 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.Tests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="MyMarket" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyMarket" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="api.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="api" />
-      <option name="MAIN_CLASS_NAME" value="api.AccessTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in MyMarket" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyMarket" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in MyMarket" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyMarket" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -159,21 +131,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests.SearchByNothing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyMarket" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="api" />
+      <option name="MAIN_CLASS_NAME" value="api.Tests" />
+      <option name="METHOD_NAME" value="SearchByNothing" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests.StatisticsBest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyMarket" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="api" />
+      <option name="MAIN_CLASS_NAME" value="api.Tests" />
+      <option name="METHOD_NAME" value="StatisticsBest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.Tests" />
-        <item itemvalue="JUnit.All in MyMarket" />
+        <item itemvalue="JUnit.Tests.SearchByNothing" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.Tests.StatisticsBest" />
         <item itemvalue="JUnit.Tests.CartTest" />
-        <item itemvalue="JUnit.AccessTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
       </set>
     </attachedChunks>
   </component>
@@ -233,8 +237,15 @@
       <workItem from="1735321957630" duration="1146000" />
       <workItem from="1735380396782" duration="12224000" />
       <workItem from="1735401309046" duration="3203000" />
-      <workItem from="1735407165550" duration="1086000" />
-      <workItem from="1735481496353" duration="42000" />
+      <workItem from="1735649371625" duration="392000" />
+    </task>
+    <task id="LOCAL-00001" summary="commit">
+      <option name="closed" value="true" />
+      <created>1731663101519</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731663101519</updated>
     </task>
     <task id="LOCAL-00002" summary="commit">
       <option name="closed" value="true" />
@@ -612,23 +623,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735404090138</updated>
     </task>
-    <task id="LOCAL-00049" summary="c">
+    <task id="LOCAL-00049" summary="28/12">
       <option name="closed" value="true" />
-      <created>1735405217249</created>
+      <created>1735411037840</created>
       <option name="number" value="00049" />
       <option name="presentableId" value="LOCAL-00049" />
       <option name="project" value="LOCAL" />
-      <updated>1735405217249</updated>
+      <updated>1735411037840</updated>
     </task>
-    <task id="LOCAL-00050" summary="commit 28/2">
-      <option name="closed" value="true" />
-      <created>1735408155365</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1735408155365</updated>
-    </task>
-    <option name="localTasksCounter" value="51" />
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,6 +649,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
     <MESSAGE value="TRY" />
     <MESSAGE value="29/11" />
     <MESSAGE value="commit 29/11" />
@@ -658,6 +662,7 @@
     <MESSAGE value="7/12" />
     <MESSAGE value="8/12" />
     <MESSAGE value="commit 8/12&#10;changed the colors of the panel and the buttons on Clinet and Manager Logged Frames" />
+    <MESSAGE value="c" />
     <MESSAGE value="commit 15/12&#10;fixed and finalized add" />
     <MESSAGE value="commit 23/12 &#10;Started the tests and added a method in Filemanagement" />
     <MESSAGE value="commit 23/12 &#10;fixed initialization error in tests and finalized the add gui" />
@@ -669,9 +674,7 @@
     <MESSAGE value="27/12" />
     <MESSAGE value="28/12 tests" />
     <MESSAGE value="28/12" />
-    <MESSAGE value="c" />
-    <MESSAGE value="commit 28/2" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit 28/2" />
+    <option name="LAST_COMMIT_MESSAGE" value="28/12" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
