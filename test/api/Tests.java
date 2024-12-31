@@ -226,7 +226,14 @@ public class Tests {
         int check=FileManagement.ThatLine("zero.txt","Τίτλος: Τίτλος5");
         assertEquals(check,1);
         try{
-            FileManagement.deleteLines("zero.txt",1);
+            String zeroFile = "zero.txt";
+            File zero = new File(zeroFile);
+            if (zero.exists()) {
+                if (!zero.delete()) {
+                    System.err.println("Unable to clear the existing zero.txt file.");
+                    return;
+                }
+            }
             FileManagement.deleteLines("products.txt",7);
         } catch (IOException e) {
             System.err.println("Error deleting lines: " + e.getMessage());
@@ -249,10 +256,19 @@ public class Tests {
             try {
                 FileManagement.deleteLines("products.txt", 7);
                 FileManagement.deleteLines("History.txt",8);
+                String zeroFile = "best.txt";
+                File zero = new File(zeroFile);
+                if (zero.exists()) {
+                    if (!zero.delete()) {
+                        System.err.println("Unable to clear the existing best.txt file.");
+                    }
+                }
             } catch (IOException e) {
                 System.err.println("Error deleting lines: " + e.getMessage());
             }
+
         }
+
     }
 
 }

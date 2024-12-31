@@ -20,7 +20,7 @@ public class Statistics {
             File zero = new File(zeroFile);
             if (zero.exists()) {
                 if (!zero.delete()) {
-                    System.err.println("Unable to clear the existing best.txt file.");
+                    System.err.println("Unable to clear the existing zero.txt file.");
                     return;
                 }
             }
