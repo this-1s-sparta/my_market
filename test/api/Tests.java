@@ -243,19 +243,21 @@ public class Tests {
     @Test
     public void StatisticsBest(){
         if(FileManagement.ThatLine("products.txt","Τίτλος: Τίτλος6")==-1) {
-            Products pro = new Products("Τίτλος6", "Κατηγορία6", "Υποκατηγορία6", "Περιγραφή6", "3", "150");
+            Products pro = new Products("Τίτλος6", "Κατηγορία6", "Υποκατηγορία6", "Περιγραφή6", "3", "100");
             Products.Add(pro);
-            ProductInCart p = new ProductInCart(" Τίτλος6", 2, 3);
+            ProductInCart p = new ProductInCart(" Τίτλος6", 1, 3);
             Cart c = new Cart();
             c.cart.add(p);
             c.AddToCart(p);
-            History.addToHistory(c, "user");
+            for  (int i=0; i<100; i+=1){
+                History.addToHistory(c, "user");
+            }
             Statistics.Best();
-            int check = FileManagement.ThatLine("best.txt", "Τίτλος: Τίτλος6@1");
+            int check = FileManagement.ThatLine("best.txt", "Τίτλος: Τίτλος6@100");
             assertEquals(2, check);
             try {
                 FileManagement.deleteLines("products.txt", 7);
-                FileManagement.deleteLines("History.txt",8);
+                FileManagement.deleteLines("History.txt",8*100);
                 String zeroFile = "best.txt";
                 File zero = new File(zeroFile);
                 if (zero.exists()) {
