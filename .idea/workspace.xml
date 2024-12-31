@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="c">
+    <list default="true" id="4962100c-d0a3-448f-8930-2e998309a824" name="Changes" comment="commit 28/2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/api/Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/api/Tests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +89,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Tests">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="MyMarket" />
@@ -162,9 +161,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.Tests" />
         <item itemvalue="JUnit.All in MyMarket" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.Tests.CartTest" />
         <item itemvalue="JUnit.AccessTest" />
       </list>
@@ -234,15 +233,8 @@
       <workItem from="1735321957630" duration="1146000" />
       <workItem from="1735380396782" duration="12224000" />
       <workItem from="1735401309046" duration="3203000" />
-      <workItem from="1735407165550" duration="842000" />
-    </task>
-    <task id="LOCAL-00001" summary="commit">
-      <option name="closed" value="true" />
-      <created>1731663101519</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1731663101519</updated>
+      <workItem from="1735407165550" duration="1086000" />
+      <workItem from="1735481496353" duration="42000" />
     </task>
     <task id="LOCAL-00002" summary="commit">
       <option name="closed" value="true" />
@@ -628,7 +620,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735405217249</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="commit 28/2">
+      <option name="closed" value="true" />
+      <created>1735408155365</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1735408155365</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,7 +646,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commit" />
     <MESSAGE value="TRY" />
     <MESSAGE value="29/11" />
     <MESSAGE value="commit 29/11" />
@@ -671,7 +670,8 @@
     <MESSAGE value="28/12 tests" />
     <MESSAGE value="28/12" />
     <MESSAGE value="c" />
-    <option name="LAST_COMMIT_MESSAGE" value="c" />
+    <MESSAGE value="commit 28/2" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit 28/2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
